@@ -1,5 +1,7 @@
 package Arrays;
 
+import java.util.Arrays;
+
 /*
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique 
 element appears only once. The relative order of the elements should be kept the same. Then return the number of 
@@ -26,5 +28,24 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 */
 
 public class RemoveDuplicatesFromSortedArray {
+
+    static int removeDuplicates(int[] nums) {
+        
+        int rd = 0;
+        for(int i = 1; i < nums.length; i++){
+            if(nums[rd] != nums[i]){
+                rd++;
+                nums[rd] = nums[i];
+            }
+        }
+        return rd;
+    }
+
+    public static void main(String[] args) {
+
+        int arr[] = {3,2,4};
+        
+        System.out.println;
+    }
     
 }

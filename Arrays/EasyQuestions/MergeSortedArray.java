@@ -41,21 +41,20 @@ public class MergeSortedArray {
     
     static void merge(int[] nums1, int m, int[] nums2, int n) {
      
-        int j = 0, k = m;
-        for(int i = 0; i < m; i++){
-
-            if(nums1[i] > nums2[j]){
-                int temp = nums1[i];
-                nums1[i] = nums2[j];
-                nums1[i+1] = temp;
-                j++;
-                k++;
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
+        
+        while (j >= 0) {
+            if (i >= 0 && nums1[i] > nums2[j]) {
+                nums1[k] = nums1[i];
+                k--;
+                i--;
+            } else {
+                nums1[k] = nums2[j];
+                k--;
+                j--;
             }
-        }
-
-        for(int i = k; i < m+n; k++){
-            nums1[i] = nums2[j];
-            j++;
         }
     }
 

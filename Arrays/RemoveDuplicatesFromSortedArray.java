@@ -3,6 +3,7 @@ package Arrays;
 import java.util.Arrays;
 
 /*
+Difficulty = Easy
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique 
 element appears only once. The relative order of the elements should be kept the same. Then return the number of 
 unique elements in nums.
@@ -38,14 +39,16 @@ public class RemoveDuplicatesFromSortedArray {
                 nums[rd] = nums[i];
             }
         }
-        return rd;
+        return rd+1;
     }
 
     public static void main(String[] args) {
 
-        int arr[] = {3,2,4};
+        int arr[] = {1,1,2};
         
-        System.out.println;
+        int k = removeDuplicates(arr);
+        for(int i = 0; i < k; i++)
+            System.out.print(arr[i] + " ");
     }
     
 }

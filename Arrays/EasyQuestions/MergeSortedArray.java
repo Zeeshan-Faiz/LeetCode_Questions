@@ -1,5 +1,7 @@
 package Arrays.EasyQuestions;
 
+import java.util.Arrays;
+
 /*
 Difficuly = Easy
 You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, 
@@ -37,4 +39,34 @@ in nums1.
 
 public class MergeSortedArray {
     
+    static void merge(int[] nums1, int m, int[] nums2, int n) {
+     
+        int j = 0, k = m;
+        for(int i = 0; i < m; i++){
+
+            if(nums1[i] > nums2[j]){
+                int temp = nums1[i];
+                nums1[i] = nums2[j];
+                nums1[i+1] = temp;
+                j++;
+                k++;
+            }
+        }
+
+        for(int i = k; i < m+n; k++){
+            nums1[i] = nums2[j];
+            j++;
+        }
+    }
+
+    public static void main(String[] args) {
+        
+        int[] nums1 = {1,2,3,0,0,0};
+        int m = 3;
+        int[] nums2 = {2,5,6};
+        int n = 3;
+        
+        merge(nums1, m, nums2, n);
+        System.out.println(Arrays.toString(nums1));
+    }
 }

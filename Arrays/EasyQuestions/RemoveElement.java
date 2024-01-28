@@ -28,5 +28,30 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 */
 
 public class RemoveElement {
+
+    static int removeElement(int[] nums, int val) {
+
+        int k = 0;
+        for(int i = 0; i < nums.length; i++){
+
+            if(nums[i] != val){
+                nums[k] = nums[i];
+                k++;
+            }
+
+        }
+        return k;
+        
+    }
+
+    public static void main(String[] args) {
+        
+        int[] ar = {2,3,3,4,5};
+        int val = 3;
+
+        int k = removeElement(ar, val);
+        for(int i = 0; i < k; i++)
+            System.out.print(ar[i] + " ");
+    }
     
 }

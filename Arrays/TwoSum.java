@@ -39,7 +39,6 @@ public class TwoSum{
                     return index;
 
                 }
-
             }
         }
         return index;

@@ -41,7 +41,6 @@ public class RemoveElement {
 
         }
         return k;
-        
     }
 
     public static void main(String[] args) {
@@ -53,5 +52,4 @@ public class RemoveElement {
         for(int i = 0; i < k; i++)
             System.out.print(ar[i] + " ");
     }
-    
 }

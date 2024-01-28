@@ -1,7 +1,5 @@
 package Arrays;
 
-import java.util.Arrays;
-
 /*
 Difficulty = Easy
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique 

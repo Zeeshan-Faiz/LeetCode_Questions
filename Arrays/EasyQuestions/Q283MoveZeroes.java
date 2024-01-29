@@ -34,7 +34,6 @@ public class Q283MoveZeroes {
         for(int i = k; i < nums.length; i++){
             nums[i]=0;
         }
-        
     }
 
     public static void main(String[] args) {
@@ -44,5 +43,4 @@ public class Q283MoveZeroes {
         System.out.print(Arrays.toString(ar));
         
     }
-    
 }

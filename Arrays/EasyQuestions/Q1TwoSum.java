@@ -25,7 +25,7 @@ Output: [0,1]
 
 */
 
-public class TwoSum{
+public class Q1TwoSum{
 
     static int[] twoSum(int[] nums, int target) {
 

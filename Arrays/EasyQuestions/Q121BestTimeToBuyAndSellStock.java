@@ -31,7 +31,7 @@ public class Q121BestTimeToBuyAndSellStock {
         int max = -1;
         int k = 0;
 
-        for(int i = 0; i < prices.length-1; i++){
+        for(int i = 0; i < prices.length; i++){
             if(prices[i] < min){
                 min = prices[i];
                 k = i;
@@ -39,7 +39,7 @@ public class Q121BestTimeToBuyAndSellStock {
         }
 
         for(int i = k+1; i < prices.length; i++){
-            if(prices[i] > max){
+            if(prices[i] > min){
                 max = prices[i];
             }
         }

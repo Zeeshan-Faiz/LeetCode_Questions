@@ -27,7 +27,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 */
 
-public class RemoveElement {
+public class Q27RemoveElement {
 
     static int removeElement(int[] nums, int val) {
 

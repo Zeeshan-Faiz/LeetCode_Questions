@@ -28,34 +28,24 @@ public class Q121BestTimeToBuyAndSellStock {
     static int maxProfit(int[] prices) {
         
         int min = prices[0];
-        int max = -1;
-        int k = 0;
+        int maxProfit = -1;
 
         for(int i = 0; i < prices.length; i++){
+            
             if(prices[i] < min){
                 min = prices[i];
-                k = i;
             }
+            int profit = prices[i] - min;
+            if(profit > maxProfit)
+                maxProfit = profit;
         }
-
-        for(int i = k+1; i < prices.length; i++){
-            if(prices[i] > min){
-                max = prices[i];
-            }
-        }
-
-        if(k == prices.length - 1)
-            return 0;
-        else
-            return max-min;
-        
+        return maxProfit;
     }
 
     public static void main(String[] args) {
         
-        int[] ar = {7,6,4,3,1};
+        int[] ar = {7,1,5,3,6,4};
 
         System.out.println(maxProfit(ar));
     }
-    
 }

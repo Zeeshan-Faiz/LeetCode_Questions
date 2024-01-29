@@ -22,7 +22,7 @@ Input: nums = [1,3,5,6], target = 7
 Output: 4
 */
 
-public class SearchInsertPosition {
+public class Q35SearchInsertPosition {
     
     static int searchInsert(int[] nums, int target) {
     

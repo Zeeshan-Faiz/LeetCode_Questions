@@ -26,7 +26,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 */
 
-public class RemoveDuplicatesFromSortedArray {
+public class Q26RemoveDuplicatesFromSortedArray {
 
     static int removeDuplicates(int[] nums) {
         

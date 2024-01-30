@@ -38,5 +38,33 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 */
 
 public class Q724FindPivotIndex {
+
+    static int pivotIndex(int[] nums) {
+
+        for(int i = 1; i < nums.length; i++){
+
+            int j = 0, sum1 = 0;
+            while(j < i){
+                sum1 = sum1 + nums[j];
+                j++;
+            }
+
+            int k = i+1, sum2 = 0;
+            while(k < nums.length){
+                sum2 = sum2 + nums[k];
+                k++;
+            }
+            if(sum1 == sum2)
+                return i;
+        }
+        return 0;
+
+    }
+
+    public static void main(String[] args) {
+        
+        int[] ar = {1,7,3,6,5,6};
+        System.out.println(pivotIndex(ar));
+    }
     
 }

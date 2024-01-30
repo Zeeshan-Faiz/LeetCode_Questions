@@ -1,5 +1,7 @@
 package Arrays.EasyQuestions;
 
+import java.util.Arrays;
+
 /*
 Difficulty = Easy
 Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
@@ -28,12 +30,18 @@ Output: [3,4,6,16,17]
 public class Q1480RunningSumOf1DArray {
 
     static int[] runningSum(int[] nums) {
+
+        int [] temp = new int[nums.length];
+        
+        for(int i = 0; i < temp.length; i++){
+            temp[i] = nums[i];
+        }
  
-        for(int i = 0; i <nums.length; i++){
+        for(int i = 0; i <temp.length; i++){
 
             int sum = 0, k = 0;
             while(k <= i){
-                sum = sum + nums[k];
+                sum = sum + temp[k];
                 k++;
             }
             nums[i] = sum;
@@ -42,6 +50,12 @@ public class Q1480RunningSumOf1DArray {
         
     }
     
+    public static void main(String[] args) {
+        
+        int[] ar = {1,2,3,4};
+
+        System.out.println(Arrays.toString(runningSum(ar)));
+    }
 
 
 }

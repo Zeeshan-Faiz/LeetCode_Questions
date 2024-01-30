@@ -29,10 +29,12 @@ Output: [3,4,6,16,17]
 
 public class Q1480RunningSumOf1DArray {
 
+    /*
+    Brute Force : Time Complexity = O(n), Space Complexity = O(n)
     static int[] runningSum(int[] nums) {
 
         int [] temp = new int[nums.length];
-        
+
         for(int i = 0; i < temp.length; i++){
             temp[i] = nums[i];
         }
@@ -47,7 +49,19 @@ public class Q1480RunningSumOf1DArray {
             nums[i] = sum;
         }
         return nums;
+    }
+
+    */
+
+    //Optimized : Time Complexity = O(n), Space Conplexity = O(1)
+    static int[] runningSum(int[] nums){
         
+        for(int i=1;i<nums.length;i++){
+            
+            nums[i]=nums[i-1]+nums[i];
+
+        }
+        return nums;
     }
     
     public static void main(String[] args) {
@@ -56,6 +70,4 @@ public class Q1480RunningSumOf1DArray {
 
         System.out.println(Arrays.toString(runningSum(ar)));
     }
-
-
 }

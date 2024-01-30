@@ -1,7 +1,5 @@
 package Arrays.EasyQuestions;
 
-import java.util.Arrays;
-
 /*
 Difficulty = Easy
 Given an array nums of size n, return the majority element.

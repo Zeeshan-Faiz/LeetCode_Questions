@@ -41,24 +41,23 @@ public class Q724FindPivotIndex {
 
     static int pivotIndex(int[] nums) {
 
-        for(int i = 1; i < nums.length; i++){
-
-            int j = 0, sum1 = 0;
-            while(j < i){
-                sum1 = sum1 + nums[j];
-                j++;
-            }
-
-            int k = i+1, sum2 = 0;
-            while(k < nums.length){
-                sum2 = sum2 + nums[k];
-                k++;
-            }
-            if(sum1 == sum2)
-                return i;
+        int totSum = 0;
+        for(int i = 0; i < nums.length; i++){
+            totSum += nums[i];
         }
-        return 0;
 
+        int lSum = 0;
+        int rSum = totSum;
+        for(int i = 0; i < nums.length; i++){
+
+            rSum = rSum - nums[i];
+
+            if(rSum == lSum)
+                return i;
+            
+            lSum = lSum + nums[i];
+        }
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -66,5 +65,4 @@ public class Q724FindPivotIndex {
         int[] ar = {1,7,3,6,5,6};
         System.out.println(pivotIndex(ar));
     }
-    
 }

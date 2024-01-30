@@ -26,6 +26,21 @@ Output: [3,4,6,16,17]
 */
 
 public class Q1480RunningSumOf1DArray {
+
+    static int[] runningSum(int[] nums) {
+ 
+        for(int i = 0; i <nums.length; i++){
+
+            int sum = 0, k = 0;
+            while(k <= i){
+                sum = sum + nums[k];
+                k++;
+            }
+            nums[i] = sum;
+        }
+        return nums;
+        
+    }
     
 
 

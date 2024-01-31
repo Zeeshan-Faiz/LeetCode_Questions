@@ -23,11 +23,33 @@ public class Q977SquaresOfSortedArray {
 
     static int[] sortedSquares(int[] nums) {
         
+        /*
+        Brute Force (Time Complexity = O(n Log n))
         for(int i = 0; i < nums.length; i++){          
             nums[i] = nums[i] * nums[i];
         }
         Arrays.sort(nums);
         return nums;
+        */
+
+        //Optimized using two pointers.
+        //Time Complexity and Space Complexity = O(n)
+
+        int[] result = new int[nums.length];
+        int left=0,right=nums.length-1;
+        int pointers = nums.length-1;
+        while(left <= right){
+            if(Math.abs(nums[left]) > Math.abs(nums[right])){
+                result[pointers] = nums[left] * nums[left];
+                left++;
+            }
+            else{
+                result[pointers] = nums[right] * nums[right];
+                right--;
+            }
+            pointers--;
+        }
+        return result;
     }
 
     public static void main(String[] args) {

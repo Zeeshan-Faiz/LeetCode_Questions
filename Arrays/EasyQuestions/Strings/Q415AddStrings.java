@@ -54,5 +54,9 @@ public class Q415AddStrings {
         }
         return res;
     }
-    
+
+    public static void main(String[] args) {
+        
+        System.out.println(addStrings("123", "11"));
+    }
 }

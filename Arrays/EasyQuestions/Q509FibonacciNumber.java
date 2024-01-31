@@ -31,6 +31,8 @@ Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 
 public class Q509FibonacciNumber {
 
+    /*
+    Brute Force
     static int fib(int n) {
 
         int a = 0, b = 1, sum = 0;
@@ -44,6 +46,18 @@ public class Q509FibonacciNumber {
             b=sum;
         }
         return sum;
+    }
+    */
+
+    //Using Recursion
+    static int fib(int n){
+
+        if(n == 0)
+            return 0;
+        if(n == 1 || n ==2)
+            return 1;
+        
+        return fib(n-1) + fib(n-2);
     }
 
     public static void main(String[] args) {

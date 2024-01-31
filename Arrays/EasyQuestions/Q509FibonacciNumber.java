@@ -45,5 +45,9 @@ public class Q509FibonacciNumber {
         }
         return sum;
     }
-    
+
+    public static void main(String[] args) {
+        
+        System.out.println(fib(8));
+    }
 }

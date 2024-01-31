@@ -22,5 +22,37 @@ Output: "0"
 */
 
 public class Q415AddStrings {
+
+    static String addStrings(String num1, String num2) {
+        
+        String res = "";
+        int i = num1.length() - 1;
+        int j = num2.length() - 1;
+
+        int carry = 0;
+        int ivalue = Integer.MIN_VALUE;
+        int jvalue = Integer.MIN_VALUE;
+        while(i >= 0 || j >= 0 || carry != 0){
+            
+            if(i >= 0)
+                ivalue = num1.charAt(i) - '0';
+            else
+                ivalue = 0;
+            
+            if(j >= 0)
+                jvalue = num2.charAt(j) - '0';
+            else
+                jvalue = 0;
+            
+            i--;
+            j--;
+
+            int sum = ivalue + jvalue + carry;
+            int rval = sum % 10;
+            res = rval + res;
+            carry = sum / 10;
+        }
+        return res;
+    }
     
 }

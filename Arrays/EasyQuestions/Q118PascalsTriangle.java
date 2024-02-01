@@ -55,6 +55,8 @@ public class Q118PascalsTriangle {
     return result;
     }
 
-    
-    
+    public static void main(String[] args) {
+        
+        System.out.println(generate(5));
+    }
 }

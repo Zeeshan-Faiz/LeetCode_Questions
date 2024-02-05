@@ -37,6 +37,5 @@ public class Q28IndexOfFirstOccurence {
     public static void main(String[] args) {
         
         System.out.println(strStr("sadbutsad", "sad"));
-    }
-    
+    }  
 }

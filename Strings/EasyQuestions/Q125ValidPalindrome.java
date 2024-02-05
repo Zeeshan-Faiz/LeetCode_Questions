@@ -48,5 +48,8 @@ public class Q125ValidPalindrome {
         }
         return true;
     }
-    
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+    }
 }

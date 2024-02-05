@@ -32,7 +32,11 @@ public class Q14LongestCommonPrefix{
             }
         }
         return s1.substring(0, idx);
-
     }
 
+    public static void main(String[] args) {
+        
+        String[] str = {"flower","flow","flight"};
+        System.out.println(longestCommonPrefix(str));
+    }
 }

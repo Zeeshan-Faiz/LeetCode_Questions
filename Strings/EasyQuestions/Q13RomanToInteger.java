@@ -68,5 +68,8 @@ public class Q13RomanToInteger {
         return answer;
     }
 
-    
+    public static void main(String[] args) {
+        
+        System.out.println(romanToInt("MCMXCIV"));
+    }
 }

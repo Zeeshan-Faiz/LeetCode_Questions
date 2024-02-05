@@ -19,7 +19,7 @@ Output: false
 
 public class Q680ValidPalindromeII {
 
-    boolean validPalindrome(String s) {
+    static boolean validPalindrome(String s) {
 
         int i = 0, j = s.length() - 1;
             
@@ -30,10 +30,10 @@ public class Q680ValidPalindromeII {
                 i++;
                 j--;
             }
-
             return true;
         }
         
+    //check for palindrome by deleting the the char at first idx or last idx
     static boolean isPalindrome(String s, int i, int j) {
         
         while (i < j) {
@@ -43,8 +43,11 @@ public class Q680ValidPalindromeII {
             i++;
             j--;
         }
-        
         return true;
     }
-    
+
+    public static void main(String[] args) {
+        
+        System.out.println(validPalindrome("abca"));
+    }  
 }

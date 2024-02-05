@@ -17,5 +17,7 @@ Explanation: "leeto" did not occur in "leetcode", so we return -1.
 */
 
 public class Q28IndexOfFirstOccurence {
+
+    static
     
 }

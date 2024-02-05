@@ -42,5 +42,28 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 */
 
 public class Q13RomanToInteger {
+
+    static int answer = 0, number = 0, prev = 0;
+
+    for (int j = s.length() - 1; j >= 0; j--) {
+        switch (s.charAt(j)) {
+            case 'M' -> number = 1000;
+            case 'D' -> number = 500;
+            case 'C' -> number = 100;
+            case 'L' -> number = 50;
+            case 'X' -> number = 10;
+            case 'V' -> number = 5;
+            case 'I' -> number = 1;
+        }
+        if (number < prev) {
+            answer = answer - number;
+        }
+        else {
+            answer = answer + number;
+        }
+        prev = number;
+    }
+    return answer;
+
     
 }

@@ -46,5 +46,10 @@ public class Q50FindPower {
             return x * myPow(x, (int) (N - 1));
         }
     }
+
+    public static void main(String[] args) {
+        
+        System.out.println(myPow(5.0, 3));
+    }
     
 }

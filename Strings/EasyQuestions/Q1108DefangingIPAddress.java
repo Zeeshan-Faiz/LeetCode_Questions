@@ -26,7 +26,6 @@ public class Q1108DefangingIPAddress {
                 result.append(ch);
             }
         }
-
         return result.toString();
     }
 
@@ -34,5 +33,4 @@ public class Q1108DefangingIPAddress {
         
         System.out.println(defangIPaddr("1.1.1.1"));
     }
-    
 }

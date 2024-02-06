@@ -41,5 +41,17 @@ X--: X is decremented by 1, X = 1 - 1 = 0.
 */
 
 public class Q2011FindValueOfVariable {
+
+    static int finalValueAfterOperations(String[] operations) {
+        
+        int count =0;
+        for(String s : operations){
+            if(s.charAt(1)=='+') 
+                count++;
+            else 
+                count--;
+        }
+        return count;
+    }
     
 }

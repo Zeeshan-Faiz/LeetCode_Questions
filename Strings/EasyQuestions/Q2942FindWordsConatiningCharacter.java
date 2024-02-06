@@ -31,10 +31,13 @@ public class Q2942FindWordsConatiningCharacter {
        for(int i = 0; i< words.length; i++)
        {
            if(words[i].indexOf(x)!=-1)
-           {
               ll.add(i);
-           }
        } 
        return ll;
+    }
+
+    public static void main(String[] args) {
+        
+        System.out.println(findWordsContaining(new String[] {"leet","code"}, 'e'));
     }
 }

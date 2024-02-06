@@ -51,5 +51,4 @@ public class Q50FindPower {
         
         System.out.println(myPow(5.0, 3));
     }
-    
 }

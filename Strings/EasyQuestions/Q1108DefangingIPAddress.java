@@ -13,5 +13,21 @@ Input: address = "255.100.50.0"
 Output: "255[.]100[.]50[.]0"
 */
 public class Q1108DefangingIPAddress {
+
+    static String defangIPaddr(String address) {
+        
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < address.length(); i++) {
+            char ch = address.charAt(i);
+
+            if (ch == '.') {
+                result.append("[.]");
+            } else {
+                result.append(ch);
+            }
+        }
+
+        return result.toString();
+    }
     
 }

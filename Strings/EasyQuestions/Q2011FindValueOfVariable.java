@@ -59,5 +59,4 @@ public class Q2011FindValueOfVariable {
         int ans = finalValueAfterOperations(new String[] {"--X","X++","X++"});
         System.out.println(ans);
     }
-    
 }

@@ -16,5 +16,14 @@ Output: 0
 */
 
 public class Q771JewelsAndStones {
+
+    static int numJewelsInStones(String jewels, String stones) {
+        
+        int count = 0;
+        for(char x: stones.toCharArray()){
+            if( jewels.indexOf(x) != -1) count ++;
+        }
+        return count;
+    }
     
 }

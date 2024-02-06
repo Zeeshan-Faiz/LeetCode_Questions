@@ -1,5 +1,8 @@
 package Strings.EasyQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 You are given a 0-indexed array of strings words and a character x.
 Return an array of indices representing the words that contain the character x.
@@ -22,4 +25,16 @@ Explanation: "z" does not occur in any of the words. Hence, we return an empty a
 */
 public class Q2942FindWordsConatiningCharacter {
     
+    static List<Integer> findWordsContaining(String[] words, char x) {
+        
+    List<Integer> ll=new ArrayList<>();
+       for(int i = 0; i< words.length; i++)
+       {
+           if(words[i].indexOf(x)!=-1)
+           {
+              ll.add(i);
+           }
+       } 
+       return ll;
+    }
 }

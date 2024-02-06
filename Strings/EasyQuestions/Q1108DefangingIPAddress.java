@@ -29,5 +29,10 @@ public class Q1108DefangingIPAddress {
 
         return result.toString();
     }
+
+    public static void main(String[] args) {
+        
+        System.out.println(defangIPaddr("1.1.1.1"));
+    }
     
 }

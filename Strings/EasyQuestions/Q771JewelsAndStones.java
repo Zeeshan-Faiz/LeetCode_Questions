@@ -26,5 +26,9 @@ public class Q771JewelsAndStones {
         }
         return count;
     }
-    
+
+    public static void main(String[] args) {
+        
+        System.out.println(numJewelsInStones("aA", "aAAbbb"));
+    }
 }

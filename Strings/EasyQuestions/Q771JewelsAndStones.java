@@ -21,6 +21,7 @@ public class Q771JewelsAndStones {
         
         int count = 0;
         for(char x: stones.toCharArray()){
+            //If the resultant int produced by indexOf method is not equal to -1, meaning jewel string contains the char then increase count by 1.
             if( jewels.indexOf(x) != -1) count ++;
         }
         return count;

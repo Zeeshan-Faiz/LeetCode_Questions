@@ -46,4 +46,8 @@ public class Q1662EquivalentStrings{
         return str1.equals(str2);
     }
 
+    public static void main(String[] args) {
+        
+        System.out.println(arrayStringsAreEqual(new String[] {"ab","c"}, new String[] {"a","bc"}));
+    }
 }

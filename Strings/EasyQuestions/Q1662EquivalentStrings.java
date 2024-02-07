@@ -22,4 +22,28 @@ Input: word1  = ["abc", "d", "defg"], w
 
 public class Q1662EquivalentStrings{
 
+    static boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+        
+        // Step 1: Initialize StringBuilder objects
+        StringBuilder sb1 = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+
+        // Step 2: Concatenate strings from the first array (word1) using a loop
+        for (String str : word1) {
+            sb1.append(str);
+        }
+
+        // Step 3: Concatenate strings from the second array (word2) using a loop
+        for (String str : word2) {
+            sb2.append(str);
+        }
+
+        // Step 4: Convert StringBuilder objects to strings
+        String str1 = sb1.toString();
+        String str2 = sb2.toString();
+
+        // Step 5: Compare the strings using the equals method
+        return str1.equals(str2);
+    }
+
 }

@@ -19,5 +19,28 @@ Explanation: The square root of 8 is 2.82842..., and since we round it down to t
 */
 
 public class Q69Sqrt {
+
+    static  int mySqrt(int x) 
+    {
+
+         if (x == 0)
+            return 0;
+        
+        int first = 1, last = x;
+        while (first <= last) 
+        {
+            int mid = first + (last - first) / 2;
+            
+            if (mid == x / mid) 
+                return mid;
+            
+            else if (mid > x / mid) 
+                last = mid - 1;//contains the floor value
+            
+            else 
+                first = mid + 1;
+        }
+        return last;
+    }
     
 }

@@ -42,5 +42,9 @@ public class Q69Sqrt {
         }
         return last;
     }
-    
+
+    public static void main(String[] args) {
+        
+        System.out.println(mySqrt(24));
+    }
 }

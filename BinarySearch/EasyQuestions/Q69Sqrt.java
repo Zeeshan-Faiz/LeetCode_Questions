@@ -22,8 +22,7 @@ public class Q69Sqrt {
 
     static  int mySqrt(int x) 
     {
-
-         if (x == 0)
+        if (x == 0)
             return 0;
         
         int first = 1, last = x;

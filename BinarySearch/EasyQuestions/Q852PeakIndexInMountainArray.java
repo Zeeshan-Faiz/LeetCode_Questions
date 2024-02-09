@@ -16,6 +16,23 @@ You must solve it in O(log(arr.length)) time complexity.
 
 public class Q852PeakIndexInMountainArray {
 
-    static 
+    static int peakIndexInMountainArray(int[] arr) {
+
+        int start = 0;
+        int end = arr.length - 1;
+        int mid = -1;
+
+        while(start < end){
+            
+            mid = (start+end)/2;
+            if(arr[mid] > arr[mid+1])
+                //we are in descending part
+                end = mid;
+            else
+                //we are in ascending part
+                start = mid + 1;
+        }
+        return start;   
+    }
     
 }

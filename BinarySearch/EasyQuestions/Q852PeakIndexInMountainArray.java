@@ -39,5 +39,4 @@ public class Q852PeakIndexInMountainArray {
         
         System.out.println(peakIndexInMountainArray(new int[] {0,1,0}));
     }
-    
 }

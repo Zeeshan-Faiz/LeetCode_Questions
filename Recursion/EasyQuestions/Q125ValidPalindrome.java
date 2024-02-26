@@ -39,7 +39,6 @@ public class Q125ValidPalindrome{
     		return false;
     	
     	return isPalindromeRecursive(s, start+1, end-1);
-    	
     }
 
     public static void main(String[] args) {

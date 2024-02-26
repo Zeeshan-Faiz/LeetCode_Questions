@@ -1,4 +1,4 @@
-package Recursion.MediumQuestions;
+package TwoPointer.EasyQuestion;
 
 public class Q125ValidPalindrome{
     /*

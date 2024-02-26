@@ -48,5 +48,10 @@ public class Q78Subsets {
         subset.remove(subset.size()-1);
         helper(nums, i + 1, subset, ans);
     }
-    
+
+    public static void main(String[] args) {
+        
+        System.out.println(subsets(new int[] {1,2,3}));
+    }
+   
 }

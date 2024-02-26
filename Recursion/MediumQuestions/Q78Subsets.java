@@ -1,5 +1,8 @@
 package Recursion.MediumQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Q78Subsets {
 
     /*
@@ -17,5 +20,16 @@ public class Q78Subsets {
     Input: nums = [0]
     Output: [[],[0]]
     */
+
+    static List<List<Integer>> subsets(int[] nums) {
+
+        List<List<Integer>> ans = new ArrayList<>(); // initialize the answer list
+
+        ArrayList<Integer> subset = new ArrayList<>(); // initialize the subset list
+
+        helper(nums, 0, subset, ans); // call the recursive helper function with initial values
+
+        return ans; // return the answer list
+    }
     
 }

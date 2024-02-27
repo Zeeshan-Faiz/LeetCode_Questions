@@ -40,5 +40,4 @@ public class Q9PalindromeNumber {
         
         System.out.println(isPalindrome(121));
     }
-    
 }

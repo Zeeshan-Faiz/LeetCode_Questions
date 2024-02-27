@@ -36,5 +36,10 @@ public class Q7ReverseInteger {
         return (x < 0) ? (-rev) : rev;  
     }
 
+    public static void main(String[] args) {
+        
+        System.out.println(reverse(135));
+    }
+
     
 }

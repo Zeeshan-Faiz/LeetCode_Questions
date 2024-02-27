@@ -40,6 +40,4 @@ public class Q7ReverseInteger {
         
         System.out.println(reverse(135));
     }
-
-    
 }

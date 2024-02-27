@@ -35,5 +35,10 @@ public class Q9PalindromeNumber {
         }
         return (rev == n);
     }
+
+    public static void main(String[] args) {
+        
+        System.out.println(isPalindrome(121));
+    }
     
 }

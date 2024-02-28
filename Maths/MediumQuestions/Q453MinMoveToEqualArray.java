@@ -27,7 +27,7 @@ public class Q453MinMoveToEqualArray {
 
         int ans = 0;
         for (int n : nums) {
-            ans += (n - min);
+            ans = ans + (n - min);
         }
         return ans;
     }

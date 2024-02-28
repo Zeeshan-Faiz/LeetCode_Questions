@@ -32,6 +32,8 @@ public class Q453MinMoveToEqualArray {
         return ans;
     }
 
-
-    
+    public static void main(String[] args) {
+        
+        System.out.println(minMoves(new int[] {1,2,3}));
+    }
 }

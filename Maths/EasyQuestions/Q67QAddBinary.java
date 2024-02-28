@@ -16,7 +16,7 @@ public class Q67QAddBinary {
 
     static String addBinary(String a, String b) {
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder res = new StringBuilder();
         int carry = 0;
         int i = a.length() - 1;
         int j = b.length() - 1;
@@ -32,10 +32,11 @@ public class Q67QAddBinary {
                 j--;
             }
 
-            sb.append(carry % 2);
+            //add the carry into the res
+            res.append(carry % 2);
             carry = carry / 2;
         }
-        return sb.reverse().toString();
+        return res.reverse().toString();
     }
 
     public static void main(String[] args) {

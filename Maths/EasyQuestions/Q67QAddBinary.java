@@ -38,4 +38,8 @@ public class Q67QAddBinary {
         return sb.reverse().toString();
     }
 
+    public static void main(String[] args) {
+        
+        System.out.println(addBinary("1010", "1011"));
+    }
 }

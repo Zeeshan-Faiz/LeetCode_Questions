@@ -18,6 +18,20 @@ public class Q453MinMoveToEqualArray {
     Output: 0
     */
 
+    static int minMoves(int[] nums) {
+        
+        int min = Integer.MAX_VALUE;
+        for (int n : nums) {
+            min = Math.min(min, n);
+        }
+
+        int ans = 0;
+        for (int n : nums) {
+            ans += (n - min);
+        }
+        return ans;
+    }
+
 
     
 }

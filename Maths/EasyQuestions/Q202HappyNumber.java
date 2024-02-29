@@ -44,6 +44,7 @@ public class Q202HappyNumber {
     
     
     static int square(int num){ // taking square of the number
+        
         int ans=0;
         while(num > 0){
             int rem= num % 10;
@@ -51,6 +52,11 @@ public class Q202HappyNumber {
             num= num / 10;
         }
         return ans; 
+    }
+
+    public static void main(String[] args) {
+        
+        System.out.println(isHappy(19));
     }
     
 }

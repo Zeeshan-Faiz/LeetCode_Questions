@@ -28,17 +28,21 @@ public class Q168ExcelSheetColumnTitle {
     Output: "ZY"
     */
 
-    static String convertToTitle(int columnNumber) {
+    static String convertToTitle(int colNum) {
         
         StringBuilder title = new StringBuilder();
-        while (columnNumber > 0) {
-            columnNumber--; // Adjust for zero-based indexing
-            int remainder = columnNumber % 26;
+        while (colNum > 0) {
+            colNum--; // Adjust for zero-based indexing
+            int remainder = colNum % 26;
             char letter = (char) ('A' + remainder);
             title.insert(0, letter); // Prepend the character
-            columnNumber /= 26;
+            colNum = colNum / 26;
         }
         return title.toString();
     }
-    
+ 
+    public static void main(String[] args) {
+        
+        System.out.println(convertToTitle(57));
+    }
 }

@@ -40,7 +40,7 @@ public class Q168ExcelSheetColumnTitle {
         }
         return title.toString();
     }
- 
+
     public static void main(String[] args) {
         
         System.out.println(convertToTitle(57));

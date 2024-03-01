@@ -22,5 +22,12 @@ public class Q231PowerOf2 {
     Output: false
     */
 
-    
+    //applying bitwise operations
+    static boolean isPowerOfTwo(int n) {
+        
+        if(n == 0 || n < 0)
+            return false;
+        else
+            return (n & (n-1)) == 0;
+    }
 }

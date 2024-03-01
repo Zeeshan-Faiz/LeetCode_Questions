@@ -58,5 +58,4 @@ public class Q268MissingNumber {
         
         System.out.println(missingNumber(new int[] {3,0,1}));
     }
-
 }

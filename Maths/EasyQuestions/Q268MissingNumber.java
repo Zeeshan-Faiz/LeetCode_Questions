@@ -45,9 +45,13 @@ public class Q268MissingNumber {
         }
 
         // case 2
-        return arr;
+        return arr.length;
     }
 
-    static
+    static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
 
 }

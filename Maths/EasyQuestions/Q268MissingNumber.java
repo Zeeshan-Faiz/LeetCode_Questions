@@ -54,4 +54,9 @@ public class Q268MissingNumber {
         arr[second] = temp;
     }
 
+    public static void main(String[] args) {
+        
+        System.out.println(missingNumber(new int[] {3,0,1}));
+    }
+
 }

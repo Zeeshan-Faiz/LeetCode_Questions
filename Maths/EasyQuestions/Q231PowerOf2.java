@@ -30,4 +30,9 @@ public class Q231PowerOf2 {
         else
             return (n & (n-1)) == 0;
     }
+
+    public static void main(String[] args) {
+        
+        System.out.println(isPowerOfTwo(64));
+    }
 }

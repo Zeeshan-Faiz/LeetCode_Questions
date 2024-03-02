@@ -51,26 +51,26 @@ public class Q628ProductOf3Numbers {
             }
 
             // Update second maximum and third maximum element
-            else if(nums[i]>maxB)
+            else if(nums[i] > maxB)
             {
-                maxC=maxB;
-                maxB=nums[i];
+                maxC = maxB;
+                maxB = nums[i];
             }
 
             // Update third maximum element
-            else if(nums[i]>maxC)
-                maxC=nums[i];
+            else if(nums[i] > maxC)
+                maxC = nums[i];
 
             // Update Minimum and second minimum element
-            if(nums[i]<minA)
+            if(nums[i] < minA)
             {
-                minB=minA;
-                minA=nums[i];
+                minB = minA;
+                minA = nums[i];
             }
 
             // Update second minimum element
-            else if(nums[i]<minB)
-                minB=nums[i];
+            else if(nums[i] < minB)
+                minB = nums[i];
         }
         return Math.max(maxA * maxB * maxC, minA * minB * maxA);
     }

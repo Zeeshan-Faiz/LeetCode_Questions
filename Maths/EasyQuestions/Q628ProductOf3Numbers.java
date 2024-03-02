@@ -30,6 +30,53 @@ public class Q628ProductOf3Numbers {
         return maxProduct;
     }
 
+    //Approach 2 : Find the 3 maximum numbers and 2 minimum numbers take product for each case and return the
+    //maximumn between the two
+    static int maximumProduct2(int[] nums) {
+        
+        // Initialize Maximum, second maximum and third maximum element
+        int maxA=Integer.MIN_VALUE, maxB=Integer.MIN_VALUE, maxC=Integer.MIN_VALUE;
+
+        // Initialize Minimum and second minimum element
+        int minA=Integer.MAX_VALUE, minB=Integer.MAX_VALUE;
+        
+        for(int i = 0; i < nums.length; i++)
+        {
+            // Update Maximum, second maximum and third maximum element
+            if(nums[i] > maxA)
+            {
+                maxC = maxB;
+                maxB = maxA;
+                maxA = nums[i];
+            }
+
+            // Update second maximum and
+            // third maximum element
+            else if(nums[i]>maxB)
+            {
+                maxC=maxB;
+                maxB=nums[i];
+            }
+
+            // Update third maximum element
+            else if(nums[i]>maxC)
+                maxC=nums[i];
+
+            // Update Minimum and second
+            // minimum element
+            if(nums[i]<minA)
+            {
+                minB=minA;
+                minA=nums[i];
+            }
+
+            // Update second minimum element
+            else if(nums[i]<minB)
+                minB=nums[i];
+        }
+        return Math.max(maxA*maxB*maxC,minA*minB*maxA);
+    }
+
     public static void main(String[] args) {
         
         System.out.println(maximumProduct(new int[] {1,2,3,4,5}));

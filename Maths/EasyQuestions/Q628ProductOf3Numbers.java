@@ -50,8 +50,7 @@ public class Q628ProductOf3Numbers {
                 maxA = nums[i];
             }
 
-            // Update second maximum and
-            // third maximum element
+            // Update second maximum and third maximum element
             else if(nums[i]>maxB)
             {
                 maxC=maxB;
@@ -62,8 +61,7 @@ public class Q628ProductOf3Numbers {
             else if(nums[i]>maxC)
                 maxC=nums[i];
 
-            // Update Minimum and second
-            // minimum element
+            // Update Minimum and second minimum element
             if(nums[i]<minA)
             {
                 minB=minA;
@@ -74,7 +72,7 @@ public class Q628ProductOf3Numbers {
             else if(nums[i]<minB)
                 minB=nums[i];
         }
-        return Math.max(maxA*maxB*maxC,minA*minB*maxA);
+        return Math.max(maxA * maxB * maxC, minA * minB * maxA);
     }
 
     public static void main(String[] args) {

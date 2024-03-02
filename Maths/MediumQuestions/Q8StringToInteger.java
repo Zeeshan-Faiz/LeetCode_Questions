@@ -56,4 +56,34 @@ public class Q8StringToInteger {
     The parsed integer is 4193.
     Since 4193 is in the range [-231, 231 - 1], the final result is 4193.
     */
+
+    static int myAtoi(String s) {
+        s = s.trim();
+       if (s.isEmpty()) {
+           return 0;
+       }
+
+       int ans = 0, i = 0;
+       boolean neg = s.charAt(0) == '-';
+       boolean pos = s.charAt(0) == '+';
+
+       if (neg || pos) {
+           i++;
+       }
+
+       while (i < s.length() && Character.isDigit(s.charAt(i))) {
+           int digit = s.charAt(i) - '0';
+
+           // Check for overflow
+           if (ans > (Integer.MAX_VALUE - digit) / 10) {
+               return neg ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+           }
+
+           ans = ans * 10 + digit;
+           i++;
+       }
+
+       return neg ? -ans : ans;
+   }
+
 }

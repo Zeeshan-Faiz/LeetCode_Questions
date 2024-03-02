@@ -98,4 +98,8 @@ public class Q8StringToInteger {
         return neg ? -ans : ans;
     }
 
+    public static void main(String[] args) {
+        
+        System.out.println(myAtoi("-456"));
+    }
 }

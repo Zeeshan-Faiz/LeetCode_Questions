@@ -77,7 +77,7 @@ public class Q628ProductOf3Numbers {
 
     public static void main(String[] args) {
         
-        System.out.println(maximumProduct(new int[] {1,2,3,4,5}));
+        //System.out.println(maximumProduct(new int[] {1,2,3,4,5}));
+        System.out.println(maximumProduct2(new int[] {1,2,3,4,5}));
     }
-    
 }

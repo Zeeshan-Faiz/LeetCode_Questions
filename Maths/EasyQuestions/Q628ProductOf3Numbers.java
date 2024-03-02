@@ -29,5 +29,10 @@ public class Q628ProductOf3Numbers {
         int maxProduct = Integer.max(case1, case2);
         return maxProduct;
     }
+
+    public static void main(String[] args) {
+        
+        System.out.println(maximumProduct(new int[] {1,2,3,4,5}));
+    }
     
 }

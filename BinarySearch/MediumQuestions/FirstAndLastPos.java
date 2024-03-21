@@ -20,5 +20,32 @@ Output: [-1,-1]
 */
 
 public class FirstAndLastPos{
+
+    static int[] searchRange(int[] nums, int target) {
+        
+        int[] res = {-1,-1};
+        if(nums == null)
+            return res;
+        
+        int low = 0, high = nums.length-1, mid = 0,k=0;
+        while(low < high){
+
+            mid = low + (high-low)/2;
+            if(nums[mid] ==  target){
+                res[k] = mid;
+                k++;
+            }
+            else if(nums[mid] < target)
+                low = mid + 1;
+            else
+                high = mid - 1;
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        
+        
+    }
     
 }

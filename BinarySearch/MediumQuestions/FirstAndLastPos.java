@@ -36,23 +36,23 @@ public class FirstAndLastPos {
     static int search(int[] nums, int target, boolean findIndex) {
         
         int ans = -1;
-        int s = 0;
-        int e = nums.length - 1;
-        while (s <= e) {
+        int low = 0;
+        int high = nums.length - 1;
+        while (low <= high) {
 
-            int mid = s + (e - s) / 2;
+            int mid = low + (high - low) / 2;
             if (target > nums[mid]) 
-                s = mid + 1;
+                low = mid + 1;
             else if (target < nums[mid]) 
-                e = mid - 1;
+                high = mid - 1;
             else 
             {
                 if (target == nums[mid]) {
                     ans = mid;
                     if (findIndex)
-                        e = mid - 1;
+                        high = mid - 1;
                     else
-                        s = mid + 1;
+                        low = mid + 1;
                 }
             }
         }

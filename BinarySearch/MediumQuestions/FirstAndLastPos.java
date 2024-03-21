@@ -1,5 +1,7 @@
 package BinarySearch.MediumQuestions;
 
+import java.util.Arrays;
+
 /*
 Given an array of integers nums sorted in non-decreasing order, find the starting and ending 
 position of a given target value.
@@ -45,7 +47,8 @@ public class FirstAndLastPos{
 
     public static void main(String[] args) {
         
-        
+        System.out.println(Arrays.toString(searchRange(new int[]{5,7,7,8,8,10}, 8)));
+
     }
     
 }

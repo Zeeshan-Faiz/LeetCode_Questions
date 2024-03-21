@@ -29,22 +29,22 @@ public class FirstAndLastPos{
         if(nums == null)
             return res;
         
-        int low = 0, high = nums.length-1, mid = 0,k=0;
+        int low = 0, high = nums.length-1, mid = 0;
         while(low < high){
 
             mid = low + (high-low)/2;
             if(nums[mid] ==  target){
-                res[k] = mid;
-                k++;
+                
                 if(nums[mid - 1] == target){
                     low = 0;
                     high = mid;
+                    res[1] = mid;
                 }
                 else if(mid + 1 < nums.length && nums[mid + 1] == target){
-                    low = mid;
+                    low = mid + 1;
                     high = nums.length;
+                    nums[0] = mid;
                 }
-
             }
             else if(nums[mid] < target)
                 low = mid + 1;

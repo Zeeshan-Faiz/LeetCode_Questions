@@ -21,43 +21,47 @@ Input: nums = [], target = 0
 Output: [-1,-1]
 */
 
-public class FirstAndLastPos{
+public class FirstAndLastPos {
 
     static int[] searchRange(int[] nums, int target) {
-        
-        int[] res = {-1,-1};
-        if(nums == null)
-            return res;
-        
-        int low = 0, high = nums.length-1, mid = 0;
-        while(low < high){
 
-            mid = low + (high-low)/2;
-            if(nums[mid] ==  target){
-                
-                if(nums[mid - 1] == target){
-                    low = 0;
-                    high = mid;
-                    res[1] = mid;
-                }
-                else if(mid + 1 < nums.length && nums[mid + 1] == target){
-                    low = mid + 1;
-                    high = nums.length;
-                    nums[0] = mid;
+        int ans[] = { -1, -1 };
+        int start = search(nums, target, true);
+        int end = search(nums, target, false);
+        ans[0] = start;
+        ans[1] = end;
+        return ans;
+    }
+
+    static int search(int[] nums, int target, boolean findIndex) {
+        
+        int ans = -1;
+        int s = 0;
+        int e = nums.length - 1;
+        while (s <= e) {
+            int mid = s + (e - s) / 2;
+            if (target > nums[mid]) {
+                s = mid + 1;
+            } else if (target < nums[mid]) {
+                e = mid - 1;
+            } else {
+                if (target == nums[mid]) {
+                    ans = mid;
+
+                    if (findIndex)
+                        e = mid - 1;
+                    else
+                        s = mid + 1;
                 }
             }
-            else if(nums[mid] < target)
-                low = mid + 1;
-            else
-                high = mid - 1;
         }
-        return res;
+        return ans;
     }
 
     public static void main(String[] args) {
-        
-        System.out.println(Arrays.toString(searchRange(new int[]{5,7,7,8,8,10}, 8)));
+
+        System.out.println(Arrays.toString(searchRange(new int[] { 5, 7, 7, 8, 8, 10 }, 8)));
 
     }
-    
+
 }

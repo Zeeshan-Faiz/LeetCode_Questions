@@ -49,7 +49,7 @@ public class Q34FirstAndLastPos {
             {
                 if (target == nums[mid]) {
                     ans = mid;
-                    if (findIndex)
+                    if (findIndex)//find first occurance of the target element
                         high = mid - 1;
                     else
                         low = mid + 1;

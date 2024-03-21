@@ -21,7 +21,7 @@ Input: nums = [], target = 0
 Output: [-1,-1]
 */
 
-public class FirstAndLastPos {
+public class Q34FirstAndLastPos {
 
     static int[] searchRange(int[] nums, int target) {
 

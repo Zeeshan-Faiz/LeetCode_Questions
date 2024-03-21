@@ -36,6 +36,15 @@ public class FirstAndLastPos{
             if(nums[mid] ==  target){
                 res[k] = mid;
                 k++;
+                if(nums[mid - 1] == target){
+                    low = 0;
+                    high = mid;
+                }
+                else if(mid + 1 < nums.length && nums[mid + 1] == target){
+                    low = mid;
+                    high = nums.length;
+                }
+
             }
             else if(nums[mid] < target)
                 low = mid + 1;

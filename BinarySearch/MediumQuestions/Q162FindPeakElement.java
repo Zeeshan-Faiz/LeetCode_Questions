@@ -39,4 +39,9 @@ public class Q162FindPeakElement {
         }
         return start; 
     }
+
+    public static void main(String[] args) {
+        
+        System.out.println(findPeakElement(new int[]{1,2,3,1}));
+    }
 }

@@ -39,15 +39,16 @@ public class FirstAndLastPos {
         int s = 0;
         int e = nums.length - 1;
         while (s <= e) {
+
             int mid = s + (e - s) / 2;
-            if (target > nums[mid]) {
+            if (target > nums[mid]) 
                 s = mid + 1;
-            } else if (target < nums[mid]) {
+            else if (target < nums[mid]) 
                 e = mid - 1;
-            } else {
+            else 
+            {
                 if (target == nums[mid]) {
                     ans = mid;
-
                     if (findIndex)
                         e = mid - 1;
                     else
@@ -61,7 +62,5 @@ public class FirstAndLastPos {
     public static void main(String[] args) {
 
         System.out.println(Arrays.toString(searchRange(new int[] { 5, 7, 7, 8, 8, 10 }, 8)));
-
     }
-
 }

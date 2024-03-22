@@ -47,7 +47,7 @@ public class Q1011CapacityToShipPackages {
         // Find the minimum and maximum capacity required for the ship
         for (int w : weights) {
             left = Math.max(left, w); // minimum capacity should be able to handle the heaviest package
-            right += w; // maximum capacity should be able to handle all packages
+            right = right + w; // maximum capacity should be able to handle all packages
         }
 
         // Use binary search to find the least weight capacity required for the ship
@@ -75,6 +75,11 @@ public class Q1011CapacityToShipPackages {
         }
         // Return the least weight capacity required to ship all packages within the given number of days
         return left;
+    }
+
+    public static void main(String[] args) {
+        
+        System.out.println(shipWithinDays(new int[] {3,2,2,4,1,4}, 3));
     }
 
 }

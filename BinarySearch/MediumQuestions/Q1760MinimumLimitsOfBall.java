@@ -36,8 +36,10 @@ public class Q1760MinimumLimitsOfBall {
     static int minimumSize(int[] nums, int maxOperations) {
         
         //The answer should be the minimized max value.
-        int min = 0;
-        int max = 1000000000;
+        int min = 0,max = 0;
+        for(int a : nums){
+            max = Math.max(max,a);
+        }
         
         while (min + 1 < max) {
             

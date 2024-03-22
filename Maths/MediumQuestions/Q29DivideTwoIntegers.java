@@ -21,19 +21,60 @@ Output: -2
 */
 
 public class Q29DivideTwoIntegers {
-    
+
     static int divide(int dividend, int divisor) {
-        
-        if(divisor == 0)
+
+        if (divisor == Integer.MIN_VALUE) {
+            return dividend == Integer.MIN_VALUE ? 1 : 0;
+        }
+
+        if (dividend == 0) {
             return 0;
-        if (dividend == -2147483648 && divisor == -1) 
-            return 2147483647;
-        else
-            return dividend / divisor;
+        }
+
+        if (dividend == Integer.MIN_VALUE) {
+            if (divisor == 1) {
+                return Integer.MIN_VALUE;
+            } else if (divisor == -1) {
+                return Integer.MAX_VALUE;
+            }
+        }
+
+        boolean sign = false;
+        if ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0)) {
+            sign = true;
+        }
+
+        if (dividend > 0) {
+            dividend = -dividend;
+        }
+
+        if (divisor > 0) {
+            divisor = -divisor;
+        }
+
+        int MAX = Integer.MIN_VALUE >> 1;
+        int ans = 0;
+
+        // dividend became negative
+        while (dividend <= divisor) {
+            int temp = divisor;
+            int step = -1;
+
+            while (temp >= MAX && step >= MAX && temp >= dividend - temp) {
+                temp += temp;
+                step += step;
+            }
+
+            dividend -= temp;
+            ans += step;
+        }
+
+        return sign ? ans : -ans;
     }
 
     public static void main(String[] args) {
-        
+
         System.out.println(divide(10, 3));
     }
 }

@@ -60,4 +60,9 @@ public class Q1760MinimumLimitsOfBall {
         // Now we return the minimized max value
         return max;
     }
+
+    public static void main(String[] args) {
+        
+        System.out.println(minimumSize(new int[]{2,4,8,2}, 4));
+    }
 }

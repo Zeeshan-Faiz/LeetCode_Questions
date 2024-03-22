@@ -46,23 +46,23 @@ public class Q1011CapacityToShipPackages {
 
         // Find the minimum and maximum capacity required for the ship
         for (int w : weights) {
-            left = Math.max(left, w); // minimum capacity should be able to handle the heaviest package
-            right = right + w; // maximum capacity should be able to handle all packages
+            left = Math.max(left, w); // minimum capacity that should be able to handle the heaviest package by the ship
+            right = right + w; // maximum capacity that should be able to handle all packages by the ship
         }
 
         // Use binary search to find the least weight capacity required for the ship
         while (left < right) {
 
             int mid = left + (right - left) / 2;
-            int need = 1, cur = 0;
+            int need = 1, load = 0;
             // Count the number of days required to ship all packages with current mid capacity
             for (int w : weights) {
 
-                if (cur + w > mid) { // current capacity can't handle the current package
+                if (load + w > mid) { //If the current capacity can't handle the current package load
                     need++; // increment the number of days required
-                    cur = 0; // reset the current capacity
+                    load = 0; // reset the current load capacity
                 }
-                cur = cur + w; // add the current package to the current capacity
+                load = load + w; //Or else add the current package to the current capacity and start checking for the next package
             }
 
             // If the number of days required is greater than the given number of days, increase the weight capacity

@@ -33,4 +33,31 @@ The bag with the most number of balls has 2 balls, so your penalty is 2, and you
 
 public class Q1760MinimumLimitsOfBall {
 
+    static int minimumSize(int[] nums, int maxOperations) {
+        
+        //The answer should be the minimized max value.
+        int min = 0;
+        int max = 1000000000;
+        
+        while (min + 1 < max) {
+            
+            int mid = min + (max - min) / 2;
+            //count indicates the operation times with atmost mid balls in bag.
+            int count = 0;
+            for (int a : nums) {
+                // Find the number of divided bags, we subtract the number by 1 to get the subdivision operation times.
+                count = count + (a - 1) / mid;
+            }
+            // Case 1 : if count < maxOperations, max WOULD be further minimized and set to mid;
+            // Case 2 : if count = maxOperations, max still COULD be further minimized and set to mid.
+            if (count <= maxOperations) {
+                // To not miss the correct answer we set a relatively "loose" boundary for max and min.
+                max = mid;
+            } 
+            else 
+                min = mid;
+        }
+        // Now we return the minimized max value
+        return max;
+    }
 }

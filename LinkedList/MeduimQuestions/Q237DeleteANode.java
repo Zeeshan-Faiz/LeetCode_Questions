@@ -33,8 +33,8 @@ Explanation: You are given the third node with value 1, the linked list should b
 
 public class Q237DeleteANode {
 
-    void deleteNode(ListNode node) {
-        node.val = node.next.val;// make the next node value, the current node
+    static void deleteNode(ListNode node) {
+        node.val = node.next.val;// make the next node value, the current node value
         node.next = node.next.next;// delete the next node and point the current node to next.next node
     }
 

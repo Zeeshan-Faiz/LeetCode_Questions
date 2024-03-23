@@ -22,7 +22,7 @@ Custom testing:
 public class Q237DeleteANode {
 
     void deleteNode(ListNode node) {
-        node.val = node.next.val;// make the next node the current node
+        node.val = node.next.val;// make the next node value, the current node
         node.next = node.next.next;// delete the next node and point the current node to next.next node
     }
 

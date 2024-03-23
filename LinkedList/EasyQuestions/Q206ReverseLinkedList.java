@@ -10,4 +10,12 @@ Output: [5,4,3,2,1]
 
 public class Q206ReverseLinkedList {
     
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
 }

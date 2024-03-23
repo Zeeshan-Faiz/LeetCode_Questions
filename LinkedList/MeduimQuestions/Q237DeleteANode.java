@@ -25,4 +25,10 @@ public class Q237DeleteANode {
         node.val = node.next.val;// make the next node the current node
         node.next = node.next.next;// delete the next node and point the current node to next.next node
     }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
 }

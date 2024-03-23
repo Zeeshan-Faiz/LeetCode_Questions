@@ -27,7 +27,7 @@ public class Q206ReverseLinkedList {
                next = next.next;
            }
        }
-       return prev;//after loop ends prev will be the new tail
+       return prev;//after loop ends prev will be the new head from last
    }
 
     public class ListNode {

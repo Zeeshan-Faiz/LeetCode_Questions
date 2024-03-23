@@ -13,4 +13,15 @@ Explanation: (101) in base 2 = (5) in base 10
 
 public class Q1290ConvertBinaryToDecimal {
     
+    static int getDecimalValue(ListNode head) {
+        
+        int result = 0;
+
+        while(head!=null){
+            result=result*2+head.val;
+            head=head.next;
+
+        }
+        return result;
+    }
 }

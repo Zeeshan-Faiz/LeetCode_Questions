@@ -10,6 +10,25 @@ Output: [5,4,3,2,1]
 
 public class Q206ReverseLinkedList {
     
+    static ListNode reverseList(ListNode head) {
+        
+        if (head == null) 
+           return head;
+       
+       ListNode prev = null;
+       ListNode present = head;
+       ListNode next = present.next;
+
+       while (present != null) {
+           present.next = prev;//change the direction
+           prev = present;
+           present = next;
+           if (next != null) {
+               next = next.next;
+           }
+       }
+       return prev;//after loop ends prev will be the new tail
+   }
 
     public class ListNode {
         int val;

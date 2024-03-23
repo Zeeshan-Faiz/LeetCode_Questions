@@ -1,5 +1,7 @@
 package LinkedList.EasyQuestions;
 
+import LinkedList.MeduimQuestions.Q237DeleteANode.ListNode;
+
 /*
 Given the head of a singly linked list, return the middle node of the linked list.
 If there are two middle nodes, return the second middle node.
@@ -17,4 +19,15 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
 
 public class Q876MiddleOfLinkedList {
     
+    static ListNode middleNode(ListNode head) {
+        
+        ListNode s = head;
+        ListNode f = head;
+
+        while (f != null && f.next != null) {
+            s = s.next;
+            f = f.next.next;
+        }
+        return s;
+    }
 }

@@ -11,4 +11,17 @@ Output: [1,2,3,4,5]
 
 public class Q203RemoveLinkedListElement {
     
+    static ListNode removeElements(ListNode head, int val) {
+        
+        ListNode temp = new ListNode(0);//dummy node
+        ListNode curr = temp;
+        temp.next = head;//dummy node added ahead of head of the given list
+        while(curr.next != null ){
+            if(curr.next.val == val) 
+                curr.next = curr.next.next;//found value then skip it
+            else 
+                curr = curr.next;
+        }
+        return temp.next;//return the updated list head
+    }
 }

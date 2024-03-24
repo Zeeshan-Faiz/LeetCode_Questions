@@ -22,7 +22,7 @@ public class Q160IntersectionOfTwoLinkedList {
         ListNode ptrB = headB;
         // loop until we found the first common node
         while (ptrA != ptrB) { 
-
+ 
             // once we're done with A, move to B
             if(ptrA == null)
                 ptrA = headB;

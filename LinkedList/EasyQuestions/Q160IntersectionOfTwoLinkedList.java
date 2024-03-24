@@ -18,7 +18,8 @@ public class Q160IntersectionOfTwoLinkedList {
     
     static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         
-        ListNode ptrA = headA, ptrB = headB;
+        ListNode ptrA = headA;
+        ListNode ptrB = headB;
         // loop until we found the first common node
         while (ptrA != ptrB) { 
 

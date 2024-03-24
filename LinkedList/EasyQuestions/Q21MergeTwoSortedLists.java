@@ -30,8 +30,8 @@ public class Q21MergeTwoSortedLists {
                 tail = tail.next;
             }
         }
-        tail.next = (list1 != null) ? list1 : list2;
-        return dummyHead.next;//return the next node from dummy head
+        tail.next = (list1 != null) ? list1 : list2;//connecting last node
+        return dummyHead.next;//actual head of the sorted list
     }
 
     public class ListNode {

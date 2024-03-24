@@ -21,14 +21,13 @@ public class Q234PalindromeLinkedList {
         // compare both the halves
         while (head != null && headSecond != null) {
             if (head.val != headSecond.val) {
-                break;
+                return false;
             }
             head = head.next;
             headSecond = headSecond.next;
         }
-        reverseList(rereverseHead);
-
-        return head == null || headSecond == null;
+        reverseList(rereverseHead);//bring back the original list (as we should not modify the given list)
+        return true;
     }
 
     //finding the middle node

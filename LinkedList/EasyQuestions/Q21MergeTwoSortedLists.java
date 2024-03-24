@@ -13,7 +13,7 @@ Output: [1,1,2,3,4,4]
 
 public class Q21MergeTwoSortedLists {
     
-    static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         
         //create a dummy head for reference
         ListNode dummyHead = new ListNode();
@@ -32,5 +32,13 @@ public class Q21MergeTwoSortedLists {
         }
         tail.next = (list1 != null) ? list1 : list2;
         return dummyHead.next;//return the next node from dummy head
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
 }

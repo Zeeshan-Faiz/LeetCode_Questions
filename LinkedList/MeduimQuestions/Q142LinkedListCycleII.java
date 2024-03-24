@@ -15,4 +15,24 @@ Explanation: There is a cycle in the linked list, where tail connects to the sec
 
 public class Q142LinkedListCycleII {
     
+    static ListNode detectCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            //the moment our two pointers meet, start the slow from head and make both the pointers
+            //move one step, at the end both will meet at the start of the cycle
+            if (fast == slow) {
+                slow = head;
+                while (slow != fast) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                return slow;
+            }
+        }
+        return null;
+    }
 }

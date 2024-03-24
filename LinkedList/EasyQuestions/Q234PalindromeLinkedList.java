@@ -44,7 +44,7 @@ public class Q234PalindromeLinkedList {
     }
 
     //reversing a list
-    public ListNode reverseList(ListNode head) {
+    static ListNode reverseList(ListNode head) {
         if (head == null) {
             return head;
         }
@@ -63,4 +63,11 @@ public class Q234PalindromeLinkedList {
         return prev;
     }
 
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
 }

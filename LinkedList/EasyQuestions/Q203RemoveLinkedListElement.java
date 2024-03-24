@@ -15,7 +15,7 @@ public class Q203RemoveLinkedListElement {
         
         ListNode temp = new ListNode(0);//dummy node
         ListNode curr = temp;
-        temp.next = head;//dummy node added ahead of head of the given list
+        temp.next = head;//dummy node added ahead of head node of the given list
         while(curr.next != null ){
             if(curr.next.val == val) 
                 curr.next = curr.next.next;//found value then skip it

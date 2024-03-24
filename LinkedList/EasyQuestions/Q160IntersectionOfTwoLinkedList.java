@@ -16,4 +16,13 @@ while the nodes with value 8 in A and B (3rd node in A and 4th node in B) point 
 
 public class Q160IntersectionOfTwoLinkedList {
     
+    static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        
+        ListNode ptrA = headA, ptrB = headB;
+        while (ptrA != ptrB) { // loop until we found the first common node
+            ptrA = ptrA == null ? headB : ptrA.next; // once we're done with A, move to B
+            ptrB = ptrB == null ? headA : ptrB.next; // once we're done with B, move to A
+        }
+        return ptrA;
+    }
 }

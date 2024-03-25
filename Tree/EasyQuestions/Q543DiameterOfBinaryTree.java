@@ -18,18 +18,18 @@ public class Q543DiameterOfBinaryTree {
     public int diameterOfBinaryTree(TreeNode root) {
         
         height(root);
-        return diameter-1;
+        return diameter;
     }
 
     int height(TreeNode node) {
-        if(node == null) {
+        
+        if(node == null) 
             return 0;
-        }
 
-        int leftHeight = height(node.left);
-        int rightHeight = height(node.right);
+        int leftHeight = height(node.left);//find left hight of the current node
+        int rightHeight = height(node.right);//find right hight of the current node
 
-        int dia = leftHeight + rightHeight + 1;
+        int dia = leftHeight + rightHeight;
         diameter = Math.max(diameter, dia);
 
         return Math.max(leftHeight, rightHeight) + 1;

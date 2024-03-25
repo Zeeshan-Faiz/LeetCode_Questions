@@ -10,4 +10,17 @@ Output: [4,7,2,9,6,3,1]
 
 public class Q226InvertBinaryTree {
     
+    public TreeNode invertTree(TreeNode root) {
+        
+        if (root == null) 
+           return null;
+
+       TreeNode left = invertTree(root.left);
+       TreeNode right = invertTree(root.right);
+
+       root.left = right;
+       root.right = left;
+
+       return root;
+   }
 }

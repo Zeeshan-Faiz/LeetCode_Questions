@@ -1,5 +1,7 @@
 package Tree.EasyQuestions;
 
+import javax.swing.tree.TreeNode;
+
 /*
 Given the root of a binary tree, return the length of the diameter of the tree.
 The diameter of a binary tree is the length of the longest path between any two nodes in a tree. 
@@ -14,4 +16,24 @@ Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
 
 public class Q543DiameterOfBinaryTree {
     
+    int diameter = 0;
+    public int diameterOfBinaryTree(TreeNode root) {
+        
+        height(root);
+        return diameter-1;
+    }
+
+    int height(TreeNode node) {
+        if(node == null) {
+            return 0;
+        }
+
+        int leftHeight = height(node.left);
+        int rightHeight = height(node.right);
+
+        int dia = leftHeight + rightHeight + 1;
+        diameter = Math.max(diameter, dia);
+
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
 }

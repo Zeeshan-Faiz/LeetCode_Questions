@@ -16,5 +16,13 @@ Output: false
 */
 
 public class Q572SubtreeOfAnotherTree {
-    
+
+    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+        if (root == null)
+            return false;
+        if (dfs(root, subRoot))
+            return true;
+        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+
+    }
 }

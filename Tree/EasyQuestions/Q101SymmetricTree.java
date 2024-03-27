@@ -15,6 +15,7 @@ Output: true
 public class Q101SymmetricTree {
 
     public boolean isSymmetric(TreeNode root) {
+        
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root.left);
         queue.add(root.right);
@@ -23,18 +24,16 @@ public class Q101SymmetricTree {
             TreeNode left = queue.poll();
             TreeNode right = queue.poll();
 
-            if (left == null && right == null) {
+            if (left == null && right == null)
                 continue;
-            }
 
-            if (left == null || right == null) {
+            if (left == null || right == null)
                 return false;
-            }
 
-            if (left.val != right.val) {
+            if (left.val != right.val)
                 return false;
-            }
 
+            //add smartly in the queue in order to compare the nodes correctly for next levels
             queue.add(left.left);
             queue.add(right.right);
             queue.add(left.right);

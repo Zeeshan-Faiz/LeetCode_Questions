@@ -14,11 +14,10 @@ public class Q938RangeSumOfBST {
 
     public int rangeSumBST(TreeNode root, int low, int high) {
 
-        if (root == null) {
+        if (root == null)
             return 0;
-        }
+        
         int sum = 0;
-
         //If value of current node lies in the range given in the input then recurse for both left and right
         if (low <= root.val && high >= root.val)
             sum += root.val + rangeSumBST(root.left, low, high) + rangeSumBST(root.right, low, high);

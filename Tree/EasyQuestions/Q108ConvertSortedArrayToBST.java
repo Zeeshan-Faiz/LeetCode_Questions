@@ -11,5 +11,8 @@ Explanation: [0,-10,5,null,-3,null,9] is also accepted:
 */
 
 public class Q108ConvertSortedArrayToBST {
-    
+
+    public TreeNode sortedArrayToBST(int[] nums) {
+        return CreateBST(nums, 0, nums.length - 1);
+    }
 }

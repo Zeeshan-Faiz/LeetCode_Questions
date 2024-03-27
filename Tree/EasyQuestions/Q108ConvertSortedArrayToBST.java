@@ -18,21 +18,19 @@ public class Q108ConvertSortedArrayToBST {
 
     private TreeNode CreateBST(int nums[], int l, int r) {
         
-        if (l > r) { // Base Condition or Recursion Stoping Condition
+        if (l > r) 
             return null;
-        }
-        // so basically in this question we have to convert sorted array to height
-        // balanced tree
-        // so if we directly create tree in given sorted order it will become linked
-        // list
-        // so we have to take middle element as head value such it will become height
-        // balanced tree
-        int mid = l + (r - l) / 2; // this is the formula to find mid value
-        TreeNode root = new TreeNode(nums[mid]); // mid value or median
-        root.left = CreateBST(nums, l, mid - 1); // assign the value for left of subtree that is l to mid -1 for given
-                                                 // array
-        root.right = CreateBST(nums, mid + 1, r); // assign the value for right go subtree that is mid+1 to r for given
-                                                  // array
+        
+        // we take middle element as head value such it will become height balanced tree
+        int mid = l + (r - l) / 2; 
+        TreeNode root = new TreeNode(nums[mid]);
+
+        // assign the value for left of subtree that is l to mid -1 for given array
+        root.left = CreateBST(nums, l, mid - 1);
+
+        // assign the value for right go subtree that is mid+1 to r for given array
+        root.right = CreateBST(nums, mid + 1, r);
+        
         return root;
     }
 

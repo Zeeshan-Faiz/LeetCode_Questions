@@ -11,5 +11,20 @@ Explanation: Nodes 7, 10, and 15 are in the range [7, 15]. 7 + 10 + 15 = 32.
 */
 
 public class Q938RangeSumOfBST {
-    
+
+    public int rangeSumBST(TreeNode root, int low, int high) {
+
+        if (root == null) {
+            return 0;
+        }
+        int sum = 0;
+        if (low <= root.val && high >= root.val) {
+            sum += root.val + rangeSumBST(root.left, low, high) + rangeSumBST(root.right, low, high);
+        } else if (low > root.val) {
+            sum += rangeSumBST(root.right, low, high);
+        } else if (high < root.val) {
+            sum += rangeSumBST(root.left, low, high);
+        }
+        return sum;
+    }
 }

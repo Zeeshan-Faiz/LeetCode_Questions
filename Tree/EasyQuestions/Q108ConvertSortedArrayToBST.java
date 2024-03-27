@@ -13,10 +13,10 @@ Explanation: [0,-10,5,null,-3,null,9] is also accepted:
 public class Q108ConvertSortedArrayToBST {
 
     public TreeNode sortedArrayToBST(int[] nums) {
-        return CreateBST(nums, 0, nums.length - 1);
+        return createBST(nums, 0, nums.length - 1);
     }
 
-    private TreeNode CreateBST(int nums[], int l, int r) {
+    private TreeNode createBST(int nums[], int l, int r) {
 
         if (l > r)
             return null;
@@ -26,10 +26,10 @@ public class Q108ConvertSortedArrayToBST {
         TreeNode root = new TreeNode(nums[mid]);
 
         // assign the value for left of subtree that is l to mid -1 for given array
-        root.left = CreateBST(nums, l, mid - 1);
+        root.left = createBST(nums, l, mid - 1);
 
         // assign the value for right go subtree that is mid+1 to r for given array
-        root.right = CreateBST(nums, mid + 1, r);
+        root.right = createBST(nums, mid + 1, r);
 
         return root;
     }

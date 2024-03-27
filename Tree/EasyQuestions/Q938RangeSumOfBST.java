@@ -18,13 +18,19 @@ public class Q938RangeSumOfBST {
             return 0;
         }
         int sum = 0;
-        if (low <= root.val && high >= root.val) {
+
+        //If value of current node lies in the range given in the input then recurse for both left and right
+        if (low <= root.val && high >= root.val)
             sum += root.val + rangeSumBST(root.left, low, high) + rangeSumBST(root.right, low, high);
-        } else if (low > root.val) {
+
+        // if the value of current node is less then 'low' then recurse for right child of the current node
+        else if (low > root.val)
             sum += rangeSumBST(root.right, low, high);
-        } else if (high < root.val) {
+
+        //Else if the value of current node is greater than 'high' then recurse for the left 
+        else if (high < root.val) 
             sum += rangeSumBST(root.left, low, high);
-        }
+
         return sum;
     }
 

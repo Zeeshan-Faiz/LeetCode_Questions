@@ -17,6 +17,7 @@ public class Q101SymmetricTree {
     public boolean isSymmetric(TreeNode root) {
         
         Queue<TreeNode> queue = new LinkedList<>();
+        //add both left and right nodes of the root node
         queue.add(root.left);
         queue.add(root.right);
 

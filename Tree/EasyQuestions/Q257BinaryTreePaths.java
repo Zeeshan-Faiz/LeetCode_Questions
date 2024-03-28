@@ -29,16 +29,17 @@ public class Q257BinaryTreePaths {
             return;
         int length = sb.length();
 
-        // Append the current node's value to the path.
+        //append the current node's value to the path.
         sb.append(root.val);
-        // If it's a leaf node, add the path to the result list.
+        //if it's a leaf node, add the path to the result list.
         if (root.left == null && root.right == null) {
             ans.add(sb.toString());
         }
+        //otherwise keep on adding the nodes
         sb.append("->");
         helper(root.left, sb);
         helper(root.right, sb);
-        sb.setLength(length);
+        sb.setLength(length);//remove already added paths by reducing the length of sb
     }
 
     public class TreeNode {

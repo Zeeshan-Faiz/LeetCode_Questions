@@ -19,11 +19,12 @@ public class Q257BinaryTreePaths {
     public List<String> binaryTreePaths(TreeNode root) {
 
         StringBuilder sb = new StringBuilder();
-        loop(root, sb);
+        helper(root, sb);
         return ans;
     }
 
-    private void loop(TreeNode root, StringBuilder sb) {
+    private void helper(TreeNode root, StringBuilder sb) {
+        
         if (root == null)
             return;
         int length = sb.length();
@@ -35,8 +36,8 @@ public class Q257BinaryTreePaths {
             ans.add(sb.toString());
         }
         sb.append("->");
-        loop(root.left, sb);
-        loop(root.right, sb);
+        helper(root.left, sb);
+        helper(root.right, sb);
         sb.setLength(length);
     }
 

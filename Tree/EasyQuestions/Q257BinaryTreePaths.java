@@ -1,5 +1,8 @@
 package Tree.EasyQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Given the root of a binary tree, return all root-to-leaf paths in any order.
 A leaf is a node with no children.
@@ -11,4 +14,11 @@ Output: ["1->2->5","1->3"]
 
 public class Q257BinaryTreePaths {
     
+    List<String> ans = new ArrayList<String>();
+    public List<String> binaryTreePaths(TreeNode root) {
+
+        StringBuilder sb = new StringBuilder();
+        loop(root,sb);
+        return ans;
+    }
 }

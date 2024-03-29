@@ -14,5 +14,22 @@ Output: 1
 */
 
 public class Q530MinAbsoluteDifference {
-    
+
+    int res = Integer.MAX_VALUE;
+    int prev = -1;//to store previous node value
+
+    public int getMinimumDifference(TreeNode root) {
+        
+        if (root == null)
+            return 0;
+        //In-Order Traversal
+        getMinimumDifference(root.left);
+        if (prev != -1)
+            res = Math.min(res, Math.abs(prev - root.val));
+        
+        prev = root.val;
+        getMinimumDifference(root.right);
+
+        return res;
+    }
 }

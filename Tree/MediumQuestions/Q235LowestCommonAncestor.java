@@ -15,23 +15,38 @@ Explanation: The LCA of nodes 2 and 8 is 6.
 */
 
 public class Q235LowestCommonAncestor {
-    
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        
-        if ( root == null || root == p || root == q ) 
-           return root;
-       
-       TreeNode left = lowestCommonAncestor(root.left, p, q);
-       TreeNode right = lowestCommonAncestor(root.right, p, q);
 
-       // if Left is NULL, Right will be our answer
-       if ( left == null ) return right;
+        if (root == null || root == p || root == q)
+            return root;
 
-       // if Rigth is NULL, Left be our answer
-       else if ( right == null ) return left;
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
 
-       // if both are NOT NULL, then that node is our answer 
-       else 
-           return root;
-   }
+        // if Left is NULL, Right will be our answer
+        if (left == null)
+            return right;
+
+        // if Rigth is NULL, Left be our answer
+        else if (right == null)
+            return left;
+
+        // if both are NOT NULL, then that node is our answer
+        else
+            return root;
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
 }

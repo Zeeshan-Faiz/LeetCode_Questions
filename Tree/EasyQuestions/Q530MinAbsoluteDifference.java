@@ -12,7 +12,7 @@ Example 2:
 Input: root = [1,0,48,null,null,12,49]
 Output: 1
 */
-
+ 
 public class Q530MinAbsoluteDifference {
 
     int res = Integer.MAX_VALUE;

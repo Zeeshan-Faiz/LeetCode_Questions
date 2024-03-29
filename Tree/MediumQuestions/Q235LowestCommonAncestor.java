@@ -24,15 +24,15 @@ public class Q235LowestCommonAncestor {
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
 
-        // if Left is NULL, Right will be our answer
+        //if Left is NULL, Right will be our answer
         if (left == null)
             return right;
 
-        // if Rigth is NULL, Left be our answer
+        //if Rigth is NULL, Left be our answer
         else if (right == null)
             return left;
 
-        // if both are NOT NULL, then that node is our answer
+        //if both are NOT NULL, then that node is our answer
         else
             return root;
     }

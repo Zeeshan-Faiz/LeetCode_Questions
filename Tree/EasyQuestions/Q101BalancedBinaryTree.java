@@ -24,18 +24,20 @@ public class Q101BalancedBinaryTree {
             return false;
 		return true;
 	}
-    // Create a function to return the “height” of a current subtree using recursion...
+    // Create a function to return the “height” of a current subtree using recursion
 	public int Height(TreeNode root) {
-        // Base case...
-		if (root == null)  return 0;
+        
+		if (root == null) 
+            return 0;
+        
         // Height of left subtree...
 		int leftHeight = Height(root.left);
         // Height of height subtree...
 		int rightHight = Height(root.right);
-        // In case of left subtree or right subtree unbalanced, return -1...
-		if (leftHeight == -1 || rightHight == -1)  return -1;
-        // If their heights differ by more than ‘1’, return -1...
-        if (Math.abs(leftHeight - rightHight) > 1)  return -1;
+        // In case of left subtree or right subtree unbalanced, or heights differ by more than ‘1’, return -1
+		if ((leftHeight == -1 || rightHight == -1) || (Math.abs(leftHeight - rightHight) > 1))
+            return -1;
+
         // Otherwise, return the height of this subtree as max(leftHeight, rightHight) + 1...
 		return Math.max(leftHeight, rightHight) + 1;
     }

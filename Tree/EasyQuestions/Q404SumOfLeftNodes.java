@@ -17,7 +17,7 @@ public class Q404SumOfLeftNodes {
         if (root == null) {
             return 0;
         }
-        //Adding only leaf node
+        //Adding only left node
         if (root.left != null && root.left.left == null && root.left.right == null) 
             ans += root.left.val;
         

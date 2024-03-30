@@ -11,5 +11,19 @@ Explanation: There are two left leaves in the binary tree, with values 9 and 15 
 */
 
 public class Q404SumOfLeftNodes {
-    
+
+    int ans = 0;
+    public int sumOfLeftLeaves(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        // -For Leaf Node
+        if (root.left != null && root.left.left == null && root.left.right == null) {
+            // - This way only left leaf data will be added
+            ans += root.left.val;
+        }
+        sumOfLeftLeaves(root.left);
+        sumOfLeftLeaves(root.right);
+        return ans;
+    }
 }

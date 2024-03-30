@@ -41,4 +41,17 @@ public class Q101BalancedBinaryTree {
         // Otherwise, return the height of this subtree as max(leftHeight, rightHight) + 1...
 		return Math.max(leftHeight, rightHight) + 1;
     }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
 }

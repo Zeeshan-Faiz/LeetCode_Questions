@@ -16,15 +16,14 @@ public class Q101BalancedBinaryTree {
     
     public boolean isBalanced(TreeNode root) {
         
-        // If the tree is empty, we can say it’s balanced...
         if (root == null) 
             return true;
-        // Height Function will return -1, when it’s an unbalanced tree...
+        // If height Function will return -1, when it’s an unbalanced tree...
 		if (Height(root) == -1) 
             return false;
 		return true;
 	}
-    // Create a function to return the “height” of a current subtree using recursion
+    // Function to return the “height” of a current subtree using recursion
 	public int Height(TreeNode root) {
         
 		if (root == null) 

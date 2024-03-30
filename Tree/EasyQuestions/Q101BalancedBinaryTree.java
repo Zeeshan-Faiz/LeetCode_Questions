@@ -29,15 +29,14 @@ public class Q101BalancedBinaryTree {
 		if (root == null) 
             return 0;
         
-        // Height of left subtree...
+        // Height of left & right subtree
 		int leftHeight = Height(root.left);
-        // Height of height subtree...
 		int rightHight = Height(root.right);
         // In case of left subtree or right subtree unbalanced, or heights differ by more than ‘1’, return -1
 		if ((leftHeight == -1 || rightHight == -1) || (Math.abs(leftHeight - rightHight) > 1))
             return -1;
 
-        // Otherwise, return the height of this subtree as max(leftHeight, rightHight) + 1...
+        // Otherwise, return the height of this subtree as max(leftHeight, rightHight) + 1
 		return Math.max(leftHeight, rightHight) + 1;
     }
 

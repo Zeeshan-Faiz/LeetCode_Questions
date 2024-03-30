@@ -17,11 +17,10 @@ public class Q404SumOfLeftNodes {
         if (root == null) {
             return 0;
         }
-        // -For Leaf Node
-        if (root.left != null && root.left.left == null && root.left.right == null) {
-            // - This way only left leaf data will be added
+        //Adding only leaf node
+        if (root.left != null && root.left.left == null && root.left.right == null) 
             ans += root.left.val;
-        }
+        
         sumOfLeftLeaves(root.left);
         sumOfLeftLeaves(root.right);
         return ans;

@@ -35,4 +35,17 @@ public class Q1448CountGoodNodes {
         return goodNodesUtil(root.left, maxSoFar) + 
                 goodNodesUtil(root.right, maxSoFar) + isGoodNode;
     }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
 }

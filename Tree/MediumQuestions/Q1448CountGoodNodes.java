@@ -32,8 +32,7 @@ public class Q1448CountGoodNodes {
             isGoodNode = 1;
             maxSoFar = root.val;
         }
-        return helper(root.left, maxSoFar) + 
-                helper(root.right, maxSoFar) + isGoodNode;
+        return helper(root.left, maxSoFar) + helper(root.right, maxSoFar) + isGoodNode;
     }
 
     public class TreeNode {

@@ -17,4 +17,7 @@ Node 3 -> (3,1,3) is the maximum value in the path.
 
 public class Q1448CountGoodNodes {
     
+    public int goodNodes(TreeNode root) {
+        return goodNodesUtil(root, Integer.MIN_VALUE);
+    }
 }

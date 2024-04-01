@@ -20,4 +20,19 @@ public class Q1448CountGoodNodes {
     public int goodNodes(TreeNode root) {
         return goodNodesUtil(root, Integer.MIN_VALUE);
     }
+
+    private int goodNodesUtil(TreeNode root, int maxSoFar) {
+
+        if (root == null)
+            return 0;
+        
+        int isGoodNode = 0;
+        
+        if (root.val >= maxSoFar) {
+            isGoodNode = 1;
+            maxSoFar = root.val;
+        }
+        return goodNodesUtil(root.left, maxSoFar) + 
+                goodNodesUtil(root.right, maxSoFar) + isGoodNode;
+    }
 }

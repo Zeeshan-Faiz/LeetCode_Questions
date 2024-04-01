@@ -18,10 +18,10 @@ Node 3 -> (3,1,3) is the maximum value in the path.
 public class Q1448CountGoodNodes {
     
     public int goodNodes(TreeNode root) {
-        return goodNodesUtil(root, Integer.MIN_VALUE);
+        return helper(root, Integer.MIN_VALUE);
     }
 
-    private int goodNodesUtil(TreeNode root, int maxSoFar) {
+    private int helper(TreeNode root, int maxSoFar) {
 
         if (root == null)
             return 0;
@@ -32,8 +32,8 @@ public class Q1448CountGoodNodes {
             isGoodNode = 1;
             maxSoFar = root.val;
         }
-        return goodNodesUtil(root.left, maxSoFar) + 
-                goodNodesUtil(root.right, maxSoFar) + isGoodNode;
+        return helper(root.left, maxSoFar) + 
+                helper(root.right, maxSoFar) + isGoodNode;
     }
 
     public class TreeNode {

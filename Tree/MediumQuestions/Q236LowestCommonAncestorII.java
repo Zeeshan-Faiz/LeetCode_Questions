@@ -28,7 +28,6 @@ public class Q236LowestCommonAncestorII {
         TreeNode left = lowestCommonAncestor(root.left,p,q);
         TreeNode right = lowestCommonAncestor(root.right,p,q);
 
-        // result
         if(left == null)
             return right;
         else if(right == null)

@@ -38,7 +38,7 @@ public class Q103BinaryZigZagLevelOrderTraversal {
                 if(temp.right!=null)
                     queue.add(temp.right);
                 
-                //cleverly add the nodes in the list for different levels
+                //cleverly add the nodes in the list for different levels in Zig-Zag order
                 if(level%2==0)
                     ans.add(temp.val);
                 else

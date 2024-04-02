@@ -15,38 +15,57 @@ Output: [[3],[20,9],[15,7]]
 */
 
 public class Q103BinaryZigZagLevelOrderTraversal {
-    
+
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        
+
         List<List<Integer>> result = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
-        if(root == null)
+        if (root == null)
             return new ArrayList<>();
-        
+
         queue.offer(root);
         int level = 0;
-        while(!queue.isEmpty()){
-            
+        while (!queue.isEmpty()) {
+
             int len = queue.size();
             List<Integer> ans = new ArrayList<>();
-            
-            for(int i=0;i<len;i++){
-                TreeNode temp=queue.poll();
-                if(temp.left!=null)
+
+            for (int i = 0; i < len; i++) {
+                TreeNode temp = queue.poll();
+                if (temp.left != null)
                     queue.add(temp.left);
-                
-                if(temp.right!=null)
+
+                if (temp.right != null)
                     queue.add(temp.right);
-                
-                //cleverly add the nodes in the list for different levels in Zig-Zag order
-                if(level%2==0)
+
+                // cleverly add the nodes in the list for different levels in Zig-Zag order
+                if (level % 2 == 0)
                     ans.add(temp.val);
                 else
-                    ans.add(0,temp.val);
+                    ans.add(0, temp.val);
             }
             level++;
             result.add(ans);
         }
         return result;
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }

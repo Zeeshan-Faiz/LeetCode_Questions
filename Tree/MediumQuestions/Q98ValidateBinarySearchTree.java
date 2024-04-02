@@ -15,4 +15,7 @@ Output: true
 
 public class Q98ValidateBinarySearchTree {
     
+    public boolean isValidBST(TreeNode root) {
+        return helper(root, null, null);
+    }
 }

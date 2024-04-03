@@ -1,5 +1,7 @@
 package Tree.MediumQuestions;
 
+import org.w3c.dom.Node;
+
 /*
 You are given a perfect binary tree where all leaves are on the same level, 
 and every parent has two children.Populate each next pointer to point to its next right node. 
@@ -15,5 +17,25 @@ order as connected by the next pointers, with '#' signifying the end of each lev
 */
 
 public class Q116PopulatingNextPointersInEachNode {
-    
+
+    public Node connect(Node root) {
+        
+        if (root == null)
+            return null;
+
+        Node leftMost = root;
+
+        while (leftMost.left != null) {
+            Node current = leftMost;
+            while (current != null) {
+                current.left.next = current.right;
+                if (current.next != null) {
+                    current.right.next = current.next.left;
+                }
+                current = current.next;
+            }
+            leftMost = leftMost.left;
+        }
+        return root;
+    }
 }

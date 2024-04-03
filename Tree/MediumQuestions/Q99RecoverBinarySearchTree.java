@@ -16,5 +16,15 @@ Explanation: 2 cannot be in the right subtree of 3 because 2 < 3. Swapping 2 and
 */
 
 public class Q99RecoverBinarySearchTree {
-    
+
+    TreeNode prev = null, first = null, second = null;
+
+    public void recoverTree(TreeNode root) {
+        if (root == null)
+            return;
+        inorder(root);
+        int temp = first.val;
+        first.val = second.val;
+        second.val = temp;
+    }
 }

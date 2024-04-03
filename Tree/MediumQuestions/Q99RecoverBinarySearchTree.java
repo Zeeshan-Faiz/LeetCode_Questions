@@ -27,4 +27,18 @@ public class Q99RecoverBinarySearchTree {
         first.val = second.val;
         second.val = temp;
     }
+
+    //Inorder of BST gives sorted array, from this we can find the two wrong nodes
+    void inorder(TreeNode root){
+        if(root==null)
+            return;
+        inorder(root.left);
+        if(prev!=null&&root.val<prev.val){
+            if(first==null)
+                first=prev;
+            second=root;
+        }
+        prev=root;
+        inorder(root.right);
+    }
 }

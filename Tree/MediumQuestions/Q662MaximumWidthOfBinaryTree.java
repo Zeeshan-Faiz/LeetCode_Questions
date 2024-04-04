@@ -1,5 +1,7 @@
 package Tree.MediumQuestions;
 
+import java.util.LinkedList;
+
 /*
 Given the root of a binary tree, return the maximum width of the given tree.
 
@@ -22,5 +24,32 @@ Explanation: The maximum width exists in the fourth level with length 7 (6,null,
 */
 
 public class Q662MaximumWidthOfBinaryTree {
-    
+
+    public int widthOfBinaryTree(TreeNode root) {
+
+        LinkedList<pair> q = new LinkedList<>();
+        int max = Integer.MIN_VALUE;
+
+        if (root == null)
+            return 0;
+
+        q.addLast(new pair(root, 0));
+        while (!q.isEmpty()) {
+            int size = q.size();
+            // take the difference of the left and right indexes and add 1 to get the width.
+            max = Math.max(max, (q.getLast().level - q.getFirst().level + 1));
+
+            for (int i = 0; i < size; i++) {
+                pair element = q.removeFirst();
+                // The left child of root is given an index of (2* level)
+                if (element.root.left != null)
+                    q.addLast(new pair(element.root.left, 2 * element.level));
+
+                // the right child is given an index of (2*level+1)
+                if (element.root.right != null)
+                    q.addLast(new pair(element.root.right, 2 * element.level + 1));
+            }
+        }
+        return max;
+    }
 }

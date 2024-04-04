@@ -30,10 +30,10 @@ public class Q662MaximumWidthOfBinaryTree {
         if (root == null)
             return 0;
 
-        LinkedList<pair> list = new LinkedList<>();
+        LinkedList<Pair> list = new LinkedList<>();
         int max = Integer.MIN_VALUE;
-        list.addLast(new pair(root, 0));
-        
+        list.addLast(new Pair(root, 0));
+
         while (!list.isEmpty()) {
             
             int size = list.size();
@@ -41,23 +41,23 @@ public class Q662MaximumWidthOfBinaryTree {
             max = Math.max(max, (list.getLast().level - list.getFirst().level + 1));
 
             for (int i = 0; i < size; i++) {
-                pair element = list.removeFirst();
+                Pair element = list.removeFirst();
                 // The left child of root is given an index of (2* level)
                 if (element.root.left != null)
-                    list.addLast(new pair(element.root.left, 2 * element.level));
+                    list.addLast(new Pair(element.root.left, 2 * element.level));
 
                 // the right child is given an index of (2*level+1)
                 if (element.root.right != null)
-                    list.addLast(new pair(element.root.right, 2 * element.level + 1));
+                    list.addLast(new Pair(element.root.right, 2 * element.level + 1));
             }
         }
         return max;
     }
 
-    static class pair {
+    static class Pair {
         int level;
         TreeNode root;
-        public pair(TreeNode root, int level)
+        public Pair(TreeNode root, int level)
         {
             this.level=level;
             this.root=root;

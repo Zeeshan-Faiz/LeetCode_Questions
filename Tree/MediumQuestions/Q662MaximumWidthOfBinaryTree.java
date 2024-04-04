@@ -27,27 +27,28 @@ public class Q662MaximumWidthOfBinaryTree {
 
     public int widthOfBinaryTree(TreeNode root) {
 
-        LinkedList<pair> q = new LinkedList<>();
+        LinkedList<pair> list = new LinkedList<>();
         int max = Integer.MIN_VALUE;
 
         if (root == null)
             return 0;
 
-        q.addLast(new pair(root, 0));
-        while (!q.isEmpty()) {
-            int size = q.size();
+        list.addLast(new pair(root, 0));
+        while (!list.isEmpty()) {
+            
+            int size = list.size();
             // take the difference of the left and right indexes and add 1 to get the width.
-            max = Math.max(max, (q.getLast().level - q.getFirst().level + 1));
+            max = Math.max(max, (list.getLast().level - list.getFirst().level + 1));
 
             for (int i = 0; i < size; i++) {
-                pair element = q.removeFirst();
+                pair element = list.removeFirst();
                 // The left child of root is given an index of (2* level)
                 if (element.root.left != null)
-                    q.addLast(new pair(element.root.left, 2 * element.level));
+                    list.addLast(new pair(element.root.left, 2 * element.level));
 
                 // the right child is given an index of (2*level+1)
                 if (element.root.right != null)
-                    q.addLast(new pair(element.root.right, 2 * element.level + 1));
+                    list.addLast(new pair(element.root.right, 2 * element.level + 1));
             }
         }
         return max;

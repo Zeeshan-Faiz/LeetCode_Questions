@@ -21,6 +21,7 @@ public class Q114FlattenBinaryTreeToLinkedList {
 
         TreeNode current = root;
         while (current != null) {
+            
             if (current.left != null) {
                 TreeNode temp = current.left;
                 // Find the rightmost null value for this current.left node
@@ -39,6 +40,19 @@ public class Q114FlattenBinaryTreeToLinkedList {
             }
             // move on to the next right node
             current = current.right;
+        }
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
         }
     }
 }

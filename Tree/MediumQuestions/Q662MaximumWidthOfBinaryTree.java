@@ -53,4 +53,14 @@ public class Q662MaximumWidthOfBinaryTree {
         }
         return max;
     }
+
+    static class pair {
+        int level;
+        TreeNode root;
+        public pair(TreeNode root, int level)
+        {
+            this.level=level;
+            this.root=root;
+        }
+    }
 }

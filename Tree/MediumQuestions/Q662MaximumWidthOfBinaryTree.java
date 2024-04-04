@@ -27,13 +27,13 @@ public class Q662MaximumWidthOfBinaryTree {
 
     public int widthOfBinaryTree(TreeNode root) {
 
-        LinkedList<pair> list = new LinkedList<>();
-        int max = Integer.MIN_VALUE;
-
         if (root == null)
             return 0;
 
+        LinkedList<pair> list = new LinkedList<>();
+        int max = Integer.MIN_VALUE;
         list.addLast(new pair(root, 0));
+        
         while (!list.isEmpty()) {
             
             int size = list.size();

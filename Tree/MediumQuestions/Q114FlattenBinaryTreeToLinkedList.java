@@ -29,7 +29,7 @@ public class Q114FlattenBinaryTreeToLinkedList {
                     temp = temp.right;
                 }
 
-                // add all the left sub-tree to the right most node having null value to it's right
+                // add all the right sub-tree to the left of right node most node having null value to it's right
                 temp.right = current.right;
 
                 // add all the shifted nodes to right of the current node

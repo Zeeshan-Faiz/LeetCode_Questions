@@ -35,11 +35,11 @@ public class Q124BinaryTreeMaxPathSum {
         int left = helper(node.left);
         int right = helper(node.right);
 
+        //only take positive values
         left = Math.max(0, left);
         right = Math.max(0, right);
 
         int pathSum = left + right + node.val;
-
         ans = Math.max(ans, pathSum);
 
         return Math.max(left, right) + node.val;

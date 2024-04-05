@@ -13,7 +13,9 @@ Output: 6
 Explanation: The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1 + 3 = 6.
 
 Example 2:
-
+Input: root = [-10,9,20,null,null,15,7]
+Output: 42
+Explanation: The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 42.
 */
 
 public class Q124BinaryTreeMaxPathSum {

@@ -27,8 +27,8 @@ public class Q5LongestPalindromicString {
 
         // i act as a centre of palindrome
         for (int i = 0; i < input.length; i++) {
-            expandPalindrome(input, i, i);
-            expandPalindrome(input, i, i + 1);
+            expandPalindrome(input, i, i);//check for odd length palindrome
+            expandPalindrome(input, i, i + 1);//check for even length palindrome
         }
         return s.substring(lo, lo + maxLen);
     }

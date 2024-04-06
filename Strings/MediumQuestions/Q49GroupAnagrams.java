@@ -49,11 +49,9 @@ public class Q49GroupAnagrams {
             if (!map.containsKey(sortedWord)) {
                 map.put(sortedWord, new ArrayList<>());
             }
-
             // if any new word after sorting matches the already sorted word in map, it's anagram
             map.get(sortedWord).add(word);
         }
-
         // return all map values
         return new ArrayList<>(map.values());
     }

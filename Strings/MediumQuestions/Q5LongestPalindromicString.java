@@ -32,4 +32,18 @@ public class Q5LongestPalindromicString {
         }
         return s.substring(lo, lo + maxLen);
     }
+
+    public void expandPalindrome(char[] s, int j, int k) {
+        
+        while (j >= 0 && k < s.length && s[j] == s[k]) {
+            j--;// expand left
+            k++;// expand right
+        }
+
+        //resize the starting and end index of palindrome
+        if (maxLen < k - j - 1) {
+            maxLen = k - j - 1;
+            lo = j + 1;
+        }
+    }
 }

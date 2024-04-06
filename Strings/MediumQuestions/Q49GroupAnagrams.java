@@ -24,6 +24,15 @@ Input: strs = ["a"]
 Output: [["a"]]
 */
 
+/*
+{
+    Reference map
+    "aet": ["eat", "tea", "ate"],
+    "ant": ["tan", "nat"],
+    "abt": ["bat"]
+} 
+*/
+
 public class Q49GroupAnagrams {
 
     public List<List<String>> groupAnagrams(String[] strs) {

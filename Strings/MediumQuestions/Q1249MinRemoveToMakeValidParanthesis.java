@@ -12,8 +12,18 @@ Formally, a parentheses string is valid if and only if:
     It can be written as (A), where A is a valid string.
 
 Example 1:
+Input: s = "lee(t(c)o)de)"
+Output: "lee(t(c)o)de"
+Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
 
+Example 2:
+Input: s = "a)b(c)d"
+Output: "ab(c)d"
 
+Example 3:
+Input: s = "))(("
+Output: ""
+Explanation: An empty string is also valid.
 */
 
 public class Q1249MinRemoveToMakeValidParanthesis {

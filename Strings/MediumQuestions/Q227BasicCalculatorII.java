@@ -26,9 +26,8 @@ public class Q227BasicCalculatorII {
 
     public int calculate(String s) {
 
-        if (s == null || s.length() == 0) {
+        if (s == null || s.length() == 0)
             return 0;
-        }
 
         int answer = 0;
         int currentNumber = 0;
@@ -36,32 +35,34 @@ public class Q227BasicCalculatorII {
         char operator = '+';
 
         for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
+            
+            char ch = s.charAt(i);
 
-            if (c >= 48 && c <= 57) {
-                currentNumber = currentNumber * 10 + c - '0';
+            if (ch >= 48 && ch <= 57) {
+                currentNumber = currentNumber * 10 + ch - '0';
             }
-            if (i == s.length() - 1 || isOperator(c)) {
+            if (i == s.length() - 1 || isOperator(ch)) {
                 if (operator == '+') {
                     answer += lastNumber;
                     lastNumber = currentNumber;
-                } 
-                else if (operator == '-') {
+                } else if (operator == '-') {
                     answer += lastNumber;
                     lastNumber = -currentNumber;
-                } 
-                else if (operator == '*') {
+                } else if (operator == '*') {
                     lastNumber *= currentNumber;
-                } 
-                else if (operator == '/') {
+                } else if (operator == '/') {
                     lastNumber /= currentNumber;
                 }
-                operator = c;
+                operator = ch;
                 currentNumber = 0;
             }
         }
 
         answer += lastNumber;
         return answer;
+    }
+
+    private boolean isOperator(char c) {
+        return c == '*' || c == '/' || c == '-' || c == '+';
     }
 }

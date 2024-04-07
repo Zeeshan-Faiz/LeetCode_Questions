@@ -22,4 +22,23 @@ public class Q22GenerateParanthesis {
         helper(result, new char[2 * n], n, n, 0);
         return result;
     }
+
+    public void helper(List<String> result, char[] array, int left, int right, int index) {
+        
+        if (left == 0 && right == 0) {
+            result.add(new String(array));
+            return;
+        }
+
+        if (left > 0) {
+            array[index] = '(';
+            helper(result, array, left - 1, right, index + 1);
+        }
+
+        if (right > left) {
+            array[index] = ')';
+            helper(result, array, left, right - 1, index + 1);
+        }
+
+    }
 }

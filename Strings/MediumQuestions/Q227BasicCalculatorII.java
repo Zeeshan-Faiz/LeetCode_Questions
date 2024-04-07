@@ -23,5 +23,45 @@ Output: 5
 */
 
 public class Q227BasicCalculatorII {
-    
+
+    public int calculate(String s) {
+
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+
+        int answer = 0;
+        int currentNumber = 0;
+        int lastNumber = 0;
+        char operator = '+';
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            if (c >= 48 && c <= 57) {
+                currentNumber = currentNumber * 10 + c - '0';
+            }
+            if (i == s.length() - 1 || isOperator(c)) {
+                if (operator == '+') {
+                    answer += lastNumber;
+                    lastNumber = currentNumber;
+                } 
+                else if (operator == '-') {
+                    answer += lastNumber;
+                    lastNumber = -currentNumber;
+                } 
+                else if (operator == '*') {
+                    lastNumber *= currentNumber;
+                } 
+                else if (operator == '/') {
+                    lastNumber /= currentNumber;
+                }
+                operator = c;
+                currentNumber = 0;
+            }
+        }
+
+        answer += lastNumber;
+        return answer;
+    }
 }

@@ -47,11 +47,12 @@ public class Q12IntegerToRoman {
     private static final String[] symbols = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
 
     public String intToRoman(int num) {
+        
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < values.length; i++) {
             while (num >= values[i]) {
                 sb.append(symbols[i]);
-                num -= values[i];
+                num = num - values[i];
             }
         }
         return sb.toString();

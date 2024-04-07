@@ -37,27 +37,31 @@ public class Q227BasicCalculatorII {
         for (int i = 0; i < s.length(); i++) {
             
             char ch = s.charAt(i);
-
+            
+            //ch is a digit(0-9)
             if (ch >= 48 && ch <= 57) {
                 currentNumber = currentNumber * 10 + ch - '0';
             }
-            if (i == s.length() - 1 || isOperator(ch)) {
+            if (i == s.length() - 1 || isOperator(ch)) 
+            {
                 if (operator == '+') {
                     answer += lastNumber;
                     lastNumber = currentNumber;
-                } else if (operator == '-') {
+                } 
+                else if (operator == '-') {
                     answer += lastNumber;
                     lastNumber = -currentNumber;
-                } else if (operator == '*') {
+                } 
+                else if (operator == '*') {
                     lastNumber *= currentNumber;
-                } else if (operator == '/') {
+                } 
+                else if (operator == '/') {
                     lastNumber /= currentNumber;
                 }
                 operator = ch;
                 currentNumber = 0;
             }
         }
-
         answer += lastNumber;
         return answer;
     }

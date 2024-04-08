@@ -29,15 +29,17 @@ public class Q6ZigZagConversion {
 
         char[] ans = new char[length];
         int cnt = 0;
-        for (int i = 0; i < numRows; i++) {
+        for (int i = 0; i < numRows; i++) 
+        {
             int j = i, k = 0, m = 2 * (numRows - 1);
-            while (j < length) {
+            while (j < length)
+            {
                 ans[cnt++] = s.charAt(j);
-                if (i == 0 || ((i + j) % m) != 0) {
+                if (i == 0 || ((i + j) % m) != 0) 
                     k = (numRows - (i + 1)) * 2;
-                } else {
+                else
                     k = 2 * i;
-                }
+                    
                 j = j + k;
             }
         }

@@ -15,5 +15,17 @@ Output: "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven"
 */
 
 public class Q273IntegerToEnglishWord {
-    
+
+    private final String[] belowTwenty = { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
+            "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen",
+            "Nineteen" };
+    private final String[] tens = { "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty",
+            "Ninety" };
+
+    public String numberToWords(int num) {
+        if (num == 0) {
+            return "Zero";
+        }
+        return helper(num);
+    }
 }

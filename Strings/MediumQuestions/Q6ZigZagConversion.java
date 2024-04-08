@@ -22,27 +22,31 @@ P     I
 public class Q6ZigZagConversion {
 
     public String convert(String s, int numRows) {
-        
-        int length = s.length();
-        if (length == numRows || numRows == 1)
+
+        if (numRows == 1)
             return s;
 
-        char[] ans = new char[length];
-        int cnt = 0;
-        for (int i = 0; i < numRows; i++) 
-        {
-            int j = i, k = 0, m = 2 * (numRows - 1);
-            while (j < length)
+        StringBuilder answer = new StringBuilder();
+        int n = s.length();
+        int diff = 2 * (numRows - 1);
+        int diagonalDiff = diff;
+        int secondIndex, index;
+        for (int i = 0; i < numRows; i++) {
+            
+            index = i;
+            while (index < n) 
             {
-                ans[cnt++] = s.charAt(j);
-                if (i == 0 || ((i + j) % m) != 0) 
-                    k = (numRows - (i + 1)) * 2;
-                else
-                    k = 2 * i;
-                    
-                j = j + k;
+                answer.append(s.charAt(index));
+                if (i != 0 && i != numRows - 1) {
+                    diagonalDiff = diff - 2 * i;
+                    secondIndex = index + diagonalDiff;
+                    if (secondIndex < n) {
+                        answer.append(s.charAt(secondIndex));
+                    }
+                }
+                index += diff;
             }
         }
-        return new String(ans);
+        return answer.toString();
     }
 }

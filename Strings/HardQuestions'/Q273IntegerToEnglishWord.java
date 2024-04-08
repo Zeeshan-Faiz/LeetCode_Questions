@@ -30,10 +30,11 @@ public class Q273IntegerToEnglishWord {
     }
 
     private String helper(int num) {
+        
         StringBuilder result = new StringBuilder();
-        if (num < 20) {
+        if (num < 20)
             result.append(belowTwenty[num]);
-        } 
+
         else if (num < 100) {
             result.append(tens[num / 10]).append(" ").append(belowTwenty[num % 10]);
         } 

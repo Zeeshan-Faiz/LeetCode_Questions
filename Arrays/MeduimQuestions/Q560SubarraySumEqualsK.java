@@ -1,6 +1,7 @@
 package Arrays.MeduimQuestions;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /*
 Given an array of integers nums and an integer k, return the total number of subarrays whose 
@@ -18,25 +19,19 @@ Output: 2
 public class Q560SubarraySumEqualsK {
 
     public int subarraySum(int[] nums, int k) {
-        
-        int[] prevSum = new int[nums.length + 1];
-        prevSum[0] = 0;
-        int sum = 0, result = 0;
 
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
-            prevSum[i + 1] = sum;
+        int[] sum = new int[nums.length + 1];
+        Map<Integer, Integer> map = new HashMap<>();
+        int count = 0;
+        for (int i = 1; i <= nums.length; i++) {
+            sum[i] = sum[i - 1] + nums[i - 1];
+        }
+        for (int i = 0; i <= nums.length; i++) {
+            if (map.containsKey(sum[i] - k))
+                count += map.get(sum[i] - k);
+            map.put(sum[i], map.getOrDefault(sum[i], 0) + 1);
         }
 
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-        for (int i = 0; i < prevSum.length; i++) {
-            // find number of pairs where difference = k
-            if (map.containsKey(prevSum[i] - k)) {
-                result += map.get(prevSum[i] - k);
-            }
-            map.put(prevSum[i], map.getOrDefault(prevSum[i], 0) + 1);
-        }
-        return result;
+        return count;
     }
 }

@@ -26,11 +26,11 @@ public class Q238ProductOfArrayExceptItself {
         // ans[i] = prefixProd[i] * suffixProd[i]
         for (int i = 0; i < n; i++) {
             ans[i] = prefixProd;
-            prefixProd *= nums[i];
+            prefixProd = prefixProd * nums[i];
         }
         for (int i = n - 1; i >= 0; i--) {
-            ans[i] *= suffixProd;
-            suffixProd *= nums[i];
+            ans[i] = ans[i] * suffixProd;
+            suffixProd = suffixProd * nums[i];
         }
         return ans;
     }

@@ -44,7 +44,8 @@ public class Q16ThreeSumClosest {
             while (j < k) 
             {
                 int sum = nums[i] + nums[j] + nums[k];
-                if (minSum > Math.abs(target - sum)) {
+                if (minSum > Math.abs(target - sum)) 
+                {
                     minSum = Math.abs(target - sum);
                     if (minSum == 0)
                         return sum;

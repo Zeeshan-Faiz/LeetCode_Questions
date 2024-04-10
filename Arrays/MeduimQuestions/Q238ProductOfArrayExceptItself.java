@@ -1,5 +1,7 @@
 package Arrays.MeduimQuestions;
 
+import java.util.Arrays;
+
 /*
 Given an integer array nums, return an array answer such that answer[i] is equal to the product of 
 all the elements of nums except nums[i]. The product of any prefix or suffix of nums is guaranteed
@@ -17,7 +19,7 @@ Output: [0,0,9,0,0]
 
 public class Q238ProductOfArrayExceptItself {
 
-    public int[] productExceptSelf(int[] nums) {
+    public static int[] productExceptSelf(int[] nums) {
 
         int n = nums.length;
         int prefixProd = 1, suffixProd = 1;
@@ -33,5 +35,10 @@ public class Q238ProductOfArrayExceptItself {
             suffixProd = suffixProd * nums[i];
         }
         return ans;
+    }
+
+    public static void main(String[] args) {
+        
+        System.out.println(Arrays.toString(productExceptSelf(new int[] {1,2,3,4})));
     }
 }

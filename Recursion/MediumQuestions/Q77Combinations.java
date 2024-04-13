@@ -29,15 +29,15 @@ public class Q77Combinations {
         return res;
     }
 
-    public void helper(int num, int tot, int k, List<Integer> ans) {
+    public void helper(int num, int n, int k, List<Integer> ans) {
         
         if (ans.size() == k) {
             res.add(new ArrayList<>(ans));
             return;
         }
-        for (int i = num; i <= tot; i++) {
+        for (int i = num; i <= n; i++) {
             ans.add(i);
-            helper(i + 1, tot, k, ans);
+            helper(i + 1, n, k, ans);
             ans.remove(ans.size() - 1);
         }
     }

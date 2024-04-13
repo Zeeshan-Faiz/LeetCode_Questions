@@ -1,5 +1,8 @@
 package Recursion.MediumQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Given an array of distinct integers candidates and a target integer target, return a list of all 
 unique combinations of candidates where the chosen numbers sum to target. You may return the 
@@ -23,6 +26,12 @@ Example 3:
 Input: candidates = [2], target = 1
 Output: []
 */
+
 public class Q39CombinationSum {
     
+    public List<List<Integer>> combinationSum(int[] arr, int k) {
+        ArrayList<Integer> al1=new ArrayList<Integer>();
+        check(arr,k,0,al1,0);
+        return al;
+    }
 }

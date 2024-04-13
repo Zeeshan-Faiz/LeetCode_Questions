@@ -1,5 +1,8 @@
 package Recursion.MediumQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].
 You may return the answer in any order.
@@ -18,4 +21,11 @@ Explanation: There is 1 choose 1 = 1 total combination.
 
 public class Q77Combinations {
     
+    private List<List<Integer>> res = new ArrayList<>();
+    private Integer[] arr;
+    public List<List<Integer>> combine(int n, int k) {
+        arr = new Integer[k];
+        process(n, k, 1);
+        return res;
+    }
 }

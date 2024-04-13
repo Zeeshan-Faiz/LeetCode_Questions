@@ -29,9 +29,25 @@ Output: []
 
 public class Q39CombinationSum {
     
+    private List<List<Integer>> al=new ArrayList<>();
     public List<List<Integer>> combinationSum(int[] arr, int k) {
         ArrayList<Integer> al1=new ArrayList<Integer>();
         check(arr,k,0,al1,0);
         return al;
+    }
+
+    public void check(int arr[],int k,int sum,ArrayList<Integer> al1,int i){
+        if(sum==k){
+            al.add(new ArrayList<>(al1));
+            return;
+        }
+        for(int j=i;j<arr.length;j++){
+            if(sum+arr[j]>k){
+                continue;
+            }
+            al1.add(arr[j]);
+            check(arr,k,sum+arr[j],al1,j);
+            al1.remove(al1.size()-1);
+        }
     }
 }

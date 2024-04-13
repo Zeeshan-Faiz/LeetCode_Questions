@@ -20,23 +20,25 @@ Explanation: There is 1 choose 1 = 1 total combination.
 */
 
 public class Q77Combinations {
-    
-    private List<List<Integer>> res = new ArrayList<>();
-    private Integer[] arr;
+
+    List<List<Integer>> res = new ArrayList<>();
+
     public List<List<Integer>> combine(int n, int k) {
-        arr = new Integer[k];
-        process(n, k, 1);
+        List<Integer> ans = new ArrayList<>();
+        helper(1, n, k, ans);
         return res;
     }
 
-    private void process(int n, int k, int cur) {
-        if (k == 0) {
-            res.add(List.of(arr));
+    public void helper(int num, int tot, int k, List<Integer> ans) {
+        
+        if (ans.size() == k) {
+            res.add(new ArrayList<>(ans));
             return;
         }
-        for (int i = cur; i <= n - k + 1; i++) {
-            arr[arr.length - k] = i;
-            process(n, k - 1, i + 1);
+        for (int i = num; i <= tot; i++) {
+            ans.add(i);
+            helper(i + 1, tot, k, ans);
+            ans.remove(ans.size() - 1);
         }
     }
 }

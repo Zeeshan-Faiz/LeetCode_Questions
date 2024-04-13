@@ -28,4 +28,15 @@ public class Q77Combinations {
         process(n, k, 1);
         return res;
     }
+
+    private void process(int n, int k, int cur) {
+        if (k == 0) {
+            res.add(List.of(arr));
+            return;
+        }
+        for (int i = cur; i <= n - k + 1; i++) {
+            arr[arr.length - k] = i;
+            process(n, k - 1, i + 1);
+        }
+    }
 }

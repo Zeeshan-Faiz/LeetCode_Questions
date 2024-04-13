@@ -36,7 +36,7 @@ public class Q46Permutations {
             for (int i = 0; i < nums.length; i++) {
                 list.add(nums[i]);
             }
-            ans.add(/* new ArrayList<>( */list);
+            ans.add(list);
             return;
         }
         for (int i = index; i < nums.length; i++) {

@@ -32,10 +32,10 @@ public class Q698PartitionToKEqualSum {
         Arrays.sort(nums);
 
         // our target is sum/k and we have to find this in nums, k times then it is valid
-        return canPartitionKSubsets(nums, sum / k, nums.length - 1, new int[k]);
+        return helper(nums, sum / k, nums.length - 1, new int[k]);
     }
 
-    public boolean canPartitionKSubsets(int a[], int target, int i, int bucket[]) {
+    public boolean helper(int a[], int target, int i, int bucket[]) {
 
         if (i == -1)
             return true;
@@ -46,7 +46,7 @@ public class Q698PartitionToKEqualSum {
 
                 // if we take this element
                 bucket[j] += a[i];
-                if (canPartitionKSubsets(a, target, i - 1, bucket))
+                if (helper(a, target, i - 1, bucket))
                     return true;
 
                 bucket[j] -= a[i];

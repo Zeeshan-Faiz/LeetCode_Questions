@@ -22,20 +22,16 @@ public class Q698PartitionToKEqualSum {
 
         int sum = 0;
         for (int i : nums) {
-            sum += i;
+            sum = sum + i;
         }
 
         // sum%k must equal to 0 if not just return false
-        // if we have to to divide the array greater than array size retun false(we
-        // can't)
         if (sum % k != 0 || nums.length < k)
             return false;
 
-        // sort so we can take last element and start filling our bucket
         Arrays.sort(nums);
 
-        // our target is sum/k and we have to find this in nums, k times then it is
-        // valid
+        // our target is sum/k and we have to find this in nums, k times then it is valid
         return canPartitionKSubsets(nums, sum / k, nums.length - 1, new int[k]);
 
     }

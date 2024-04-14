@@ -1,5 +1,8 @@
 package Recursion.MediumQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Find all valid combinations of k numbers that sum up to n such that the following conditions are true:
     Only numbers 1 through 9 are used.
@@ -34,4 +37,11 @@ Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2
 
 public class Q216CombinationSumIII {
     
+    public List<List<Integer>> combinationSum3(int k, int n) {
+
+        List<List<Integer>> ans = new ArrayList<>();
+
+        findCombinations(k, n, ans, new ArrayList<>(), 1, 0);
+        return ans;
+    }
 }

@@ -40,7 +40,6 @@ public class Q216CombinationSumIII {
     public List<List<Integer>> combinationSum3(int k, int n) {
 
         List<List<Integer>> ans = new ArrayList<>();
-
         helper(k, n, ans, new ArrayList<>(), 1, 0);
         return ans;
     }

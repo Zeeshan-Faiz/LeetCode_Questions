@@ -19,38 +19,38 @@ public class Q40CombinationSumII {
     private List<List<Integer>> result = new ArrayList<>();
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        Arrays.sort(candidates); // Sort candidates array
-        solve(candidates, target, 0, new ArrayList<>()); // Call recursive function
+        
+        Arrays.sort(candidates);
+        helper(candidates, target, 0, new ArrayList<>());
         return result;
     }
 
-    public void solve(int[] nums, int target, int index, List<Integer> list) {
-        // Base case: if target is achieved
+    public void helper(int[] nums, int target, int index, List<Integer> list) {
+        
         if (target == 0) {
             List<Integer> temp = new ArrayList<>();
             for (int j : list) {
                 temp.add(j);
             }
-            result.add(temp); // Add current combination to result
+            result.add(temp);
             return;
         }
 
-        // Base case: if index exceeds array bounds or target is less than current
-        // element
+        //Base case: if index exceeds array bounds or target is less than current element
         if (index == nums.length || target < nums[index]) {
             return;
         }
 
         int temp = nums[index];
-        list.add(nums[index]); // Choose current element
-        solve(nums, target - nums[index], index + 1, list); // Recur with reduced target and move to next index
-        list.remove(list.size() - 1); // Backtrack: remove last element
+        list.add(nums[index]);
+        helper(nums, target - nums[index], index + 1, list);
+        list.remove(list.size() - 1); //Backtrack: remove last element
 
         int i = 1;
         while (index + i < nums.length && nums[index + i] == temp) {
             i++; // Skip duplicates
         }
-        solve(nums, target, index + i, list); // Recur without choosing current element
+        helper(nums, target, index + i, list); // Recur without choosing current element
         return;
     }
 }

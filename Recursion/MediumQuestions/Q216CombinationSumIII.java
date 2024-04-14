@@ -41,11 +41,11 @@ public class Q216CombinationSumIII {
 
         List<List<Integer>> ans = new ArrayList<>();
 
-        findCombinations(k, n, ans, new ArrayList<>(), 1, 0);
+        helper(k, n, ans, new ArrayList<>(), 1, 0);
         return ans;
     }
 
-    private void findCombinations(int k, int n, List<List<Integer>> ans, List<Integer> currList, int start, int sum) {
+    private void helper(int k, int n, List<List<Integer>> ans, List<Integer> currList, int start, int sum) {
 
         if (currList.size() == k) {
             if (sum == n)
@@ -58,11 +58,10 @@ public class Q216CombinationSumIII {
 
             if (sum + i <= n) {
                 currList.add(i);
-                findCombinations(k, n, ans, currList, i + 1, sum + i);
+                helper(k, n, ans, currList, i + 1, sum + i);
                 currList.remove(currList.size() - 1);
             } else
                 break;
-
         }
     }
 }

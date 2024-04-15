@@ -36,18 +36,18 @@ public class Q17LetterCombinationOfKeypad {
         return res;
     }
 
-    private void helper(int ind, StringBuilder comb, String digits) {
+    private void helper(int ind, StringBuilder sb, String digits) {
         
-        if (comb.length() == digits.length()) {
-            res.add(comb.toString());
+        if (sb.length() == digits.length()) {
+            res.add(sb.toString());
             return;
         }
 
-        String digit = val[digits.charAt(ind) - '0'];
-        for (char c : digit.toCharArray()) {
-            comb.append(c);
-            helper(ind + 1, comb, digits);
-            comb.deleteCharAt(comb.length() - 1);
+        String str = val[digits.charAt(ind) - '0'];
+        for (char c : str.toCharArray()) {
+            sb.append(c);
+            helper(ind + 1, sb, digits);
+            sb.deleteCharAt(sb.length() - 1);
         }
     }
 }

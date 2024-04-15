@@ -23,13 +23,30 @@ Output: ["a","b","c"]
 */
 
 public class Q17LetterCombinationOfKeypad {
-    
-    List<String> res=new ArrayList<>();
-    String[] val= {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-    public List<String> letterCombinations(String digits) {
-        if(digits==null||digits.length()==0)return res;
-        getCombinations(0,new StringBuilder(),digits);
-        return res;
 
+    List<String> res = new ArrayList<>();
+    String[] val = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+
+    public List<String> letterCombinations(String digits) {
+        if (digits == null || digits.length() == 0)
+            return res;
+        
+        getCombinations(0, new StringBuilder(), digits);
+        return res;
+    }
+
+    private void getCombinations(int l, StringBuilder comb, String digits) {
+        
+        if (comb.length() == digits.length()) {
+            res.add(comb.toString());
+            return;
+        }
+
+        String digit = val[digits.charAt(l) - '0'];
+        for (char c : digit.toCharArray()) {
+            comb.append(c);
+            getCombinations(l + 1, comb, digits);
+            comb.deleteCharAt(comb.length() - 1);
+        }
     }
 }

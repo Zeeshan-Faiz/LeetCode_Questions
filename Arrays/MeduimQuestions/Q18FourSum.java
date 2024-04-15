@@ -24,6 +24,7 @@ Output: [[2,2,2,2]]
 public class Q18FourSum {
 
     public List<List<Integer>> fourSum(int[] nums, int target) {
+        
         List<List<Integer>> ans = new ArrayList<>();
         if (nums.length < 4) {
             return ans;

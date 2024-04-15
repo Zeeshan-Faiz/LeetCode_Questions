@@ -39,7 +39,6 @@ public class Q18FourSum {
             if ((long) nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) {
                 break;
             }
-            
             if ((long) nums[i] + nums[n - 1] + nums[n - 2] + nums[n - 3] < target) {
                 continue;
             }
@@ -48,23 +47,24 @@ public class Q18FourSum {
                 if (j > i + 1 && nums[j] == nums[j - 1]) {
                     continue;
                 }
-                // 优化1
                 if ((long) nums[i] + nums[j] + nums[j + 1] + nums[j + 2] > target) {
                     break;
                 }
-                // 优化2
                 if ((long) nums[i] + nums[j] + nums[n - 1] + nums[n - 2] < target) {
                     continue;
                 }
                 int left = j + 1, right = n - 1;
                 while (left < right) {
+                    
                     long sum = nums[i] + nums[j] + nums[left] + nums[right];
                     if (sum > target) {
                         right--;
-                    } else if (sum < target) {
+                    } 
+                    else if (sum < target) {
                         left++;
-                    } else {
-                        // match
+                    } 
+                    else {
+                        //found
                         ans.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
                         while (left < right && nums[left] == nums[left + 1]) {
                             left++;

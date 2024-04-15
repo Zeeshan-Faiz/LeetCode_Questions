@@ -28,24 +28,25 @@ public class Q17LetterCombinationOfKeypad {
     String[] val = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 
     public List<String> letterCombinations(String digits) {
+        
         if (digits == null || digits.length() == 0)
             return res;
         
-        getCombinations(0, new StringBuilder(), digits);
+        helper(0, new StringBuilder(), digits);
         return res;
     }
 
-    private void getCombinations(int l, StringBuilder comb, String digits) {
+    private void helper(int ind, StringBuilder comb, String digits) {
         
         if (comb.length() == digits.length()) {
             res.add(comb.toString());
             return;
         }
 
-        String digit = val[digits.charAt(l) - '0'];
+        String digit = val[digits.charAt(ind) - '0'];
         for (char c : digit.toCharArray()) {
             comb.append(c);
-            getCombinations(l + 1, comb, digits);
+            helper(ind + 1, comb, digits);
             comb.deleteCharAt(comb.length() - 1);
         }
     }

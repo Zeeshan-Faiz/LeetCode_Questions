@@ -24,34 +24,31 @@ Explanation: You have to take all the cards. Your score is the sum of points of 
 */
 
 public class Q1423MaximumPoints {
-    
+
     public int maxScore(int[] cardPoints, int k) {
-        
+
         int points = 0;
-        for(int i = 0; i < k; i++)
-        {
+        for (int i = 0; i < k; i++) {
             points += cardPoints[i];
         }
 
         int maxPoints = points;
 
-        int left = cardPoints.length-1;
+        int left = cardPoints.length - 1;
         int right = k - 1;
 
-        while(right >= 0)
+        while (right >= 0) 
         {
-            points -= cardPoints[right];
+            points = points - cardPoints[right];
             right--;
 
-            points += cardPoints[left];
+            points = points + cardPoints[left];
             left--;
 
-            if(points > maxPoints)
-            {
+            if (points > maxPoints) {
                 maxPoints = points;
             }
         }
         return maxPoints;
-        
     }
 }

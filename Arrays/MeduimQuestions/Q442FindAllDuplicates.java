@@ -45,4 +45,10 @@ public class Q442FindAllDuplicates {
         }
         return ans;
     }
+
+    void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
 }

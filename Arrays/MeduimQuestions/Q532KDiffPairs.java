@@ -29,30 +29,26 @@ Explanation: There is one 0-diff pair in the array, (1, 1).
 */
 
 public class Q532KDiffPairs {
-    
+
     public int findPairs(int[] nums, int k) {
 
         Arrays.sort(nums);
-        int count=0;
-        int n= nums.length;
+        int count = 0;
+        int n = nums.length;
         int left = 0;
         int right = 1;
         while (left < n && right < n) 
         {
-            if (left == right || nums[right] - nums[left] < k) 
-            {
+            if (left == right || nums[right] - nums[left] < k) {
                 right++;
             } 
-            else if (nums[right] - nums[left] > k) 
-            {
+            else if (nums[right] - nums[left] > k) {
                 left++;
             } 
-            else 
-            {
+            else {
                 count++;
                 left++;
-                while (left < nums.length && nums[left] == nums[left - 1]) 
-                {
+                while (left < nums.length && nums[left] == nums[left - 1]) {
                     left++;
                 }
             }

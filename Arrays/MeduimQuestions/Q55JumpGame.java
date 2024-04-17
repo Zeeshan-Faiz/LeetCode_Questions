@@ -17,14 +17,16 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum jump 
 */
 
 public class Q55JumpGame {
-    
+
     public boolean canJump(int[] nums) {
+        
         int end = nums.length - 1;
-        for(int i = end; i >= 0; i--){
-            if(i + nums[i] >= end){
+        for (int i = end; i >= 0; i--) 
+        {
+            if (i + nums[i] >= end) {
                 end = i;
             }
         }
-        return end == 0;     
+        return end == 0;
     }
 }

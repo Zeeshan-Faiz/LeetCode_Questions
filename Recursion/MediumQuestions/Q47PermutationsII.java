@@ -24,13 +24,10 @@ public class Q47PermutationsII {
 
     public List<List<Integer>> permuteUnique(int[] nums) {
 
-        List<List<Integer>> ans = new ArrayList<>(); // ans list
-        Arrays.sort(nums); // sort the array
+        List<List<Integer>> ans = new ArrayList<>();
+        Arrays.sort(nums);
 
-        // create a boolean array which track the certain indexed integer is present in
-        // out temp list or not
-        helper(ans, new ArrayList<>(), nums, new boolean[nums.length]); // helper method
-
+        helper(ans, new ArrayList<>(), nums, new boolean[nums.length]);
         return ans; // return output
     }
 }

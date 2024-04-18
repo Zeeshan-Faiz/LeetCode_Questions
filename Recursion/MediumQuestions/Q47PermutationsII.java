@@ -1,5 +1,9 @@
 package Recursion.MediumQuestions;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /*
 Given a collection of numbers, nums, that might contain duplicates, return all possible 
 unique permutations in any order.
@@ -17,5 +21,16 @@ Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 */
 
 public class Q47PermutationsII {
-    
+
+    public List<List<Integer>> permuteUnique(int[] nums) {
+
+        List<List<Integer>> ans = new ArrayList<>(); // ans list
+        Arrays.sort(nums); // sort the array
+
+        // create a boolean array which track the certain indexed integer is present in
+        // out temp list or not
+        helper(ans, new ArrayList<>(), nums, new boolean[nums.length]); // helper method
+
+        return ans; // return output
+    }
 }

@@ -28,7 +28,7 @@ public class Q47PermutationsII {
         Arrays.sort(nums);
 
         helper(ans, new ArrayList<>(), nums, new boolean[nums.length]);
-        return ans; // return output
+        return ans;
     }
 
     private void helper(List<List<Integer>> ans, List<Integer> temp, int[] nums, boolean[] vis) {

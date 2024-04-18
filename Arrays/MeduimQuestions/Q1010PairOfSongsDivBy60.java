@@ -21,4 +21,21 @@ Explanation: All three pairs have a total duration of 120, which is divisible by
 
 public class Q1010PairOfSongsDivBy60 {
     
+    public int numPairsDivisibleBy60(int[] time) {
+        int[] remainder = new int[60];
+        int res = 0;
+        for (int t : time) {
+            int remain = t % 60;
+            if (remain == 0) {
+                res += remainder[0];
+            } else {
+                res += remainder[60 - remain];
+            }
+
+            remainder[remain]++;
+        }
+
+        return res;
+
+    }
 }

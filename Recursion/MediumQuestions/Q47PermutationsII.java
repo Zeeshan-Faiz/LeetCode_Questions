@@ -30,4 +30,29 @@ public class Q47PermutationsII {
         helper(ans, new ArrayList<>(), nums, new boolean[nums.length]);
         return ans; // return output
     }
+
+    private void helper(List<List<Integer>> ans, List<Integer> temp, int[] nums, boolean[] vis) {
+
+        if (nums.length == temp.size()) {
+            ans.add(new ArrayList<>(temp));
+            return;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+
+            if (vis[i])
+                continue; // if current element is already present in the temp, skip the element
+            if (i > 0 && !vis[i - 1] && nums[i] == nums[i - 1])
+                continue; // if prev element and current element is equal, skip the element
+
+            vis[i] = true;
+            temp.add(nums[i]);
+
+            helper(ans, temp, nums, vis);
+
+            // backtracking
+            temp.remove(temp.size() - 1);
+            vis[i] = false;
+        }
+    }
 }

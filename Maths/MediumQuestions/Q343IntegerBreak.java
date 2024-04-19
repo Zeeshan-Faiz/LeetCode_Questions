@@ -17,4 +17,15 @@ Explanation: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
 
 public class Q343IntegerBreak {
     
+    public int integerBreak(int n) {
+        
+        if(n < 4) return n - 1;
+        int ans = 1;
+        while(n > 4){
+            ans *= 3;
+            n -= 3;
+        }
+        ans *= n;
+        return ans;
+    }
 }

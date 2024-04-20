@@ -23,25 +23,25 @@ Output: [10]
 */
 
 public class Q763PartitionLabel {
-    
+
     public List<Integer> partitionLabels(String s) {
-        
-         List<Integer> res = new LinkedList<>();
+
+        List<Integer> res = new LinkedList<>();
         char[] chars = s.toCharArray();
-        //we use array as hashing to store 
-        //the latest index of each chars
+        
+        //use array as hashing to store the latest index of each chars
         int[] hash = new int[26];
-        for(int i = 0; i < chars.length ; i++){
+        for (int i = 0; i < chars.length; i++) {
             hash[chars[i] - 'a'] = i;
         }
-        //get the fathest index, initialize as -1
+        // get the fathest index
         int index = 0;
         int last = -1;
-        for(int i = 0 ; i < chars.length ; i++){
-            index = Math.max(index, hash[chars[i]-'a']);
-            if(i == index){
-                res.add(index-last);
-                last=i;
+        for (int i = 0; i < chars.length; i++) {
+            index = Math.max(index, hash[chars[i] - 'a']);
+            if (i == index) {
+                res.add(index - last);
+                last = i;
             }
         }
         return res;

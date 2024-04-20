@@ -7,7 +7,16 @@ given in any order. A valid square has four equal sides with positive length and
 angles (90-degree angles).
 
 Example 1:
+Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1]
+Output: true
 
+Example 2:
+Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,12]
+Output: false
+
+Example 3:
+Input: p1 = [1,0], p2 = [-1,0], p3 = [0,1], p4 = [0,-1]
+Output: true
 */
 
 public class Q593ValidSquare {

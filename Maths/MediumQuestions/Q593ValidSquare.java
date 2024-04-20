@@ -22,7 +22,7 @@ Output: true
 */
 
 public class Q593ValidSquare {
-    
+
     public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {
 
         // Finding Distances between all the Pair of Points (All Sides and Diagonals)
@@ -31,8 +31,8 @@ public class Q593ValidSquare {
         HashSet<Integer> set = new HashSet<>();
 
         set.add(findDistance(p1, p2));
-        set.add(findDistance(p1, p3));      
-        set.add(findDistance(p1, p4)); 
+        set.add(findDistance(p1, p3));
+        set.add(findDistance(p1, p4));
         set.add(findDistance(p2, p3));
         set.add(findDistance(p2, p4));
         set.add(findDistance(p3, p4));
@@ -41,8 +41,13 @@ public class Q593ValidSquare {
         // then those 2 values will be Length of Sides and Diagonals
         // it means that all sides are equal and Diagonals are also equal
         // so it's a Square
-        // otherwise NOT a Square 
+        // otherwise NOT a Square
 
         return !set.contains(0) && set.size() == 2;
+    }
+
+    public int findDistance(int[] p1, int[] p2) {
+
+        return (p2[0] - p1[0]) * (p2[0] - p1[0]) + (p2[1] - p1[1]) * (p2[1] - p1[1]);
     }
 }

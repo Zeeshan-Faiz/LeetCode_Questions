@@ -25,9 +25,7 @@ public class Q593ValidSquare {
 
     public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {
 
-        // Finding Distances between all the Pair of Points (All Sides and Diagonals)
-        // and adding those into the set
-
+        // Finding Distances between all the Pair of Points (All Sides and Diagonals) and adding those into the set
         HashSet<Integer> set = new HashSet<>();
 
         set.add(findDistance(p1, p2));
@@ -37,10 +35,8 @@ public class Q593ValidSquare {
         set.add(findDistance(p2, p4));
         set.add(findDistance(p3, p4));
 
-        // if Set contains only 2 values in the end
-        // then those 2 values will be Length of Sides and Diagonals
-        // it means that all sides are equal and Diagonals are also equal
-        // so it's a Square
+        // if Set contains only 2 values in the end then those 2 values will be Length of Sides and Diagonals
+        // it means that all sides are equal and Diagonals are also equal so it's a Square
         // otherwise NOT a Square
 
         return !set.contains(0) && set.size() == 2;

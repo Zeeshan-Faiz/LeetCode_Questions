@@ -23,4 +23,28 @@ Explanation: The rope is already colorful. Bob does not need to remove any ballo
 
 public class Q1578MinimumTimeToMakeRopeColorful {
     
+    public int minCost(String colors, int[] neededTime) {
+        
+        int sum = 0;
+        int l = 0;
+        int r = 1;
+        char[] colorChar = colors.toCharArray();
+        while (r < neededTime.length) {
+            if (colorChar[l] == colorChar[r]) {
+                if (neededTime[l] >= neededTime[r]) {
+                    sum+= neededTime[r];
+                    r++;
+                }
+                else {
+                    sum += neededTime[l];
+                    l = r;
+                    r++;
+                }
+            } else {
+                l = r;
+                r++;
+            }
+        }
+        return sum;
+    }
 }

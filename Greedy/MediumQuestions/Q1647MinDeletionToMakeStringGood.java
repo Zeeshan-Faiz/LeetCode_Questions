@@ -30,19 +30,18 @@ public class Q1647MinDeletionToMakeStringGood {
     
     public int minDeletions(String s) {
         
-        int[] freq = new int[26]; // Create an array to store character frequencies
+        int[] freq = new int[26];
         
         for (char c : s.toCharArray()) {
             freq[c - 'a']++; // Count the frequency of each character
         }
         
         Arrays.sort(freq); // Sort frequencies in ascending order
-        
-        int del = 0; // Initialize the deletion count
+        int del = 0;
         
         for (int i = 24; i >= 0; i--) {
             if (freq[i] == 0) {
-                break; // No more characters with this frequency
+                break;
             }
             
             if (freq[i] >= freq[i + 1]) {
@@ -51,7 +50,6 @@ public class Q1647MinDeletionToMakeStringGood {
                 del += prev - freq[i]; // Update the deletion count
             }
         }
-        
         return del; // Return the minimum deletions required
     }
 }

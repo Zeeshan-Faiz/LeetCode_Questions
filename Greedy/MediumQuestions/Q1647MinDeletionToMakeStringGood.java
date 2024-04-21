@@ -1,5 +1,7 @@
 package Greedy.MediumQuestions;
 
+import java.util.Arrays;
+
 /*
 A string s is called good if there are no two different characters in s that have the same
 frequency. Given a string s, return the minimum number of characters you need to delete to make
@@ -26,4 +28,30 @@ Note that we only care about characters that are still in the string at the end 
 
 public class Q1647MinDeletionToMakeStringGood {
     
+    public int minDeletions(String s) {
+        
+        int[] freq = new int[26]; // Create an array to store character frequencies
+        
+        for (char c : s.toCharArray()) {
+            freq[c - 'a']++; // Count the frequency of each character
+        }
+        
+        Arrays.sort(freq); // Sort frequencies in ascending order
+        
+        int del = 0; // Initialize the deletion count
+        
+        for (int i = 24; i >= 0; i--) {
+            if (freq[i] == 0) {
+                break; // No more characters with this frequency
+            }
+            
+            if (freq[i] >= freq[i + 1]) {
+                int prev = freq[i];
+                freq[i] = Math.max(0, freq[i + 1] - 1);
+                del += prev - freq[i]; // Update the deletion count
+            }
+        }
+        
+        return del; // Return the minimum deletions required
+    }
 }

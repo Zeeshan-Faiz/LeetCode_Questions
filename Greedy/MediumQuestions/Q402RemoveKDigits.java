@@ -21,14 +21,18 @@ Explanation: Remove all the digits from the number and it is left with nothing w
 */
 
 public class Q402RemoveKDigits {
-    
+
     public String removeKdigits(String num, int k) {
-        if (k >= num.length()) return "0";
+        
+        if (k >= num.length())
+            return "0";
+        
         char[] chars = new char[num.length()];
         int size = 0;
-        for (char c : num.toCharArray()) {
+        for (char c : num.toCharArray()) 
+        {
             if (c == '0' && size <= k) {
-                k -= size;
+                k = k - size;
                 size = 0;
             } else {
                 while (k > 0 && size > 0 && c < chars[size - 1]) {
@@ -38,7 +42,7 @@ public class Q402RemoveKDigits {
                 chars[size++] = c;
             }
         }
-        size -= k;        
+        size = size - k;
         return size <= 0 ? "0" : String.valueOf(chars, 0, size);
     }
 }

@@ -24,8 +24,9 @@ The third child gets 1 candy because it satisfies the above two conditions.
 */
 
 public class Q135Candy {
-    
+
     public int candy(int[] ratings) {
+        
         int n = ratings.length;
         int[] candies = new int[n];
         Arrays.fill(candies, 1);

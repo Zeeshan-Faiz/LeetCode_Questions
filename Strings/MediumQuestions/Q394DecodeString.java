@@ -30,31 +30,39 @@ public class Q394DecodeString {
     
     public String decodeString(String s) {
         
-        Stack<Integer> repeatTimes = new Stack<>(); // this will store the current sb to repeat how many times
-        Stack<StringBuilder> substrs = new Stack<>();   // this will store the last created substring
+        Stack<StringBuilder> substrs = new Stack<>();
+        Stack<Integer> repeatTimes = new Stack<>(); 
 
-        char[] sarr = s.toCharArray();
+        char[] chars = s.toCharArray();
         StringBuilder sb = new StringBuilder();
         int n = 0;
 
-        for(int i=0;i<sarr.length;i++) {
-            if(Character.isDigit(sarr[i])) {
-                n = n * 10 + (sarr[i] - '0');   // to conver char to number.
-            }else if(sarr[i] == '[') {
-                repeatTimes.push(n);    // Push the last found to repeatTimes
+        for(int i=0;i<chars.length;i++) 
+        {
+            if(Character.isDigit(chars[i])) 
+            {
+                n = n * 10 + (chars[i] - '0');// to conver char to number.
+            }
+            else if(chars[i] == '[') 
+            {
+                repeatTimes.push(n);// Push the last found to repeatTimes
                 n = 0;  // reset for next n
-                substrs.push(sb);   // Store the current sb i.e. been made
+                substrs.push(sb);// Store the current sb
                 sb = new StringBuilder();   // create new sb for reading the characters after current [
-            }else if(sarr[i] == ']') {  // if reached ] then sb will have the value between [...]
-                int k = repeatTimes.pop(); // no of times to repeat the current sb
-                StringBuilder temp = sb;    // copy the current sb to temp
+            }
+            else if(chars[i] == ']') 
+            {  
+                // if reached ] then sb will have the value between [...]
+                int k = repeatTimes.pop(); //no of times to repeat the current sb
+                StringBuilder temp = sb;
                 sb = substrs.pop(); // pop the last created substring
 
                 while(k-->0) {  // append the current substring to sb. So after this as it will get [ it will append the constructed substring again to stack to which we will again append the next encoding.
                     sb.append(temp);
                 }
-            }else {
-                sb.append(sarr[i]);
+            }
+            else {
+                sb.append(chars[i]);
             }
         }
         return sb.toString();

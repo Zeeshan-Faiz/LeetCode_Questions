@@ -41,7 +41,7 @@ public class Q394DecodeString {
         {
             if(Character.isDigit(chars[i])) 
             {
-                n = n * 10 + (chars[i] - '0');// to conver char to number.
+                n = n * 10 + (chars[i] - '0');// to convert char to number.
             }
             else if(chars[i] == '[') 
             {

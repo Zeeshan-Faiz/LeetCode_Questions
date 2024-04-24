@@ -16,24 +16,31 @@ Output: [0,1,2]
 */
 
 public class Q75SortColors {
-    
-    public void sortColors(int[] nums) {
-        int low=0, mid=0, high=nums.length-1;
 
-        while(mid<=high){
-            if(nums[mid]==1){
+    public void sortColors(int[] nums) {
+        
+        int low = 0, mid = 0, high = nums.length - 1;
+
+        while (mid <= high) 
+        {
+            if (nums[mid] == 1) {
                 mid++;
-            }
-            else if(nums[mid]==0){
+            } 
+            else if (nums[mid] == 0) {
                 swap(mid, low, nums);
                 mid++;
                 low++;
-            }
-            else{
+            } 
+            else {
                 swap(mid, high, nums);
                 high--;
             }
         }
+    }
 
+    private void swap(int a, int b, int[] nums) {
+        int temp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = temp;
     }
 }

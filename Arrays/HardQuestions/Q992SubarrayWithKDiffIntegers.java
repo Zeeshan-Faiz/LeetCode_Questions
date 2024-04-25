@@ -18,5 +18,29 @@ Explanation: Subarrays formed with exactly 3 different integers: [1,2,1,3], [2,1
 */
 
 public class Q992SubarrayWithKDiffIntegers {
-    
+ 
+    public int subarraysWithKDistinct(int[] nums, int k) {
+        int[] arr = new int[nums.length + 1];
+        int result = 0;
+        for (int start = 0, end = 0, cnt = 0; end < nums.length; end++) {
+            if (arr[nums[end]]++ == 0) k--;
+            if (k < 0) {
+                while (k < 0) {
+                    arr[nums[start]]--;
+                    start++;
+                    k++;
+                }
+                cnt = 0;
+            }
+            if (k == 0) {
+                while (arr[nums[start]] > 1) {
+                    arr[nums[start]]--;
+                    cnt++;
+                    start++;
+                }
+                result += 1 + cnt;
+            }
+        }
+        return result;
+    }
 }

@@ -25,29 +25,27 @@ You need to output 2.
 */
 
 public class Q445AssignCookies {
-    
-    public int findContentChildren(int[] g, int[] s) {
-        Arrays.sort(g);
 
+    public int findContentChildren(int[] g, int[] s) {
+        
+        Arrays.sort(g);
         Arrays.sort(s);
 
-        int count=0;
+        int count = 0;
+        int i = g.length - 1;
+        int j = s.length - 1;
 
-        int i=g.length-1;
-        int j=s.length-1;
+        while (i >= 0 && j >= 0) {
 
-        while(i>=0 && j>=0) {
-          
-          if(s[j]>=g[i]){
-            j--;
-            i--;
-            count++;
-          } else {
-            i--;
-          }
-       
+            if (s[j] >= g[i]) {
+                j--;
+                i--;
+                count++;
+            } 
+            else {
+                i--;
+            }
         }
-
-        return count; 
+        return count;
     }
 }

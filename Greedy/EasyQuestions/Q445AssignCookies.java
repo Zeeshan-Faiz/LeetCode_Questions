@@ -1,5 +1,7 @@
 package Greedy.EasyQuestions;
 
+import java.util.Arrays;
+
 /*
 Assume you are an awesome parent and want to give your children some cookies. But, you should 
 give each child at most one cookie. Each child i has a greed factor g[i], which is the minimum 
@@ -24,4 +26,28 @@ You need to output 2.
 
 public class Q445AssignCookies {
     
+    public int findContentChildren(int[] g, int[] s) {
+        Arrays.sort(g);
+
+        Arrays.sort(s);
+
+        int count=0;
+
+        int i=g.length-1;
+        int j=s.length-1;
+
+        while(i>=0 && j>=0) {
+          
+          if(s[j]>=g[i]){
+            j--;
+            i--;
+            count++;
+          } else {
+            i--;
+          }
+       
+        }
+
+        return count; 
+    }
 }

@@ -25,8 +25,9 @@ Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
 */
 
 public class Q57InsertInterval {
-    
+
     public int[][] insert(int[][] intervals, int[] newInterval) {
+        
         List<int[]> mergedIntervals = new ArrayList<>();
         int i = 0;
 
@@ -42,7 +43,6 @@ public class Q57InsertInterval {
         }
 
         mergedIntervals.add(newInterval);
-        
         while (i < intervals.length) {
             mergedIntervals.add(intervals[i]);
             i++;

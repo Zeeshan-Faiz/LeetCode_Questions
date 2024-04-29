@@ -14,13 +14,14 @@ Output: [[0,0,0,0],[0,4,5,0],[0,3,1,0]]
 */
 
 public class Q73SetMatrixZeroes {
-    
+
     public void setZeroes(int[][] matrix) {
+        
         int m = matrix.length;
         int n = matrix[0].length;
         boolean[] rowZero = new boolean[m];
         boolean[] colZero = new boolean[n];
-        
+
         // Mark rows and columns containing zeroes
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -30,7 +31,7 @@ public class Q73SetMatrixZeroes {
                 }
             }
         }
-        
+
         // Set zeroes based on rowZero and colZero
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {

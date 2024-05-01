@@ -16,28 +16,26 @@ Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 */
 
 public class Q152MaxProductSubArray {
-    
+
     public int maxProduct(int[] nums) {
+        
         int maxi = Integer.MIN_VALUE;
-       int prod=1;
+        int prod = 1;
 
-       for(int i=0;i<nums.length;i++)
-       {
-         prod*=nums[i];
-         maxi=Math.max(prod,maxi);
-         if(prod==0)
-          prod=1;
-       }
+        for (int i = 0; i < nums.length; i++) {
+            prod *= nums[i];
+            maxi = Math.max(prod, maxi);
+            if (prod == 0)
+                prod = 1;
+        }
 
-       prod = 1;
-       for(int i=nums.length - 1 ;i>=0;i--)
-       {
-         prod*=nums[i];
-         maxi=Math.max(prod,maxi);
-         if(prod==0)
-          prod=1;
-       }
-
-       return maxi;
-   }
+        prod = 1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            prod *= nums[i];
+            maxi = Math.max(prod, maxi);
+            if (prod == 0)
+                prod = 1;
+        }
+        return maxi;
+    }
 }

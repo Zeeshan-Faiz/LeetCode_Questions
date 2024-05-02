@@ -28,9 +28,15 @@ public class Q19RemoveNthNodeFromEndOfLL {
             head = head.next;
             dummy = dummy.next;
         }
-
         dummy.next = dummy.next.next;
-
         return res.next;
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
 }

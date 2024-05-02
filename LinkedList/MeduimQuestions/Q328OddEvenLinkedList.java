@@ -16,11 +16,11 @@ Output: [2,3,6,7,1,5,4]
 */
 
 public class Q328OddEvenLinkedList {
-    
+
     public ListNode oddEvenList(ListNode head) {
-        if (head == null) {
+        
+        if (head == null)
             return null;
-        }
 
         ListNode odd = head;
         ListNode even = head.next;
@@ -32,7 +32,6 @@ public class Q328OddEvenLinkedList {
             even.next = odd.next;
             even = even.next;
         }
-
         odd.next = evenHead;
         return head;
     }

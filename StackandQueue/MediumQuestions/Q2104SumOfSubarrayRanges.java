@@ -34,11 +34,13 @@ So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 */
 
 public class Q2104SumOfSubarrayRanges {
-    
+
     public long subArrayRanges(int[] nums) {
+        
         long ans = 0;
         Deque<Integer> mono_stack = new ArrayDeque<>();
-        for (int right = 0; right <= nums.length; right++) {
+        for (int right = 0; right <= nums.length; right++) 
+        {
             while (!mono_stack.isEmpty() && (right == nums.length || nums[right] <= nums[mono_stack.peek()])) {
                 int mid = mono_stack.pop();
                 int left = mono_stack.isEmpty() ? -1 : mono_stack.peek();
@@ -47,7 +49,8 @@ public class Q2104SumOfSubarrayRanges {
             mono_stack.push(right);
         }
         mono_stack.clear();
-        for (int right = 0; right <= nums.length; right++) {
+        for (int right = 0; right <= nums.length; right++) 
+        {
             while (!mono_stack.isEmpty() && (right == nums.length || nums[right] >= nums[mono_stack.peek()])) {
                 int mid = mono_stack.pop();
                 int left = mono_stack.isEmpty() ? -1 : mono_stack.peek();

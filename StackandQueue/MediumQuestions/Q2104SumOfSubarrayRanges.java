@@ -1,5 +1,8 @@
 package StackandQueue.MediumQuestions;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /*
 You are given an integer array nums. The range of a subarray of nums is the difference between the 
 largest and smallest element in the subarray. Return the sum of all subarray ranges of nums.
@@ -32,4 +35,26 @@ So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 
 public class Q2104SumOfSubarrayRanges {
     
+    public long subArrayRanges(int[] nums) {
+        long ans = 0;
+        Deque<Integer> mono_stack = new ArrayDeque<>();
+        for (int right = 0; right <= nums.length; right++) {
+            while (!mono_stack.isEmpty() && (right == nums.length || nums[right] <= nums[mono_stack.peek()])) {
+                int mid = mono_stack.pop();
+                int left = mono_stack.isEmpty() ? -1 : mono_stack.peek();
+                ans -= (long) nums[mid] * (right - mid) * (mid - left);
+            }
+            mono_stack.push(right);
+        }
+        mono_stack.clear();
+        for (int right = 0; right <= nums.length; right++) {
+            while (!mono_stack.isEmpty() && (right == nums.length || nums[right] >= nums[mono_stack.peek()])) {
+                int mid = mono_stack.pop();
+                int left = mono_stack.isEmpty() ? -1 : mono_stack.peek();
+                ans += (long) nums[mid] * (right - mid) * (mid - left);
+            }
+            mono_stack.push(right);
+        }
+        return ans;
+    }
 }

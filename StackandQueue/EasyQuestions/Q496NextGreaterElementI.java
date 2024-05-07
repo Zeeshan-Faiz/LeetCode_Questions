@@ -27,4 +27,22 @@ Explanation: The next greater element for each value of nums1 is as follows:
 
 public class Q496NextGreaterElementI {
     
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int[] greater = new int[10001]; 
+        int[] stack = new int[nums2.length + 1];
+        stack[stack.length - 1] = -1;
+
+        for (int i = nums2.length - 1, top = i + 1; i >= 0; i--) {
+            while (top <= nums2.length - 1 && nums2[i] >= stack[top]) {
+                top++;
+            }
+            greater[nums2[i]] = (top == nums2.length) ? -1 : stack[top];
+            stack[--top] = nums2[i];
+        }
+
+        for (int i = 0; i < nums1.length; i++) {
+            nums1[i] = greater[nums1[i]];
+        }
+        return nums1;
+    }
 }

@@ -20,4 +20,21 @@ Output: [2,3,4,-1,4]
 
 public class Q503NextGreaterElementII {
     
+    public int[] nextGreaterElements(int[] nums) {
+        int len = nums.length, top = -1;
+        int[] ans = new int[len], stack = new int[len];
+
+        for(int i = 0; i < 2 * len; i++) {
+            int idx = i % len;
+            while(top != -1 && nums[idx] > nums[stack[top]])
+                ans[stack[top--]] = nums[idx];
+            if(i < len)
+                stack[++top] = idx;
+        }    
+
+        while(top != -1)
+            ans[stack[top--]] = -1;
+
+        return ans;
+    }
 }

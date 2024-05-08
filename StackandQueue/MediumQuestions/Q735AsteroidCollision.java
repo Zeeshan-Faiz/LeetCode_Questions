@@ -26,11 +26,13 @@ Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulti
 */
 
 public class Q735AsteroidCollision {
-    
+
     public int[] asteroidCollision(int[] asteroids) {
+        
         Stack<Integer> stack = new Stack<>();
         int remCount = 0;
-        for (int i = 0; i < asteroids.length; i++) {
+        for (int i = 0; i < asteroids.length; i++) 
+        {
             if (asteroids[i] > 0) {
                 stack.push(i);
                 continue;
@@ -38,7 +40,8 @@ public class Q735AsteroidCollision {
             if (stack.isEmpty()) {
                 continue;
             }
-            while (!stack.isEmpty()) {
+            while (!stack.isEmpty()) 
+            {
                 int top = stack.peek();
                 if (asteroids[top] < -asteroids[i]) {
                     stack.pop();

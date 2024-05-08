@@ -1,5 +1,7 @@
 package StackandQueue.MediumQuestions;
 
+import java.util.Stack;
+
 /*
 We are given an array asteroids of integers representing asteroids in a row. For each asteroid, 
 the absolute value represents its size, and the sign represents its direction (positive meaning 
@@ -25,4 +27,44 @@ Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulti
 
 public class Q735AsteroidCollision {
     
+    public int[] asteroidCollision(int[] asteroids) {
+        Stack<Integer> stack = new Stack<>();
+        int remCount = 0;
+        for (int i = 0; i < asteroids.length; i++) {
+            if (asteroids[i] > 0) {
+                stack.push(i);
+                continue;
+            }
+            if (stack.isEmpty()) {
+                continue;
+            }
+            while (!stack.isEmpty()) {
+                int top = stack.peek();
+                if (asteroids[top] < -asteroids[i]) {
+                    stack.pop();
+                    asteroids[top] = 0;
+                    remCount++;
+                } else if (asteroids[top] > -asteroids[i]) {
+                    asteroids[i] = 0;
+                    remCount++;
+                    break;
+                } else {
+                    asteroids[top] = 0;
+                    stack.pop();
+                    asteroids[i] = 0;
+                    remCount += 2;
+                    break;
+                }
+            }
+        }
+        int[] arr = new int[asteroids.length - remCount];
+        int cur = 0;
+        for (int i = 0; i < asteroids.length; i++) {
+            if (asteroids[i] == 0) {
+                continue;
+            }
+            arr[cur++] = asteroids[i];
+        }
+        return arr;
+    }
 }

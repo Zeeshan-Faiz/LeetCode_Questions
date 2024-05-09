@@ -16,5 +16,15 @@ Output: [40,20,60,10,30,50,70,null,null,25]
 */
 
 public class Q701InsertIntoBST {
-    
+
+    public TreeNode insertIntoBST(TreeNode root, int val) {
+        
+        if (root == null)
+            return new TreeNode(val);
+        if (root.val > val)
+            root.left = insertIntoBST(root.left, val);
+        else if (root.val < val)
+            root.right = insertIntoBST(root.right, val);
+        return root;
+    }
 }

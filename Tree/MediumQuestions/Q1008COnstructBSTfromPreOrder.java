@@ -10,8 +10,12 @@ than Node.val. A preorder traversal of a binary tree displays the value of the n
 traverses Node.left, then traverses Node.right.
 
 Example 1:
+Input: preorder = [8,5,1,7,10,12]
+Output: [8,5,10,1,7,null,12]
 
-
+Example 2:
+Input: preorder = [1,3]
+Output: [1,null,3]
 */
 
 public class Q1008COnstructBSTfromPreOrder {

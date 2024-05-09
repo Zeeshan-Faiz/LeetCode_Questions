@@ -19,5 +19,8 @@ Output: [1,null,3]
 */
 
 public class Q1008COnstructBSTfromPreOrder {
-    
+
+    public TreeNode bstFromPreorder(int[] preorder) {
+        return helper(preorder, 0, preorder.length - 1);
+    }
 }

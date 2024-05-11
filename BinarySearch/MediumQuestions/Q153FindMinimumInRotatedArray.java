@@ -27,29 +27,26 @@ Explanation: The original array was [11,13,15,17] and it was rotated 4 times.
 */
 
 public class Q153FindMinimumInRotatedArray {
-    
+
     public int findMin(int[] nums) {
-       int st = 0;
-         int end = nums.length-1;
+        
+        int st = 0;
+        int end = nums.length - 1;
 
         int min = nums[0];
-         while(st<=end){
+        while (st <= end) {
 
-             int mid = (st+end)/2;
-
-             if(min<=nums[mid]){  // emliminate left sorted part
-
-                    st = mid+1;
-             } 
-             else{
-                
-                 if(nums[mid]<min){
+            int mid = (st + end) / 2;
+            if (min <= nums[mid]) { // emliminate left sorted part
+                st = mid + 1;
+            } 
+            else {
+                if (nums[mid] < min) {
                     min = nums[mid];
-                 }
-                end = mid-1;
-             }
-         }
-
-         return min;
+                }
+                end = mid - 1;
+            }
+        }
+        return min;
     }
 }

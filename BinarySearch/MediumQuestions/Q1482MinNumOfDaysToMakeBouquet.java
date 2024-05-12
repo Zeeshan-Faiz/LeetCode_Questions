@@ -33,5 +33,22 @@ It is obvious that we can make two bouquets in different ways.
 */
 
 public class Q1482MinNumOfDaysToMakeBouquet {
-    
+
+    public static int bouquetFormed(int arr[], int day, int conFlower) {
+        
+        int bouquet = 0;
+        int n = arr.length;
+        int temp = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] <= day) {
+                temp++;
+            } 
+            else {
+                bouquet += temp / conFlower;
+                temp = 0;
+            }
+        }
+        bouquet += temp / conFlower;
+        return bouquet;
+    }
 }

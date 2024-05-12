@@ -35,7 +35,7 @@ It is obvious that we can make two bouquets in different ways.
 public class Q1482MinNumOfDaysToMakeBouquet {
 
     public static int bouquetFormed(int arr[], int day, int conFlower) {
-        
+
         int bouquet = 0;
         int n = arr.length;
         int temp = 0;
@@ -50,5 +50,32 @@ public class Q1482MinNumOfDaysToMakeBouquet {
         }
         bouquet += temp / conFlower;
         return bouquet;
+    }
+
+    public int minDays(int[] bloomDay, int m, int k) {
+        
+        int n = bloomDay.length;
+        if ((m * k) > n) {
+            return -1;
+        }
+        int low = Integer.MAX_VALUE;
+        int high = Integer.MIN_VALUE;
+        for (int ele : bloomDay) {
+            low = Math.min(low, ele);
+            high = Math.max(high, ele);
+        }
+        int ans = -1;
+        while (low <= high) 
+        {
+            int mid = (low + high) / 2;
+            int bouquet = bouquetFormed(bloomDay, mid, k);
+            if (bouquet >= m) {
+                ans = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return ans;
     }
 }

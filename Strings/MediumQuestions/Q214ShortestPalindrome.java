@@ -14,5 +14,12 @@ Output: "dcbabcd"
 */
 
 public class Q214ShortestPalindrome {
-    
+
+    public String shortestPalindrome(String s) {
+        
+        char[] arr = s.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        helper(arr, arr.length, sb);
+        return sb.toString();
+    }
 }

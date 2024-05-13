@@ -21,4 +21,19 @@ Output: 16
 
 public class Q1248CountNoOfNiceSubArrays {
     
+    public int numberOfSubarrays(int[] nums, int k) {
+        int [] oddCount = new int [nums.length + 1];
+        oddCount[0] = 1; 
+        int curr = 0, ans = 0;
+        for(int num : nums){
+            curr += num % 2; 
+            if(curr >= k){
+
+                ans += oddCount[curr - k];
+
+            }
+            oddCount[curr]++;
+        }
+        return ans;
+    }
 }

@@ -17,15 +17,17 @@ Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 */
 
 public class Q1004MaxConsecOnesIII {
-    
+
     public int longestOnes(int[] nums, int k) {
-        int i = 0;
-        int j = 0;
-        while(i < nums.length){
-            if(nums[i] == 0) k--;
-            if(k < 0 && nums[j++] == 0) k++;
+
+        int i = 0, j = 0;
+        while (i < nums.length) {
+            if (nums[i] == 0)
+                k--;
+            if (k < 0 && nums[j++] == 0)
+                k++;
             i++;
         }
-        return i-j;
+        return i - j;
     }
 }

@@ -1,6 +1,8 @@
 package Arrays.MeduimQuestions;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 Alice has some number of cards and she wants to rearrange the cards into groups so that each group
@@ -20,31 +22,29 @@ Explanation: Alice's hand can not be rearranged into groups of 4.
 */
 
 public class Q846HandOfStraight {
-    
+
     public boolean isNStraightHand(int[] hand, int groupSize) {
+        
         Map<Integer, Integer> countMap = new HashMap<>();
         for (int card : hand) {
             countMap.put(card, countMap.getOrDefault(card, 0) + 1);
         }
-        
+
         Arrays.sort(hand);
-        
-        for (int i = 0; i < hand.length; i++) {
-            if (countMap.get(hand[i]) == 0) {
+        for (int i = 0; i < hand.length; i++) 
+        {
+            if (countMap.get(hand[i]) == 0)
                 continue;
-            }
-            
-            for (int j = 0; j < groupSize; j++) {
+
+            for (int j = 0; j < groupSize; j++) 
+            {
                 int currCard = hand[i] + j;
-                
                 if (countMap.getOrDefault(currCard, 0) == 0) {
                     return false;
                 }
-                
                 countMap.put(currCard, countMap.get(currCard) - 1);
             }
         }
-        
         return true;
     }
 }

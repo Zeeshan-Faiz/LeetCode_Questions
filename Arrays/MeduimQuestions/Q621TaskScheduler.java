@@ -1,5 +1,7 @@
 package Arrays.MeduimQuestions;
 
+import java.util.Arrays;
+
 /*
 You are given an array of CPU tasks, each represented by letters A to Z, and a cooling time, n. 
 Each cycle or interval allows the completion of one task. Tasks can be completed in any order, 
@@ -30,4 +32,31 @@ This leads to idling twice between repetitions of these tasks.
 
 public class Q621TaskScheduler {
     
+    public int leastInterval(char[] tasks, int n) {
+        int[] frequency = new int[26];
+        
+        // Count the frequency of each task
+        for (char task : tasks) {
+            frequency[task - 'A']++;
+        }
+        
+        // Sort the frequencies in ascending order
+        Arrays.sort(frequency);
+        
+        // Find the maximum frequency (subtract 1 to account for the last task)
+        int maxFreq = frequency[25] - 1;
+        
+        // Calculate the total idle slots needed
+        int idleSlots = maxFreq * n;
+        
+        // Iterate through the frequencies from the second highest to the lowest
+        for (int i = 24; i >= 0 && frequency[i] > 0; i--) {
+            // Subtract the minimum of maxFreq and current frequency from idle slots
+            idleSlots -= Math.min(maxFreq, frequency[i]);
+        }
+        
+        // If idle slots are still remaining, add them to the total length
+        // Otherwise, return the original length of tasks array
+        return idleSlots > 0 ? idleSlots + tasks.length : tasks.length;
+    }
 }

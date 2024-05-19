@@ -1,5 +1,7 @@
 package Arrays.MeduimQuestions;
 
+import java.util.Arrays;
+
 /*
 Given an unsorted array of integers nums, return the length of the longest consecutive elements 
 sequence. You must write an algorithm that runs in O(n) time.
@@ -16,4 +18,21 @@ Output: 9
 
 public class Q128LongestConsecutiveSeq{
 
+    public int longestConsecutive(int[] nums) {
+       int n = nums.length;
+        if(n==0) return 0;
+        Arrays.sort(nums);
+        int maxsofar = 1;
+        int count = 0;
+        int lastsmaller = Integer.MIN_VALUE;
+        for(int i=0;i<n;i++){
+            if(nums[i]-1==lastsmaller)      
+                count++;
+            else if(nums[i]!=lastsmaller){
+                count = 1; }   
+            lastsmaller = nums[i];    
+            maxsofar = Math.max(count,maxsofar);    
+        }
+        return maxsofar;
+    }
 }

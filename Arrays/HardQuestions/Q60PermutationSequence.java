@@ -1,5 +1,7 @@
 package Arrays.HardQuestions;
 
+import java.util.ArrayList;
+
 /*
 The set [1, 2, 3, ..., n] contains a total of n! unique permutations.
 
@@ -27,4 +29,20 @@ Output: "123"
 
 public class Q60PermutationSequence {
     
+    public String getPermutation(int n, int k) {
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Integer> num = new ArrayList<>();
+        int fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+            num.add(i);
+        }
+        for (int i = 0, l = k - 1; i < n; i++) {
+            fact /= (n - i);
+            int index = (l / fact);
+            sb.append(num.remove(index));
+            l -= index * fact;
+        }
+        return sb.toString();
+    }
 }

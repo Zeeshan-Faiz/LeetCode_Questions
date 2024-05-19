@@ -16,22 +16,27 @@ Input: nums = [0,3,7,2,5,8,4,6,0,1]
 Output: 9
 */
 
-public class Q128LongestConsecutiveSeq{
+public class Q128LongestConsecutiveSeq {
 
     public int longestConsecutive(int[] nums) {
-       int n = nums.length;
-        if(n==0) return 0;
+        
+        int n = nums.length;
+        if (n == 0)
+            return 0;
+        
         Arrays.sort(nums);
         int maxsofar = 1;
         int count = 0;
         int lastsmaller = Integer.MIN_VALUE;
-        for(int i=0;i<n;i++){
-            if(nums[i]-1==lastsmaller)      
+        for (int i = 0; i < n; i++) 
+        {
+            if (nums[i] - 1 == lastsmaller)
                 count++;
-            else if(nums[i]!=lastsmaller){
-                count = 1; }   
-            lastsmaller = nums[i];    
-            maxsofar = Math.max(count,maxsofar);    
+            else if (nums[i] != lastsmaller)
+                count = 1;
+
+            lastsmaller = nums[i];
+            maxsofar = Math.max(count, maxsofar);
         }
         return maxsofar;
     }

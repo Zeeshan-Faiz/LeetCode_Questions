@@ -28,8 +28,9 @@ Output: "123"
 */
 
 public class Q60PermutationSequence {
-    
+
     public String getPermutation(int n, int k) {
+        
         StringBuilder sb = new StringBuilder();
         ArrayList<Integer> num = new ArrayList<>();
         int fact = 1;

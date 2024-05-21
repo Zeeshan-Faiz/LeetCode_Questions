@@ -27,22 +27,23 @@ Input: n = 1
 Output: "1
 */
 
-public class Q38CountAndSay{
-    
+public class Q38CountAndSay {
+
     public String countAndSay(int n) {
-        if (n==1) {
+        
+        if (n == 1) {
             return "1";
         }
 
-        String s = countAndSay(n-1);
+        String s = countAndSay(n - 1);
         int c = 0;
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < s.length(); ++i) {
             ++c;
-            if (i == s.length()-1 || s.charAt(i) != s.charAt(i+1)) {
+            if (i == s.length() - 1 || s.charAt(i) != s.charAt(i + 1)) {
                 sb.append(c).append(s.charAt(i));
-                c=0;
+                c = 0;
             }
         }
         return sb.toString();

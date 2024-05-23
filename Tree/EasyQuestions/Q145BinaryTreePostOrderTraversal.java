@@ -17,5 +17,21 @@ Output: [1]
 */
 
 public class Q145BinaryTreePostOrderTraversal {
-    
+
+    List<Integer> result = new ArrayList<>();
+
+    public List<Integer> postorderTraversal(TreeNode root) {
+        postOrder(root);
+        return result;
+    }
+
+    private void postOrder(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+
+        postOrder(node.left);
+        postOrder(node.right);
+        result.add(node.val);
+    }
 }

@@ -1,5 +1,8 @@
 package Tree.EasyQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Given the root of a binary tree, return the postorder traversal of its nodes' values.
 
@@ -33,5 +36,18 @@ public class Q145BinaryTreePostOrderTraversal {
         postOrder(node.left);
         postOrder(node.right);
         result.add(node.val);
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }

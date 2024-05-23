@@ -1,4 +1,4 @@
-package Tree.EasyQuestions;
+package Tree.MediumQuestions;
 
 import java.util.ArrayList;
 import java.util.List;

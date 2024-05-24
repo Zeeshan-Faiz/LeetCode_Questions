@@ -36,7 +36,6 @@ public class Q215KthLargestElement {
             if (remain <= 0)
                 return num + minValue;
         }
-
         return -1;
     }
 }

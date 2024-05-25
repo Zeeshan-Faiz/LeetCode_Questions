@@ -1,5 +1,7 @@
 package Arrays.EasyQuestions;
 
+import java.util.PriorityQueue;
+
 /*
 Design a class to find the kth largest element in a stream. Note that it is the kth largest 
 element in the sorted order, not the kth distinct element.
@@ -27,4 +29,20 @@ kthLargest.add(4);   // return 8
 
 public class Q703KthLargestElementInStream {
     
+    final PriorityQueue<Integer> heap = new PriorityQueue<>();
+    final int k;
+    
+    public Q703KthLargestElementInStream(int k, int[] nums) {
+        this.k = k;
+        for (int n : nums) add(n);
+    }
+
+    public int add(int val) {
+        if (heap.size() < k) heap.offer(val); //for adding the values of the array
+        else if (val > heap.peek()) {
+            heap.poll(); //remove the top element
+            heap.add(val); //add the new element
+        }
+        return heap.peek();
+    }
 }

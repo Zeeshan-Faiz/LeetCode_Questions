@@ -24,21 +24,26 @@ Rearranging the cuts to be [3, 5, 1, 4] for example will lead to a scenario with
 */
 
 public class Q1547MinCostToCutStick {
-    
+
     public int minCost(int n, int[] cuts) {
+        
         Arrays.sort(cuts);
         int m = cuts.length + 2;
         int[] pos = new int[m];
-        for (int i = 1; i < m - 1; ++i) pos[i] = cuts[i - 1];
+        for (int i = 1; i < m - 1; ++i)
+            pos[i] = cuts[i - 1];
         pos[m - 1] = n;
         int[][] dp = new int[m][m], mid = new int[m][m];
-        for (int l = 0; l < m; ++l) {
-            for (int i = 0; i + l < m; ++i) {
+
+        for (int l = 0; l < m; ++l) 
+        {
+            for (int i = 0; i + l < m; ++i) 
+            {
                 int j = i + l;
                 if (2 > l) {
                     mid[i][j] = i;
                     continue;
-                }           
+                }
                 dp[i][j] = pos[j] - pos[i];
                 int min = Integer.MAX_VALUE;
                 for (int k = mid[i][j - 1]; k <= mid[i + 1][j]; ++k) {

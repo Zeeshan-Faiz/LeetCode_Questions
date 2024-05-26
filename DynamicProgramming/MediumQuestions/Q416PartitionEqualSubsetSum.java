@@ -34,17 +34,19 @@ public class Q416PartitionEqualSubsetSum {
     }
 
     public boolean helper(int[] nums, int n, int subSetSum, Boolean[][] memo) {
-        // Base Cases
+       
         if (subSetSum == 0)
             return true;
         if (n == 0 || subSetSum < 0)
             return false;
+
         // check if subSetSum for given n is already computed and stored in memo
         if (memo[n][subSetSum] != null)
             return memo[n][subSetSum];
+
         boolean result = helper(nums, n - 1, subSetSum - nums[n - 1], memo) ||
                 helper(nums, n - 1, subSetSum, memo);
-        // store the result in memo
+        
         memo[n][subSetSum] = result;
         return result;
     }

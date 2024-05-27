@@ -34,4 +34,23 @@ Output: [[3,null],[3,0],[3,null]]
 
 public class Q138CopyListWithRandomPointer {
     
+    public Node copyRandomList(Node head) {
+        Node temp = head;
+        Map<Node,Node> map = new HashMap<>();
+        map.put(null,null);
+        while(temp!=null){
+            Node nnode = new Node(temp.val);
+            map.put(temp,nnode);
+            temp = temp.next;
+        }
+
+        temp = head;
+        while(temp!=null){
+            Node copy = map.get(temp);
+            copy.next = map.get(temp.next);
+            copy.random = map.get(temp.random);
+            temp = temp.next;
+        }
+        return map.get(head);
+    }
 }

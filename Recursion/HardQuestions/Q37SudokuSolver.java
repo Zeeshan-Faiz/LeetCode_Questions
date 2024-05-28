@@ -17,4 +17,22 @@ Explanation: The input board is shown above and the only valid solution is shown
 
 public class Q37SudokuSolver {
     
+    public void solveSudoku(char[][] board) {
+      int[][] f=new int[9][10];
+        int[][] row=new int[9][10];
+        int[][] col=new int[9][10];
+        int cell=0;
+        for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+             cell=((i/3)*3)+j/3;
+             if(board[i][j]!='.'){
+             f[cell][(int)(board[i][j]-'0')]=1;
+             row[i][(int)(board[i][j]-'0')]=1;
+             col[j][(int)(board[i][j]-'0')]=1;
+            }}
+        }
+        get(f,board,0,0,row,col);
+        return;
+
+    }
 }

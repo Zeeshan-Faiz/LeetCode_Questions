@@ -1,5 +1,8 @@
 package StackandQueue.EasyQuestions;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /*
 Implement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should 
 support all the functions of a normal stack (push, top, pop, and empty).
@@ -24,5 +27,30 @@ Output
 */
 
 public class Q225ImplementStackUsingQueue {
-    
+
+    private Queue<Integer> que;
+
+    public Q225ImplementStackUsingQueue() {
+        que = new LinkedList<>();
+    }
+
+    // Push element x onto stack.
+    public void push(int x) {
+        que.offer(x);
+        for (int i = 0; i < que.size() - 1; i++) {
+            que.offer(que.poll());
+        }
+    }
+
+    public int pop() {
+        return que.poll();
+    }
+
+    public int top() {
+        return que.peek();
+    }
+
+    public boolean empty() {
+        return que.isEmpty();
+    }
 }

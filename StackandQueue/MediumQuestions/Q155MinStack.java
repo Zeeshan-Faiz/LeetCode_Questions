@@ -21,4 +21,54 @@ Output
 
 public class Q155MinStack {
     
+    private int[] arr;
+    private int size;
+    private int[] lowestNumbers;
+    private int lowestNumbersSize;
+
+    public Q155MinStack() {
+       size = 0;
+        lowestNumbers = new int[8];
+        lowestNumbers[0] = Integer.MIN_VALUE;
+        arr = new int[8];
+        lowestNumbersSize = 0; 
+    }
+    
+    public void push(int val) {
+        if (size == arr.length) {
+            int[] newArr = new int[arr.length * 2];
+            for (int i = 0; i < arr.length; i++) {
+                newArr[i] = arr[i];
+            }
+            this.arr = newArr;
+        }
+        arr[size] = val;
+        size++;
+        if (lowestNumbersSize == 0 || val <= lowestNumbers[lowestNumbersSize - 1]) {
+            if (lowestNumbersSize == lowestNumbers.length) {
+                int[] newArr = new int[arr.length * 2];
+                for (int i = 0; i < arr.length; i++) {
+                    newArr[i] = arr[i];
+                }
+                this.lowestNumbers = newArr;
+            }
+            lowestNumbers[lowestNumbersSize] = val;
+            lowestNumbersSize++;
+        }
+    }
+    
+    public void pop() {
+        int numberToPop = arr[size - 1];
+        if (lowestNumbers[lowestNumbersSize - 1] == numberToPop)
+            lowestNumbersSize--;
+        size--;
+    }
+    
+    public int top() {
+        return arr[size - 1];
+    }
+    
+    public int getMin() {
+        return lowestNumbers[lowestNumbersSize - 1];
+    }
 }

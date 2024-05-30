@@ -22,7 +22,7 @@ Output
 */
 
 public class Q901OnlineStockSpan {
-    
+
     int N = 10000;
     int cur, tt;
     int[] stk, stock;
@@ -33,9 +33,10 @@ public class Q901OnlineStockSpan {
         stk = new int[N];
         stock = new int[N];
     }
-    
-    public int next(int price) {
-        while(tt >= 0 && price >= stock[stk[tt]]) {
+
+    public int next(int price) 
+    {
+        while (tt >= 0 && price >= stock[stk[tt]]) {
             tt--;
         }
         int res = tt < 0 ? cur + 1 : cur - stk[tt];

@@ -36,7 +36,7 @@ public class Q173BinarySearchTreeIterator {
 
     }
 
-    public BSTIterator(TreeNode root) {
+    public Q173BinarySearchTreeIterator(TreeNode root) {
         
         itr = new TreeNode(Integer.MIN_VALUE);
         temp = itr;
@@ -50,5 +50,18 @@ public class Q173BinarySearchTreeIterator {
 
     public boolean hasNext() {
         return itr.right != null;
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }

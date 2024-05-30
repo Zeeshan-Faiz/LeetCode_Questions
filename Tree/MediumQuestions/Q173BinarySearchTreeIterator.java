@@ -21,12 +21,14 @@ Output
 */
 
 public class Q173BinarySearchTreeIterator {
-    
+
     TreeNode itr;
     TreeNode temp;
-    public void inorder(TreeNode root){
-        if(root == null)
-        return;
+
+    public void inorder(TreeNode root) {
+        
+        if (root == null)
+            return;
         inorder(root.left);
         temp.right = root;
         temp = temp.right;
@@ -35,18 +37,18 @@ public class Q173BinarySearchTreeIterator {
     }
 
     public BSTIterator(TreeNode root) {
+        
         itr = new TreeNode(Integer.MIN_VALUE);
         temp = itr;
-        inorder(root);
-        
+        inorder(root); 
     }
-    
+
     public int next() {
         itr = itr.right;
         return itr.val;
     }
-    
+
     public boolean hasNext() {
-        return itr.right!=null;
+        return itr.right != null;
     }
 }

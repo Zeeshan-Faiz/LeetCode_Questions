@@ -18,20 +18,23 @@ Output: 1
 */
 
 public class Q300LongestIncreasingSubSeq {
-    
+
     public int lengthOfLIS(int[] nums) {
+        
         int n = nums.length;
         int[] dp = new int[n + 1];
         dp[0] = Integer.MIN_VALUE;
 
         int curLen = 0;
-        for(int num : nums) {
-            if(dp[curLen] < num) {
+        for (int num : nums) 
+        {
+            if (dp[curLen] < num) {
                 curLen++;
                 dp[curLen] = num;
-            } else {
+            } 
+            else {
                 int temp = curLen - 1;
-                while(dp[temp] >= num) {
+                while (dp[temp] >= num) {
                     temp--;
                 }
                 dp[temp + 1] = num;

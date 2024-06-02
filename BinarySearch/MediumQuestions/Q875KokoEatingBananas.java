@@ -23,28 +23,29 @@ Output: 23
 */
 
 public class Q875KokoEatingBananas {
-    
+
     public int minEatingSpeed(int[] piles, int h) {
+        
         long sum = 0;
         for (int n : piles) {
             sum += n;
         }
         int l = (int) Math.ceilDiv(sum, h);
         int r = (int) Math.ceilDiv(sum, h - piles.length + 1);
-        while (l < r) {
+        while (l < r) 
+        {
             int m = (l + r) / 2;
             int hours = 0;
-            for (int p : piles) {
+            for (int p : piles) 
+            {
                 hours += (p + m - 1) / m;
-                if (hours > h) {
+                if (hours > h)
                     break;
-                }
             }
-            if (hours <= h) {
+            if (hours <= h)
                 r = m;
-            } else {
+            else
                 l = m + 1;
-            }
         }
         return l;
     }

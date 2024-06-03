@@ -17,4 +17,9 @@ Output: 12
 
 public class Q64MinimumPathSum {
     
+    public int minPathSum(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int dp[][] = new int[m][n];
+        return find(grid, m - 1, n - 1, dp);
+    }
 }

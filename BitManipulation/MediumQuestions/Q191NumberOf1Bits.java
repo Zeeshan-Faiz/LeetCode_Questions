@@ -25,4 +25,15 @@ The input binary string 1111111111111111111111111111101 has a total of thirty se
 
 public class Q191NumberOf1Bits {
     
+    int count = 0;
+    public int hammingWeight(int n) {
+    for(int i = 0; i< 32;i++){ 
+         if((n&1)==1){
+            count++;
+        }
+       n= n>>1;
+        }
+        return count;
+        
+    }
 }

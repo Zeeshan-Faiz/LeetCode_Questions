@@ -24,11 +24,12 @@ Explanation: The input binary string 11111111111111111111111111111101 represents
 */
 
 public class Q190ReverseBits {
-    
+
     public int reverseBits(int n) {
-        int result = 0;
         
-        for (int i = 0; i < 32; i++) {
+        int result = 0;
+        for (int i = 0; i < 32; i++) 
+        {
             result = result << 1;
             if ((n & 1) == 1) {
                 result += 1;

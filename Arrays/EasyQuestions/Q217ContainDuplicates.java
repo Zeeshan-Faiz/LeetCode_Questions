@@ -1,5 +1,7 @@
 package Arrays.EasyQuestions;
 
+import java.util.HashSet;
+
 /*
 Given an integer array nums, return true if any value appears at least twice in the array,
 and return false if every element is distinct.
@@ -20,28 +22,13 @@ Output: true
 public class Q217ContainDuplicates {
 
     public boolean containsDuplicate(int[] nums) {
-        
-        int length = nums.length;
-        if (length == 1)
-            return false;
-        if (length == 2)
-            return nums[0] == nums[1];
 
-        for (int i = 0; i < nums.length - 1; i++) 
-        {
-            for (int j = i + 1; j > 0; j--) {
-                int eleJ = nums[j];
-                int elePrevJ = nums[j - 1];
-                if (eleJ == elePrevJ) {
-                    return true;
-                } else if (eleJ < elePrevJ) {
-                    nums[j] = elePrevJ;
-                    nums[j - 1] = eleJ;
-                } else {
-                    break;
-                }
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (!set.add(num)) {
+                return true; // If the element is already present in the set, it's a duplicate
             }
         }
-        return false;
+        return false; // No duplicates
     }
 }

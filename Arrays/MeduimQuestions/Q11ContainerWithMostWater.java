@@ -19,4 +19,17 @@ Output: 1
 
 public class Q11ContainerWithMostWater {
     
+    public int maxArea(int[] height) {
+        int maxArea = 0;
+        int i=0;
+        int j = height.length -1 ;
+        while (i < j) {
+            int minH = Math.min(height[i], height[j]);
+            maxArea = Math.max(maxArea, minH  * (j -i));
+           
+            while(height[i] <=minH &&i<j)i++;
+            while(height[j] <=minH &&i<j)j--;
+        }
+        return maxArea;
+    }
 }

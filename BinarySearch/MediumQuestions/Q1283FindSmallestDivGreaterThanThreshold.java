@@ -21,4 +21,34 @@ Output: 44
 
 public class Q1283FindSmallestDivGreaterThanThreshold {
     
+    public int smallestDivisor(int[] arr, int threshold) {
+        int n = arr.length; // size of array.
+
+    // Find the maximum element:
+    int maxi = Integer.MIN_VALUE;
+    for (int i = 0; i < n; i++) {
+      maxi = Math.max(maxi, arr[i]);
+    }
+
+    // Binary search to find the smallest divisor
+    int left = 1, right = maxi;
+
+    while (left < right) {
+      int mid = left + (right - left) / 2;
+      int sum = 0;
+
+      // Calculate the sum of ceilings
+      for (int i = 0; i < n; i++) {
+        sum += (arr[i] + mid - 1) / mid; // equivalent to Math.ceil((double) arr[i] / mid)
+      }
+
+      if (sum <= threshold) {
+        right = mid; // try for a smaller divisor
+      } else {
+        left = mid + 1; // increase the divisor
+      }
+    }
+
+    return left;
+    }
 }

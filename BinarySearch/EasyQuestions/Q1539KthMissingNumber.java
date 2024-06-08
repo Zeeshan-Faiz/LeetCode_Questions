@@ -17,4 +17,25 @@ Explanation: The missing positive integers are [5,6,7,...]. The 2nd missing posi
 
 public class Q1539KthMissingNumber {
     
+    public int findKthPositive(int[] arr, int k) {
+        int n = arr.length;
+
+        int low = 0;
+        int high = n-1;
+
+        while ( low <= high ) {
+            int mid = low + (high - low)/2;
+
+            int numbersMissing = arr[mid] - (mid + 1);
+
+            if ( numbersMissing < k ) {
+                low = mid + 1;
+               
+            } else {
+                high = mid - 1;
+            }
+        }   
+
+        return low + k;
+    }
 }

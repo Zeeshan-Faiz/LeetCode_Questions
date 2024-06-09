@@ -19,23 +19,31 @@ Explanation: Both 30 and 32 are peak elements so [1,1] and [2,2] are both accept
 */
 
 public class Q1901FindPeakElementII {
-    
+
     public int[] findPeakGrid(int[][] mat) {
 
-        int n = mat[0].length, m = mat.length, lo = 0, hi = n - 1, max = 0;
-
-        while(lo < hi){
+        int n = mat[0].length, lo = 0, hi = n - 1, max = 0;
+        while (lo < hi) 
+        {
             int mid = (lo + hi) >> 1;
 
             max = getMaxFromCol(mat, mid);
-            if (mid == n - 1 || mat[max][mid] > mat[max][mid + 1]){
+            if (mid == n - 1 || mat[max][mid] > mat[max][mid + 1])
                 hi = mid;
-            }else{
+            else
                 lo = mid + 1;
+        }
+        return new int[] { getMaxFromCol(mat, lo), lo };
+    }
+
+    private int getMaxFromCol(int[][] mat, int mid) {
+        
+        int max = 0, m = mat.length;
+        for (int i = 0; i < m; i++) {
+            if (mat[i][mid] > mat[max][mid]) {
+                max = i;
             }
         }
-
-        return new int[]{getMaxFromCol(mat, lo), lo};
-
+        return max;
     }
 }

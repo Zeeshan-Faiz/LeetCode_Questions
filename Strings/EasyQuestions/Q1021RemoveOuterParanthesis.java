@@ -34,24 +34,26 @@ After removing outer parentheses of each part, this is "" + "" = "".
 */
 
 public class Q1021RemoveOuterParanthesis {
-    
+
     public String removeOuterParentheses(String s) {
-        int len=s.length();
-        if(len<=2)
-        return "";
-        char[] c=s.toCharArray();
-        StringBuilder str=new StringBuilder();
-        int count=0;
-        for(int i=0;i<len;i++){
-            if(c[i]=='('){
+        
+        int len = s.length();
+        if (len <= 2)
+            return "";
+        char[] c = s.toCharArray();
+        StringBuilder str = new StringBuilder();
+        int count = 0;
+        for (int i = 0; i < len; i++) {
+            if (c[i] == '(') {
                 count++;
-                if(count>1)str.append('(');
-            }
-            else{
-                if(count>1)str.append(')');
+                if (count > 1)
+                    str.append('(');
+            } else {
+                if (count > 1)
+                    str.append(')');
                 count--;
             }
         }
         return str.toString();
-   }
+    }
 }

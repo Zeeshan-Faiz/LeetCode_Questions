@@ -20,19 +20,20 @@ Output: true
 */
 
 public class Q205IsomorphicStrings {
-    
+
     public boolean isIsomorphic(String s, String t) {
-        int[] arr=new int[255];
-       int[] arr2=new int[255];
-       char[] ch=s.toCharArray();
-       char[] ch1=t.toCharArray();
-       for(int i=0;i<ch.length;i++)
-       {
-           if(arr2[ch1[i]]!=arr[ch[i]])
-            return false;
-           arr[ch[i]]=i+1;
-           arr2[ch1[i]]=i+1;
-       }
-       return true;
+        
+        int[] arr = new int[255];
+        int[] arr2 = new int[255];
+        char[] ch = s.toCharArray();
+        char[] ch1 = t.toCharArray();
+        for (int i = 0; i < ch.length; i++) 
+        {
+            if (arr2[ch1[i]] != arr[ch[i]])
+                return false;
+            arr[ch[i]] = i + 1;
+            arr2[ch1[i]] = i + 1;
+        }
+        return true;
     }
 }

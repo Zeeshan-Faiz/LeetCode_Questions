@@ -22,17 +22,18 @@ Output: 3
 */
 
 public class Q1614MaxNestingDepth {
-    
+
     public int maxDepth(String s) {
-        int ans = 0;
-        int count = 0;
-        for(char ch : s.toCharArray()){
-            if(ch == '('){
+        
+        int ans = 0, count = 0;
+        for (char ch : s.toCharArray()) 
+        {
+            if (ch == '(') {
                 count++;
-                ans = Math.max(ans,count);
-            }else if (ch == ')'){
+                ans = Math.max(ans, count);
+            } 
+            else if (ch == ')')
                 count--;
-            }
         }
         return ans;
     }

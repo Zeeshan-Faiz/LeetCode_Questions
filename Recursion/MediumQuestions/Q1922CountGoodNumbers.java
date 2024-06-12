@@ -11,7 +11,17 @@ may be large, return it modulo 109 + 7.
 A digit string is a string consisting of digits 0 through 9 that may contain leading zeros.
 
 Example 1:
+Input: n = 1
+Output: 5
+Explanation: The good numbers of length 1 are "0", "2", "4", "6", "8".
 
+Example 2:
+Input: n = 4
+Output: 400
+
+Example 3:
+Input: n = 50
+Output: 564908303
 */
 
 public class Q1922CountGoodNumbers {

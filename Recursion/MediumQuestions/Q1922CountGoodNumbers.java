@@ -26,7 +26,14 @@ Output: 564908303
 
 public class Q1922CountGoodNumbers {
     
-
+    int mod = 1000000007;
+    public int countGoodNumbers(long n) {
+        long even_no_of_places = (n + 1) / 2;
+        long odd_no_of_places = n / 2;
+        long a = generatepow(5, even_no_of_places);
+        long b = generatepow(4, odd_no_of_places);
+        return (int)((a * b) % mod);
+    }
 
     public long generatepow(long a, long b) {
         if (b == 0) return 1;

@@ -27,21 +27,21 @@ Note that 'A' and 'a' are treated as two different characters.
 */
 
 public class Q451SortCharactersByFrequency {
-    
+
     public String frequencySort(String s) {
-        
+
         int[][] freq = new int[75][2];
-        for(int i = 0 ; i < s.length() ; i++) {
+        for (int i = 0; i < s.length(); i++) {
             int x = s.charAt(i) - '0';
             freq[x][0]++;
             freq[x][1] = x;
         }
-        Arrays.sort(freq, (a,b) -> b[0]-a[0]);
+        Arrays.sort(freq, (a, b) -> b[0] - a[0]);
         StringBuilder result = new StringBuilder();
-        for(int i = 0 ; i < freq.length ; i++) {
+        for (int i = 0; i < freq.length; i++) {
             int x = freq[i][1] + '0';
-            while(freq[i][0] > 0) {
-                result.append((char)x);
+            while (freq[i][0] > 0) {
+                result.append((char) x);
                 freq[i][0]--;
             }
         }

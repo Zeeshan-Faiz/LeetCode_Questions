@@ -26,4 +26,15 @@ Output: 564908303
 
 public class Q1922CountGoodNumbers {
     
+
+
+    public long generatepow(long a, long b) {
+        if (b == 0) return 1;
+        long ans = generatepow(a, b / 2);
+        ans = (ans * ans) % mod;
+        if (b % 2 != 0) {
+            ans = (ans * a) % mod;
+        }
+        return ans;
+    }
 }

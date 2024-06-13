@@ -53,5 +53,29 @@ public class Q282ExpressionsAndOperators {
         return res;
     }
 
-    
+    private void helper(int numPtr, int chsPtr, long curr, long prev) {
+        
+        if (numPtr == n) {
+            if (curr + prev == target) {
+                res.add(new String(chs, 0, chsPtr));
+
+            }
+            return;
+        }
+
+        long value = 0;
+        int op = chsPtr++;
+        for (int i = numPtr; i < n; i++) {
+            value = value * 10 + nums[i] - '0';
+            chs[chsPtr++] = nums[i];
+            chs[op] = '+';
+            helper(i + 1, chsPtr, curr + prev, value);
+            chs[op] = '-';
+            helper(i + 1, chsPtr, curr + prev, -value);
+            chs[op] = '*';
+            helper(i + 1, chsPtr, curr, prev * value);
+            if (value == 0)
+                break;
+        }
+    }
 }

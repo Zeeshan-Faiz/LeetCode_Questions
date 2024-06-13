@@ -1,5 +1,8 @@
 package Recursion.HardQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Given a string num that contains only digits and an integer target, return all possibilities to 
 insert the binary operators '+', '-', and/or '*' between the digits of num so that the resultant 
@@ -24,4 +27,30 @@ Explanation: There are no expressions that can be created from "3456237490" to e
 
 public class Q282ExpressionsAndOperators {
     
+    List<String> res;
+    char[] nums;
+    long target;
+    int n;
+    char[] chs;
+
+    public List<String> addOperators(String num, int target) {
+        res = new ArrayList<>();
+        nums = num.toCharArray();
+        this.target = target;
+        n = num.length();
+        chs = new char[n+n];
+        int chsPtr = 0;
+        long value = 0;
+
+        for(int i=0; i<n; i++){
+             value=value*10 + nums[i] - '0';
+            chs[chsPtr++] = nums[i];
+
+            helper(i+1, chsPtr, 0, value);
+            if(value == 0)
+            break;
+        }
+
+        return res;
+    }
 }

@@ -26,7 +26,7 @@ Explanation: There are no expressions that can be created from "3456237490" to e
 */
 
 public class Q282ExpressionsAndOperators {
-    
+
     List<String> res;
     char[] nums;
     long target;
@@ -38,19 +38,20 @@ public class Q282ExpressionsAndOperators {
         nums = num.toCharArray();
         this.target = target;
         n = num.length();
-        chs = new char[n+n];
+        chs = new char[n + n];
         int chsPtr = 0;
         long value = 0;
 
-        for(int i=0; i<n; i++){
-             value=value*10 + nums[i] - '0';
+        for (int i = 0; i < n; i++) {
+            value = value * 10 + nums[i] - '0';
             chs[chsPtr++] = nums[i];
 
-            helper(i+1, chsPtr, 0, value);
-            if(value == 0)
-            break;
+            helper(i + 1, chsPtr, 0, value);
+            if (value == 0)
+                break;
         }
-
         return res;
     }
+
+    
 }

@@ -29,5 +29,8 @@ It can be shown we cannot convert 3 to 4 in less than 3 steps. Hence, we return 
 */
 
 public class Q2220MinBitFlipToConvertNumber {
-    
+
+    public int minBitFlips(int start, int goal) {
+        return Integer.bitCount(start ^ goal);
+    }
 }

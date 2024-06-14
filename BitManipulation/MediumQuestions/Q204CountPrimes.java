@@ -19,4 +19,22 @@ Output: 0
 
 public class Q204CountPrimes {
     
+    public int countPrimes(int n) {
+        if (n <= 2) {
+            return 0;
+        }
+        boolean[] notPrime = new boolean[n];
+        int ans = n / 2;
+        for (int i = 3; i * i < n; i += 2) {
+            if (!notPrime[i]) {
+                for (int j = i * i; j < n; j += 2 * i) {
+                    if (!notPrime[j]) {
+                        notPrime[j] = true;
+                        ans--;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
 }

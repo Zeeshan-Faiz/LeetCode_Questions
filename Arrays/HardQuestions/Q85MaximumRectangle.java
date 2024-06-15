@@ -21,8 +21,9 @@ Output: 1
 */
 
 public class Q85MaximumRectangle {
-    
+
     public int maximalRectangle(char[][] matrix) {
+        
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return 0;
         }
@@ -37,7 +38,8 @@ public class Q85MaximumRectangle {
 
         int maxRectangle = 0;
 
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < m; i++) 
+        {
             int left = 0;
             int right = n;
 
@@ -48,12 +50,13 @@ public class Q85MaximumRectangle {
             maxRectangle = calculateMaxRectangle(heights, leftBoundaries, rightBoundaries, maxRectangle);
         }
 
-         maxRectangle = calculateMaxRectangle(heights, leftBoundaries, rightBoundaries, maxRectangle);
+        maxRectangle = calculateMaxRectangle(heights, leftBoundaries, rightBoundaries, maxRectangle);
 
         return maxRectangle;
     }
 
     private void updateHeightsAndLeftBoundaries(char[] row, int[] heights, int[] leftBoundaries, int left) {
+        
         for (int j = 0; j < heights.length; j++) {
             if (row[j] == '1') {
                 heights[j]++;
@@ -67,6 +70,7 @@ public class Q85MaximumRectangle {
     }
 
     private void updateRightBoundaries(char[] row, int[] rightBoundaries, int right) {
+        
         for (int j = rightBoundaries.length - 1; j >= 0; j--) {
             if (row[j] == '1') {
                 rightBoundaries[j] = Math.min(rightBoundaries[j], right);
@@ -75,5 +79,15 @@ public class Q85MaximumRectangle {
                 right = j;
             }
         }
+    }
+
+    private int calculateMaxRectangle(int[] heights, int[] leftBoundaries, int[] rightBoundaries, int maxRectangle) {
+        
+        for (int j = 0; j < heights.length; j++) {
+            int width = rightBoundaries[j] - leftBoundaries[j];
+            int area = heights[j] * width;
+            maxRectangle = Math.max(maxRectangle, area);
+        }
+        return maxRectangle;
     }
 }

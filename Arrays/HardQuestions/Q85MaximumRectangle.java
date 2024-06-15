@@ -1,5 +1,7 @@
 package Arrays.HardQuestions;
 
+import java.util.Arrays;
+
 /*
 Given a rows x cols binary matrix filled with 0's and 1's, find the largest rectangle 
 containing only 1's and return its area.
@@ -20,4 +22,34 @@ Output: 1
 
 public class Q85MaximumRectangle {
     
+    public int maximalRectangle(char[][] matrix) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return 0;
+        }
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int[] heights = new int[n];
+        int[] leftBoundaries = new int[n];
+        int[] rightBoundaries = new int[n];
+        Arrays.fill(rightBoundaries, n);
+
+        int maxRectangle = 0;
+
+        for (int i = 0; i < m; i++) {
+            int left = 0;
+            int right = n;
+
+            updateHeightsAndLeftBoundaries(matrix[i], heights, leftBoundaries, left);
+
+            updateRightBoundaries(matrix[i], rightBoundaries, right);
+
+            maxRectangle = calculateMaxRectangle(heights, leftBoundaries, rightBoundaries, maxRectangle);
+        }
+
+         maxRectangle = calculateMaxRectangle(heights, leftBoundaries, rightBoundaries, maxRectangle);
+
+        return maxRectangle;
+    }
 }

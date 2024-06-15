@@ -69,6 +69,7 @@ public class Q146LRUCache {
     }
 
     public void deleteNode(Node node) {
+        
         node.prev.next = node.next;
         node.next.prev = node.prev;
 
@@ -76,10 +77,10 @@ public class Q146LRUCache {
     }
 
     public void addToHead(Node node) {
+        
         node.next = head.next;
         node.next.prev = node;
         node.prev = head;
-
         head.next = node;
 
         return;
@@ -90,13 +91,9 @@ public class Q146LRUCache {
         if (map[key] != null) {
 
             Node node = map[key];
-
             int nodeVal = node.value;
-
             deleteNode(node);
-
             addToHead(node);
-
             return nodeVal;
         } 
         else
@@ -108,31 +105,26 @@ public class Q146LRUCache {
         if (map[key] != null) {
 
             Node node = map[key];
-
             node.value = value;
-
             deleteNode(node);
-
             addToHead(node);
 
-        } else {
+        } 
+        else {
 
             Node node = new Node(key, value);
-
             map[key] = node;
-
-            if (count < capacity) {
+            if (count < capacity) 
+            {
                 count++;
                 addToHead(node);
-            } else {
-
+            } 
+            else {
                 map[tail.prev.key] = null;
                 deleteNode(tail.prev);
-
                 addToHead(node);
             }
         }
-
         return;
     }
 }

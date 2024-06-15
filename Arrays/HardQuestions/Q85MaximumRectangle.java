@@ -52,4 +52,28 @@ public class Q85MaximumRectangle {
 
         return maxRectangle;
     }
+
+    private void updateHeightsAndLeftBoundaries(char[] row, int[] heights, int[] leftBoundaries, int left) {
+        for (int j = 0; j < heights.length; j++) {
+            if (row[j] == '1') {
+                heights[j]++;
+                leftBoundaries[j] = Math.max(leftBoundaries[j], left);
+            } else {
+                heights[j] = 0;
+                leftBoundaries[j] = 0;
+                left = j + 1;
+            }
+        }
+    }
+
+    private void updateRightBoundaries(char[] row, int[] rightBoundaries, int right) {
+        for (int j = rightBoundaries.length - 1; j >= 0; j--) {
+            if (row[j] == '1') {
+                rightBoundaries[j] = Math.min(rightBoundaries[j], right);
+            } else {
+                rightBoundaries[j] = right;
+                right = j;
+            }
+        }
+    }
 }

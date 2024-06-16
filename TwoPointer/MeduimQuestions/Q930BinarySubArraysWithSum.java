@@ -20,5 +20,10 @@ Output: 15
 */
 
 public class Q930BinarySubArraysWithSum {
-    
+
+    public int numSubarraysWithSum(int[] nums, int goal) {
+        
+        int ans = atMostK(nums, goal) - atMostK(nums, goal - 1);
+        return ans;
+    }
 }

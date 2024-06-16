@@ -27,4 +27,17 @@ Output: []
 
 public class Q23MergeKSortedLists {
     
+    public ListNode mergeKLists(ListNode[] lists) {
+        if(lists.length == 0) return null;
+        return helper(lists,0,lists.length-1);
+    }
+
+    public ListNode helper(ListNode[] lists, int start,int end) {
+        if(start == end) return lists[start];
+        if(start == end-1) return merge(lists[start],lists[end]);
+        int mid = start + (end-start) / 2;
+        ListNode left = helper(lists,start,mid);
+        ListNode right = helper(lists,mid+1,end);
+        return merge(left,right);
+    }
 }

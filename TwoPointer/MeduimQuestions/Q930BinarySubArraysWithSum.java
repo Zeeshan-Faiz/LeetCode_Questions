@@ -22,8 +22,26 @@ Output: 15
 public class Q930BinarySubArraysWithSum {
 
     public int numSubarraysWithSum(int[] nums, int goal) {
-        
+
         int ans = atMostK(nums, goal) - atMostK(nums, goal - 1);
         return ans;
+    }
+
+    public static int atMostK(int[] nums, int goal) {
+
+        int sum = 0;
+        int end = 0;
+        int count = 0;
+
+        for (int start = 0; start < nums.length; start++) 
+        {
+            sum = sum + nums[start];
+            while (end <= start && sum > goal) {
+                sum = sum - nums[end];
+                end++;
+            }
+            count = count + start - end + 1;
+        }
+        return count;
     }
 }

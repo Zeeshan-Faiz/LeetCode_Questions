@@ -1,5 +1,10 @@
 package StackandQueue.MediumQuestions;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /*
 Design a simplified version of Twitter where users can post tweets, follow/unfollow another user, 
 and is able to see the 10 most recent tweets in the user's news feed.
@@ -44,6 +49,73 @@ public class Q335DesignTwitter {
         Node(int userId, int tweetId) {
             this.userId = userId;
             this.tweetId = tweetId;
+        }
+    }
+
+    class Twitter {
+        Map<Integer, ArrayList<Integer>> map = new HashMap<>();
+        Node head = new Node(0, 0);
+        Node tail = new Node(0, 0);
+
+        public Twitter() {
+            head.next = tail;
+            tail.prev = head;
+        }
+
+        public boolean valid(Node curr, int userId) {
+            if (curr.userId == userId)
+                return true;
+            List<Integer> temp = map.get(curr.userId);
+            if (temp == null)
+                return false;
+            for (int ele : temp) {
+                if (ele == userId)
+                    return true;
+            }
+            return false;
+        }
+
+        public void postTweet(int userId, int tweetId) {
+            Node curr = new Node(userId, tweetId);
+            insertFirst(curr);
+        }
+
+        public List<Integer> getNewsFeed(int userId) {
+            List<Integer> tweets = new ArrayList<>();
+            Node curr = head.next;
+            while (curr != tail) {
+                if (valid(curr, userId) && tweets.size() < 10)
+                    tweets.add(curr.tweetId);
+                curr = curr.next;
+            }
+            return tweets;
+        }
+
+        public void follow(int followerId, int followeeId) {
+            
+            if (!map.containsKey(followeeId))
+                map.put(followeeId, new ArrayList<>());
+
+            ArrayList<Integer> temp = map.get(followeeId);
+            temp.add(followerId);
+            map.put(followeeId, temp);
+
+        }
+
+        public void unfollow(int followerId, int followeeId) {
+            
+            ArrayList<Integer> temp = map.get(followeeId);
+            if (temp == null)
+                return;
+            temp.remove((Integer) followerId);
+            map.put(followeeId, temp);
+        }
+
+        public void insertFirst(Node curr) {
+            curr.next = head.next;
+            head.next = curr;
+            curr.next.prev = curr;
+            curr.prev = head;
         }
     }
 }

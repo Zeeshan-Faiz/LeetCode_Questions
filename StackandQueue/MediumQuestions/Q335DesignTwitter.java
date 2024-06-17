@@ -34,5 +34,16 @@ twitter.getNewsFeed(1);  // User 1's news feed should return a list with 1 tweet
 */
 
 public class Q335DesignTwitter {
-    
+
+    class Node {
+        int userId;
+        int tweetId;
+        Node next;
+        Node prev;
+
+        Node(int userId, int tweetId) {
+            this.userId = userId;
+            this.tweetId = tweetId;
+        }
+    }
 }

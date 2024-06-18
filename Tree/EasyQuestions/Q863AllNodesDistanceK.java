@@ -20,7 +20,7 @@ Output: []
 
 public class Q863AllNodesDistanceK {
 
-    List<Integer> ans = new ArrayList();
+    List<Integer> ans = new ArrayList<>();
     int k;
 
     public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
@@ -30,9 +30,10 @@ public class Q863AllNodesDistanceK {
     }
 
     int find(TreeNode root, int target, int depth) {
-        if (root == null) {
+        
+        if (root == null)
             return -1;
-        }
+
         if (root.val == target) {
             traverse(root, 0, k);
             return depth;
@@ -55,5 +56,18 @@ public class Q863AllNodesDistanceK {
             }
         }
         return foundDepth;
+    }
+
+    void traverse(TreeNode root, int depth, int targetDepth) {
+        
+        if (root == null)
+            return;
+
+        if (depth == targetDepth) {
+            ans.add(root.val);
+            return;
+        }
+        traverse(root.left, depth + 1, targetDepth);
+        traverse(root.right, depth + 1, targetDepth);
     }
 }

@@ -70,4 +70,17 @@ public class Q863AllNodesDistanceK {
         traverse(root.left, depth + 1, targetDepth);
         traverse(root.right, depth + 1, targetDepth);
     }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
 }

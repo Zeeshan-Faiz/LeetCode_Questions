@@ -1,5 +1,8 @@
 package Tree.EasyQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Given the root of a binary tree, the value of a target node target, and an integer k, return 
 an array of the values of all nodes that have a distance k from the target node.
@@ -16,5 +19,14 @@ Output: []
 */
 
 public class Q863AllNodesDistanceK {
+    
+    List<Integer> ans = new ArrayList();
+    int k;
+    public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
+        this.k = k;
+        find(root, target.val, 0);
+        return ans;
+    }
+
     
 }

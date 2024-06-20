@@ -1,5 +1,8 @@
 package DynamicProgramming.MediumQuestions;
 
+import java.util.Arrays;
+import java.util.List;
+
 /*
 Given a triangle array, return the minimum path sum from top to bottom.
 For each step, you may move to an adjacent number of the row below. More formally, if you are 
@@ -21,5 +24,15 @@ Output: -10
 */
 
 public class Q120Triangle {
-    
+
+    public int minimumTotal(List<List<Integer>> triangle) {
+        
+        int m = triangle.size();
+        int dp[][] = new int[m][m];
+
+        for (int[] row : dp) {
+            Arrays.fill(row, -1);
+        }
+        return helper(triangle, 0, 0, m, dp);
+    }
 }

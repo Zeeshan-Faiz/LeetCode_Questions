@@ -25,20 +25,42 @@ Output: 1
 */
 
 public class Q63UniquePathII {
-    
+
     public int uniquePathsWithObstacles(int[][] grid) {
         // fixed starting and ending point
         int n = grid.length;
         int m = grid[0].length;
 
-        if(grid[0][0] == 1 || grid[n-1][m-1] == 1)
+        if (grid[0][0] == 1 || grid[n - 1][m - 1] == 1)
             return 0;
 
         int[][] dp = new int[n][m];
-        for(int[] row: dp) {
+        for (int[] row : dp) {
             Arrays.fill(row, -1);
         }
+        return findPaths(n - 1, m - 1, grid, dp);
+    }
 
-        return findPaths(n-1, m-1, grid, dp);
+    private int findPaths(int i, int j, int[][] grid, int[][] dp) {
+        
+        // out of bound conditions
+        if (i < 0 || j < 0)
+            return 0;
+        // base condition
+        if (i == 0 && j == 0)
+            return 1;
+        // check if obstacle
+        if (grid[i][j] == 1)
+            return 0;
+        // check if previously calculated
+        if (dp[i][j] != -1)
+            return dp[i][j];
+
+        // move up
+        int up = findPaths(i - 1, j, grid, dp);
+        // move left
+        int left = findPaths(i, j - 1, grid, dp);
+
+        return dp[i][j] = (up + left);
     }
 }

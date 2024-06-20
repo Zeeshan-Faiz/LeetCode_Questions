@@ -1,5 +1,7 @@
 package DynamicProgramming.MediumQuestions;
 
+import java.util.Arrays;
+
 /*
 You are given an m x n integer array grid. There is a robot initially located at the top-left 
 corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner 
@@ -24,4 +26,19 @@ Output: 1
 
 public class Q63UniquePathII {
     
+    public int uniquePathsWithObstacles(int[][] grid) {
+        // fixed starting and ending point
+        int n = grid.length;
+        int m = grid[0].length;
+
+        if(grid[0][0] == 1 || grid[n-1][m-1] == 1)
+            return 0;
+
+        int[][] dp = new int[n][m];
+        for(int[] row: dp) {
+            Arrays.fill(row, -1);
+        }
+
+        return findPaths(n-1, m-1, grid, dp);
+    }
 }

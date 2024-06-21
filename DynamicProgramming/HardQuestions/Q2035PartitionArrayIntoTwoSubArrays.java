@@ -1,5 +1,7 @@
 package DynamicProgramming.HardQuestions;
 
+import java.util.Arrays;
+
 /*
 You are given an integer array nums of 2 * n integers. You need to partition nums into two arrays 
 of length n to minimize the absolute difference of the sums of the arrays. To partition nums, put 
@@ -27,4 +29,33 @@ The absolute difference between the sums of the arrays is abs((2 + 4 + -9) - (-1
 
 public class Q2035PartitionArrayIntoTwoSubArrays {
     
+    public int minimumDifference(int[] nums) {
+        int n = nums.length;
+        int[][] diff1 = generate(Arrays.copyOfRange(nums, 0, n / 2));
+        int[][] diff2 = generate(Arrays.copyOfRange(nums, n / 2, n));
+
+        int min = Integer.MAX_VALUE;
+        for (int len = 0; len <= n / 2; len++) {
+            int[] left = diff1[len];
+            int[] right = diff2[len];
+
+            int l = 0;
+            int r = 0;
+
+            while (l < left.length && r < left.length) {
+                // arrays are already sorted so we move one pointer at a time to make the diff
+                // closer to 0
+                int diff = left[l] - right[r];
+                min = Math.min(min, Math.abs(diff));
+                if (diff < 0)
+                    l++;
+                else if (diff > 0)
+                    r++;
+                else
+                    return 0;
+            }
+        }
+
+        return min;
+    }
 }

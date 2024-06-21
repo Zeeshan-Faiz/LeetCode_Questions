@@ -18,5 +18,15 @@ Explanation: The falling path with a minimum sum is shown.
 */
 
 public class Q931MinFallingPathSum {
-    
+
+    public int minFallingPathSum(int[][] matrix) {
+        int n = matrix.length;
+        minSum(matrix, n, n - 2);
+        int ans = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            if (ans > matrix[0][i])
+                ans = matrix[0][i];
+        }
+        return ans;
+    }
 }

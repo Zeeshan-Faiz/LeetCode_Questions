@@ -16,21 +16,21 @@ Output: 4
 */
 
 public class Q583DeleteOperationForTwoStrings {
-    
+
     public int minDistance(String word1, String word2) {
 
         int m = word1.length();
         int n = word2.length();
         char[] word1Chars = word1.toCharArray();
-        char[] word2Chars= word2.toCharArray();
-        int[][] dp = new int[m+1][n+1];
+        char[] word2Chars = word2.toCharArray();
+        int[][] dp = new int[m + 1][n + 1];
 
-        for(int i=0; i<m; i++) {
-            for(int j=0; j<n; j++) {
-                if(word1Chars[i] == word2Chars[j]) {
-                    dp[i+1][j+1] = 1 + dp[i][j];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (word1Chars[i] == word2Chars[j]) {
+                    dp[i + 1][j + 1] = 1 + dp[i][j];
                 } else {
-                    dp[i+1][j+1] = Math.max(dp[i][j+1], dp[i+1][j]);
+                    dp[i + 1][j + 1] = Math.max(dp[i][j + 1], dp[i + 1][j]);
                 }
             }
         }

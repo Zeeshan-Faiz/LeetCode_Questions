@@ -26,6 +26,7 @@ Explanation: '?' matches 'c', but the second letter is 'a', which does not match
 public class Q44WildCardMatching {
 
     public boolean isMatch(String s, String p) {
+        
         int sIndex = 0, pIndex = 0, matchIndex = 0, starIndex = -1;
 
         while (sIndex < s.length()) {

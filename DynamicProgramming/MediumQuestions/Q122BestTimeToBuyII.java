@@ -27,4 +27,17 @@ Explanation: There is no way to make a positive profit, so we never buy the stoc
 
 public class Q122BestTimeToBuyII {
     
+    public int maxProfit(int[] prices) {
+        
+        int n = prices.length;
+        int[] prev = new int[2];
+        
+        for(int i = n-1 ; i>=0 ; i--)
+        {
+            prev[1] = Math.max(-prices[i]+prev[0] , prev[1]);
+            prev[0] = Math.max(prices[i]+prev[1] , prev[0]);  
+        }
+        
+        return prev[1];
+    }
 }

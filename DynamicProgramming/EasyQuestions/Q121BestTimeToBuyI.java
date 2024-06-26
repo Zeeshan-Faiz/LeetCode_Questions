@@ -20,19 +20,18 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 */
 
 public class Q121BestTimeToBuyI {
-    
+
     public int maxProfit(int[] prices) {
-        
-        if (prices == null || prices.length == 0) {
-           return 0;
-       }
-       
-       int buy = Integer.MAX_VALUE;
-       int revenue = 0;
-       for (int i = 0; i < prices.length; i++) {
-           revenue = Math.max(revenue, prices[i] - buy);
-           buy = Math.min(buy, prices[i]);
-       }
-       return revenue;
-   }
+
+        if (prices == null || prices.length == 0)
+            return 0;
+
+        int buy = Integer.MAX_VALUE;
+        int revenue = 0;
+        for (int i = 0; i < prices.length; i++) {
+            revenue = Math.max(revenue, prices[i] - buy);
+            buy = Math.min(buy, prices[i]);
+        }
+        return revenue;
+    }
 }

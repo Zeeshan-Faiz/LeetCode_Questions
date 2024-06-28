@@ -19,8 +19,9 @@ Output: 0
 */
 
 public class Q309BestTimeToBuyAndSell {
-    
+
     public int maxProfit(int[] prices) {
+        
         int sell = 0, prev_sell = 0, buy = Integer.MIN_VALUE, prev_buy;
         for (int price : prices) {
             prev_buy = buy;

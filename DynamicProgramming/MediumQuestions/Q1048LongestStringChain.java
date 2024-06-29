@@ -32,12 +32,14 @@ Explanation: The trivial word chain ["abcd"] is one of the longest word chains.
 */
 
 public class Q1048LongestStringChain {
-    
-     int maxLength;
+
+    int maxLength;
     List<String>[] graph;
 
+    @SuppressWarnings("unchecked")
     public int longestStrChain(String[] words) {
-        int length = 0;
+        
+        var length = 0;
 
         for (String word : words) {
             length = Math.max(length, word.length());
@@ -62,7 +64,6 @@ public class Q1048LongestStringChain {
         return maxLength;
     }
 
- 
     private boolean isGood(String word1, String word2) {
 
         int i = 0;
@@ -73,21 +74,18 @@ public class Q1048LongestStringChain {
             if (word1.charAt(i) == word2.charAt(j)) {
                 i++;
                 j++;
-            }
-            else {
+            } else {
                 j++;
                 count++;
             }
         }
-
         return count != 2;
     }
 
     private void dfs(String word, int k, int length) {
 
-        if (k == graph.length) {
+        if (k == graph.length)
             return;
-        }
 
         for (int i = 0; i < graph[k].size(); i++) {
             if (isGood(word, graph[k].get(i))) {

@@ -1,5 +1,8 @@
 package DynamicProgramming.MediumQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 You are given an array of words where each word consists of lowercase English letters.
 wordA is a predecessor of wordB if and only if we can insert exactly one letter anywhere in 
@@ -30,4 +33,68 @@ Explanation: The trivial word chain ["abcd"] is one of the longest word chains.
 
 public class Q1048LongestStringChain {
     
+     int maxLength;
+    List<String>[] graph;
+
+    public int longestStrChain(String[] words) {
+        int length = 0;
+
+        for (String word : words) {
+            length = Math.max(length, word.length());
+        }
+
+        maxLength = 1;
+        graph = new List[length + 1];
+
+        for (int i = 0; i <= length; i++) {
+            graph[i] = new ArrayList<String>();
+        }
+
+        for (String word : words) {
+            graph[word.length()].add(word);
+        }
+
+        for (int k = 1; k < length; k++) {
+            for (int i = 0; i < graph[k].size(); i++) {
+                dfs(graph[k].get(i), k + 1, 1);
+            }
+        }
+        return maxLength;
+    }
+
+ 
+    private boolean isGood(String word1, String word2) {
+
+        int i = 0;
+        int j = 0;
+        int count = 0;
+
+        while (count != 2 && i < word1.length()) {
+            if (word1.charAt(i) == word2.charAt(j)) {
+                i++;
+                j++;
+            }
+            else {
+                j++;
+                count++;
+            }
+        }
+
+        return count != 2;
+    }
+
+    private void dfs(String word, int k, int length) {
+
+        if (k == graph.length) {
+            return;
+        }
+
+        for (int i = 0; i < graph[k].size(); i++) {
+            if (isGood(word, graph[k].get(i))) {
+                maxLength = Math.max(maxLength, length + 1);
+                dfs(graph[k].get(i), k + 1, length + 1);
+                graph[k].remove(i--);
+            }
+        }
+    }
 }

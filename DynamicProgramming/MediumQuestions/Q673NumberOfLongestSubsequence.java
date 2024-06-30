@@ -18,9 +18,9 @@ Explanation: The length of the longest increasing subsequence is 1, and there ar
 */
 
 public class Q673NumberOfLongestSubsequence {
-    
+
     public int findNumberOfLIS(int[] nums) {
-         int number = 0;
+
         int[] lis = new int[nums.length + 1];
         int[] len = new int[nums.length];
         int[] dp = new int[nums.length];
@@ -31,33 +31,29 @@ public class Q673NumberOfLongestSubsequence {
         }
         int max = 0;
         for (int i = 0; i < nums.length; ++i) {
-            
+
             int pos = Arrays.binarySearch(lis, nums[i]);
             if (pos < 0) {
                 pos = -(pos + 1);
                 lis[pos] = nums[i];
-                max = Math.max(max, pos);   
+                max = Math.max(max, pos);
             }
 
             len[i] = pos;
 
-            for(int j = 0; j < i; ++j)
-            {
-                if(len[j] == pos - 1 && nums[j] < nums[i])
-                {
+            for (int j = 0; j < i; ++j) {
+                if (len[j] == pos - 1 && nums[j] < nums[i]) {
                     dp[i] += dp[j];
                 }
             }
             dp[i] = Math.max(dp[i], 1);
         }
         int ans = 0;
-        for(int i = 0; i < len.length; ++i)
-        {
-            if(len[i] == max)
-            {
+        for (int i = 0; i < len.length; ++i) {
+            if (len[i] == max) {
                 ans += dp[i];
             }
         }
-        return ans; 
+        return ans;
     }
 }

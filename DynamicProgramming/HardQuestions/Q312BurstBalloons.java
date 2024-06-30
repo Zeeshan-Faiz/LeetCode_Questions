@@ -21,4 +21,25 @@ Output: 10
 
 public class Q312BurstBalloons {
     
+    public int maxCoins(int[] nums) {
+        int n = nums.length;
+        int[] arr = new int[n+2];
+        for(int i = 0; i < n; i++){
+            arr[i+1] = nums[i];
+        } 
+        arr[0] = 1;
+        arr[n+1] =1; 
+        int[][] dp = new int[n+2][n+2];
+        for(int i = n; i >= 0; i--){
+            for(int j = i+2; j<= n+1; j++){
+                int mul = arr[i] * arr[j];
+                int max = 0;
+                for(int k = i+1; k < j; k++){ 
+                    max = Math.max(max , mul * arr[k] + dp[i][k] + dp[k][j]);
+                } 
+                dp[i][j] = max;
+            }
+        } 
+        return dp[0][n+1];
+    }
 }

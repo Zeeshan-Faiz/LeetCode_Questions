@@ -37,4 +37,19 @@ public class Q1043PartitionArrayForMaxSum {
 
         return dp[arr.length - 1];
     }
+
+    private static void find(int[] arr, int k, int i, int[] dp) {
+        
+        int maxSum = 0;
+        for (int max = arr[i], j = i, bound = i - k; j > bound;) {
+            if (max < arr[j])
+                max = arr[j];
+
+            int sum = dp[--j] + max * (i - j);
+            if (sum > maxSum)
+                maxSum = sum;
+
+        }
+        dp[i] = maxSum;
+    }
 }

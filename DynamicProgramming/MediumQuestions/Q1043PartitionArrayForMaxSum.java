@@ -22,5 +22,19 @@ Output: 1
 */
 
 public class Q1043PartitionArrayForMaxSum {
-    
+
+    public int maxSumAfterPartitioning(int[] arr, int k) {
+        int[] dp = new int[500];
+
+        for (int max = dp[0] = arr[0], i = 1; i < k;) {
+            if (arr[i] > max)
+                max = arr[i];
+            dp[i] = max * ++i;
+        }
+
+        for (int i = k; i < arr.length; i++)
+            find(arr, k, i, dp);
+
+        return dp[arr.length - 1];
+    }
 }

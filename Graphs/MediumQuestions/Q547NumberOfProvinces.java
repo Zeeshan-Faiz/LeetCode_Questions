@@ -20,4 +20,25 @@ Output: 3
 
 public class Q547NumberOfProvinces {
     
+    public int findCircleNum(int[][] isConnected) {
+        int ans = 0;
+        for(int i = 0; i < isConnected.length; i++){
+            if(isConnected[i][i] != -1){
+                visit(i, isConnected);
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+    public void visit(int i, int[][] isConnected){
+        if(i < 0|| i >= isConnected.length || isConnected[i][i] == -1)
+            return;
+        isConnected[i][i] = -1;
+        for(int j = 0; j < isConnected.length; j++){
+            if(isConnected[i][j] == 1 && isConnected[j][j] != -1)
+                visit(j, isConnected);
+        }
+        return;
+    }
 }

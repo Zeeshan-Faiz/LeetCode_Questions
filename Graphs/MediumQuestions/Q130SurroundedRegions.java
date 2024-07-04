@@ -18,30 +18,43 @@ Output: [["X"]]
 */
 
 public class Q130SurroundedRegions {
-    
+
     public void solve(char[][] board) {
-        int n=board.length, m=board[0].length;
-        for(int i=0;i<n;i++){
-            dfs(board,i,0,n,m);
+        
+        int n = board.length, m = board[0].length;
+        for (int i = 0; i < n; i++) {
+            dfs(board, i, 0, n, m);
         }
-        for(int i=0;i<n;i++){
-            dfs(board,i,m-1,n,m);
+        for (int i = 0; i < n; i++) {
+            dfs(board, i, m - 1, n, m);
         }
-        for(int j=0;j<m;j++){
-            dfs(board,0,j,n,m);
+        for (int j = 0; j < m; j++) {
+            dfs(board, 0, j, n, m);
         }
-        for(int j=0;j<m;j++){
-            dfs(board,n-1,j,n,m);
+        for (int j = 0; j < m; j++) {
+            dfs(board, n - 1, j, n, m);
         }
 
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                if(board[i][j]=='O'){
-                    board[i][j]='X';
-                }else if(board[i][j]=='#'){
-                    board[i][j]='O';
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (board[i][j] == 'O') {
+                    board[i][j] = 'X';
+                } else if (board[i][j] == '#') {
+                    board[i][j] = 'O';
                 }
             }
         }
+    }
+
+    public void dfs(char[][] board, int u, int v, int n, int m) {
+        
+        if (u >= n || v >= m || u < 0 || v < 0 || board[u][v] != 'O')
+            return;
+        
+        board[u][v] = '#';
+        dfs(board, u + 1, v, n, m);
+        dfs(board, u, v + 1, n, m);
+        dfs(board, u - 1, v, n, m);
+        dfs(board, u, v - 1, n, m);
     }
 }

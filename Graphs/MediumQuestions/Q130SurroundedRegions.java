@@ -9,7 +9,12 @@ surrounded:
 A surrounded region is captured by replacing all 'O's with 'X's in the input matrix board.\
 
 Example 1:
+Input: board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
 
+Example 2:
+Input: board = [["X"]]
+Output: [["X"]]
 */
 
 public class Q130SurroundedRegions {

@@ -32,7 +32,7 @@ Explanation: The endWord "cog" is not in wordList, therefore there is no valid t
 */
 
 public class Q126WordLadderII {
-    
+
     List<List<String>> ans = new ArrayList<>();
     Map<String, Integer> wordToId = new HashMap<>();
     Map<Integer, String> idToWord = new HashMap<>();
@@ -41,33 +41,43 @@ public class Q126WordLadderII {
     int[] ne, e, h;
     boolean[] vis;
     int len, idx, start, end;
+
     void add(int u, int v) {
         e[++len] = v;
         ne[len] = h[u];
         h[u] = len;
     }
+
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+        
         int n = wordList.size();
         ne = new int[20 * n];
         e = new int[20 * n];
         h = new int[20 * n];
         vis = new boolean[10 * n];
-        if (!wordList.contains(beginWord)) wordList.add(beginWord);
-        if (!wordList.contains(endWord)) return ans;
-        for (int i = 0; i < wordList.size(); i++) addEdge(wordList.get(i));
+        if (!wordList.contains(beginWord))
+            wordList.add(beginWord);
+        if (!wordList.contains(endWord))
+            return ans;
+        for (int i = 0; i < wordList.size(); i++)
+            addEdge(wordList.get(i));
         Queue<Integer> q = new LinkedList<>();
         start = wordToId.get(beginWord);
         end = wordToId.get(endWord);
-        q.add(start); 
+        q.add(start);
         while (!q.isEmpty()) {
             int u = q.poll();
-            if (u == end) break; 
-            if (vis[u]) continue;
+            if (u == end)
+                break;
+            if (vis[u])
+                continue;
             vis[u] = true;
             for (int j = h[u]; j != 0; j = ne[j]) {
                 int v = e[j];
-                if (vis[v]) continue;
-                if (!path.containsKey(v)) path.put(v, new ArrayList<>());
+                if (vis[v])
+                    continue;
+                if (!path.containsKey(v))
+                    path.put(v, new ArrayList<>());
                 path.get(v).add(u);
                 q.add(v);
             }
@@ -76,21 +86,28 @@ public class Q126WordLadderII {
         dfs(end, 0);
         return ans;
     }
+
     void dfs(int u, int level) {
+        
         if (u == start) {
             ans.add(new ArrayList<>(list));
             return;
         }
         List<Integer> p = path.get(u);
-        if (p == null) return;
+        if (p == null)
+            return;
         for (int i = 0; i < p.size(); i++) {
             int v = p.get(i);
-            if (level % 2 == 1) list.addFirst(idToWord.get(v));
-            dfs(v, level + 1); 
-            if (level % 2 == 1) list.pollFirst(); 
+            if (level % 2 == 1)
+                list.addFirst(idToWord.get(v));
+            dfs(v, level + 1);
+            if (level % 2 == 1)
+                list.pollFirst();
         }
     }
+
     void addEdge(String word) {
+        
         int u = idx;
         char[] arr = word.toCharArray();
         wordToId.put(word, idx);
@@ -105,7 +122,7 @@ public class Q126WordLadderII {
             }
             int v = wordToId.get(vstr);
             add(u, v);
-            add(v, u); 
+            add(v, u);
             arr[i] = t;
         }
     }

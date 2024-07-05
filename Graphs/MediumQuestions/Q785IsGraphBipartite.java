@@ -27,19 +27,35 @@ Explanation: We can partition the nodes into two sets: {0, 2} and {1, 3}.
 */
 
 public class Q785IsGraphBipartite {
-    
-    public boolean isBipartite(int[][] graph) {
-        int v = graph.length;
-        int [] color = new int [v];
 
-        Arrays.fill(color,-1);
+    public boolean isBipartite(int[][] graph) {
         
-        for(int i=0;i<v;i++){
-            if(color[i]==-1){
-                if(dfs(i,0,graph,color)==false) return false;
+        int v = graph.length;
+        int[] color = new int[v];
+        Arrays.fill(color, -1);
+
+        for (int i = 0; i < v; i++) {
+            if (color[i] == -1) {
+                if (dfs(i, 0, graph, color) == false)
+                    return false;
             }
         }
+        return true;
+    }
 
+    public boolean dfs(int node, int col, int[][] graph, int[] color) {
+        
+        color[node] = col;
+        for (int nbrs : graph[node]) {
+            if (color[nbrs] == -1) {
+                boolean res = dfs(nbrs, 1 - col, graph, color);
+                if (res == false)
+                    return false;
+            }
+            else if (color[nbrs] == col) {
+                return false;
+            }
+        }
         return true;
     }
 }

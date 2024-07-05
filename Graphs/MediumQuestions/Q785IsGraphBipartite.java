@@ -1,5 +1,7 @@
 package Graphs.MediumQuestions;
 
+import java.util.Arrays;
+
 /*
 There is an undirected graph with n nodes, where each node is numbered between 0 and n - 1. You 
 are given a 2D array graph, where graph[u] is an array of nodes that node u is adjacent to. More 
@@ -26,4 +28,18 @@ Explanation: We can partition the nodes into two sets: {0, 2} and {1, 3}.
 
 public class Q785IsGraphBipartite {
     
+    public boolean isBipartite(int[][] graph) {
+        int v = graph.length;
+        int [] color = new int [v];
+
+        Arrays.fill(color,-1);
+        
+        for(int i=0;i<v;i++){
+            if(color[i]==-1){
+                if(dfs(i,0,graph,color)==false) return false;
+            }
+        }
+
+        return true;
+    }
 }

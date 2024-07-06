@@ -27,12 +27,14 @@ Output: [0]
 */
 
 public class Q210CourseScheduleII {
-    
+
     int[] ans;
     boolean[] taken;
     ArrayList<ArrayList<Integer>> graph;
     int ansIdx;
+
     public int[] findOrder(int numCourses, int[][] prerequisites) {
+        
         ArrayList<ArrayList<Integer>> prereqs = new ArrayList<>();
         for (int i = 0; i < numCourses; i++) {
             prereqs.add(new ArrayList<Integer>());
@@ -44,32 +46,35 @@ public class Q210CourseScheduleII {
         this.ans = new int[numCourses];
         this.graph = prereqs;
         this.ansIdx = -1;
-        // System.out.println(graph.size());
+
         for (int i = 0; i < numCourses; i++) {
-            boolean search = dfs(i,0);
-            // System.out.println(search);
-            if (!search) return new int[0];
+            boolean search = dfs(i, 0);
+            if (!search)
+                return new int[0];
         }
-        if (ansIdx > numCourses) return new int[0];
+        if (ansIdx > numCourses)
+            return new int[0];
         return ans;
     }
 
     public boolean dfs(int course, int depth) {
-        // System.out.println(depth);
-        if (depth >= graph.size()) {
-            // System.out.println("returning false");
+        
+        if (depth >= graph.size())
             return false;
-        } 
-        if (taken[course]) return true;
+        
+        if (taken[course])
+            return true;
         ArrayList<Integer> prereqs = graph.get(course);
         for (int i = 0; i < prereqs.size(); i++) {
             if (!taken[prereqs.get(i)]) {
-                if (!dfs(prereqs.get(i), depth + 1)) return false;
+                if (!dfs(prereqs.get(i), depth + 1))
+                    return false;
             }
         }
         taken[course] = true;
         ansIdx++;
-        if (ansIdx >= graph.size()) return false;
+        if (ansIdx >= graph.size())
+            return false;
         ans[ansIdx] = course;
         return true;
     }

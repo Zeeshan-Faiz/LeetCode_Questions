@@ -27,39 +27,42 @@ Only node 4 is a terminal node, and every path starting at node 4 leads to node 
 */
 
 public class Q802FindEventualSafeState {
-    
+
     public List<Integer> eventualSafeNodes(int[][] graph) {
-        int[] visited=new int[graph.length];
         
-        //Marking successfull nodes(no outgoing edges)
-        for(int i=0; i<graph.length; i++){
-            if(graph[i].length==0)
-                visited[i]=2;
+        int[] visited = new int[graph.length];
+
+        // Marking successfull nodes(no outgoing edges)
+        for (int i = 0; i < graph.length; i++) {
+            if (graph[i].length == 0)
+                visited[i] = 2;
         }
-        
-        //Calling dfs for unvisited nodes(0 as visited[i])
-        for(int i=0; i<graph.length; i++){
-            if(visited[i]==0)
+
+        // Calling dfs for unvisited nodes(0 as visited[i])
+        for (int i = 0; i < graph.length; i++) {
+            if (visited[i] == 0)
                 dfs(i, visited, graph);
         }
-        
-        //Nodes with visited as 2(indicating succesful reach to terminal node are added)
-        List<Integer> ret=new ArrayList<>();
-        for(int i=0; i<graph.length; i++)
-            if(visited[i]==2)
+
+        // Nodes with visited as 2(indicating succesful reach to terminal node are added)
+        List<Integer> ret = new ArrayList<>();
+        for (int i = 0; i < graph.length; i++)
+            if (visited[i] == 2)
                 ret.add(i);
         return ret;
     }
-    public boolean dfs(int source, int[] visited, int[][] graph){
-        visited[source]=1;
-        for(int x: graph[source]){
-            if(visited[x]==2)
+
+    public boolean dfs(int source, int[] visited, int[][] graph) {
+        
+        visited[source] = 1;
+        for (int x : graph[source]) {
+            if (visited[x] == 2)
                 continue;
-            if(visited[x]==1||dfs(x, visited, graph)==false){
+            if (visited[x] == 1 || dfs(x, visited, graph) == false) {
                 return false;
             }
         }
-        visited[source]=2;
+        visited[source] = 2;
         return true;
     }
 }

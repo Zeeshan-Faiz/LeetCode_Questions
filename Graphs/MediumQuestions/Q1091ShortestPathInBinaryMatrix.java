@@ -28,8 +28,9 @@ Output: -1
 */
 
 public class Q1091ShortestPathInBinaryMatrix {
-    
+
     public int shortestPathBinaryMatrix(int[][] grid) {
+        
         if (grid[0][0] == 1)
             return -1;
         int n = grid.length;
@@ -39,12 +40,12 @@ public class Q1091ShortestPathInBinaryMatrix {
         int len = 1;
         while (!q.isEmpty()) {
             int size = q.size();
-            for (int i = 0; i<size; i++) {
+            for (int i = 0; i < size; i++) {
                 int[] cell = q.poll();
                 int j = cell[0], k = cell[1];
                 if (j == n - 1 && k == n - 1)
                     return len; // reached boundary
-                
+
                 // Iterate over neighboring cells
                 for (int rc = j - 1; rc <= j + 1; rc++) {
                     for (int cc = k - 1; cc <= k + 1; cc++) {

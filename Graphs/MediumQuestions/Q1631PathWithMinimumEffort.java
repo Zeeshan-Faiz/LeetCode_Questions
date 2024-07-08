@@ -28,24 +28,25 @@ Explanation: This route does not require any effort.
 */
 
 public class Q1631PathWithMinimumEffort {
-    
-    int[][] directions = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
+    int[][] directions = new int[][] { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
+
     public int minimumEffortPath(int[][] heights) {
         int left = 0, right = Integer.MAX_VALUE;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (dfs(heights, 0, 0, mid, new boolean[heights.length][heights[0].length])) 
+            if (dfs(heights, 0, 0, mid, new boolean[heights.length][heights[0].length]))
                 right = mid;
-             else 
+            else
                 left = mid + 1;
         }
         return left;
     }
 
     boolean dfs(int[][] heights, int i, int j, int mid, boolean[][] visited) {
-        
-        if (i == heights.length - 1 && j == heights[0].length - 1) 
-                           return true;
+
+        if (i == heights.length - 1 && j == heights[0].length - 1)
+            return true;
 
         visited[i][j] = true;
         for (int[] direction : directions) {
@@ -54,8 +55,8 @@ public class Q1631PathWithMinimumEffort {
 
             if (x >= 0 && x < heights.length && y >= 0 && y < heights[0].length && !visited[x][y]) {
                 int effort = Math.abs(heights[x][y] - heights[i][j]);
-                if (effort <= mid && dfs(heights, x, y, mid, visited)) 
-                    return true;              
+                if (effort <= mid && dfs(heights, x, y, mid, visited))
+                    return true;
             }
         }
         return false;

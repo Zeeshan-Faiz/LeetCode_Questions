@@ -32,6 +32,7 @@ public class Q1631PathWithMinimumEffort {
     int[][] directions = new int[][] { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
 
     public int minimumEffortPath(int[][] heights) {
+        
         int left = 0, right = Integer.MAX_VALUE;
         while (left < right) {
             int mid = left + (right - left) / 2;

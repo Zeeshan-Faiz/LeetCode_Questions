@@ -33,22 +33,23 @@ The optimal path with no stops from city 0 to 2 is marked in red and has cost 50
 */
 
 public class Q787CheapestFlightWithinKStops {
-    
+
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
+        
         int[] distance = new int[n];
-    Arrays.fill(distance, Integer.MAX_VALUE);
-    distance[src] = 0;
-    
-    for (int i = 0; i <= k; i++) {
-        if (isRoutePossible(distance, flights)) {
-            break; 
-                    }
+        Arrays.fill(distance, Integer.MAX_VALUE);
+        distance[src] = 0;
+
+        for (int i = 0; i <= k; i++) {
+            if (isRoutePossible(distance, flights)) {
+                break;
+            }
+        }
+        return distance[dst] == Integer.MAX_VALUE ? -1 : distance[dst];
     }
-    
-    return distance[dst] == Integer.MAX_VALUE ? -1 : distance[dst];
-}
 
     private boolean isRoutePossible(int[] dist, int[][] flights) {
+        
         int[] copy = Arrays.copyOf(dist, dist.length);
         boolean result = true;
 

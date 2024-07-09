@@ -31,8 +31,9 @@ Explanation: There is only one way to go from intersection 0 to intersection 1, 
 */
 
 public class Q1976NumberOfWaysToArriveAtDest {
-    
+
     public int countPaths(int n, int[][] roads) {
+        
         final long inf = Long.MAX_VALUE / 2;
         final int mod = (int) 1e9 + 7;
         long[][] g = new long[n][n];

@@ -26,46 +26,50 @@ Explanation: There are not enough cables.
 */
 
 public class Q1319NetworkConnected {
-    
+
     int[] parent;
     int[] rank;
-    
+
     public int makeConnected(int n, int[][] connections) {
-        if(n-1 > connections.length)return -1;
+        if (n - 1 > connections.length)
+            return -1;
         parent = new int[n];
         rank = new int[n];
- 
-        for(int i = 0; i < n; i++){
-            parent[i] = i; //parent of itself
+
+        for (int i = 0; i < n; i++) {
+            parent[i] = i; // parent of itself
         }
         int reqConnection = n;
-        for(int[] c : connections){
+        for (int[] c : connections) {
             reqConnection -= union(c[0], c[1]);
         }
-        return reqConnection-1;
-       
+        return reqConnection - 1;
+
     }
 
-    public int findParent(int x){
-        if(parent[x]==x) return x;
+    public int findParent(int x) {
+        
+        if (parent[x] == x)
+            return x;
 
-        return parent[x]=findParent(parent[x]);
+        return parent[x] = findParent(parent[x]);
     }
 
-    public int union(int x, int y){
+    public int union(int x, int y) {
+        
         int parX = findParent(x);
         int parY = findParent(y);
-        if(parX == parY)return 0; //1--2 // this edge is extra so return 0
+        if (parX == parY)
+            return 0; // 1--2 // this edge is extra so return 0
 
-        else if(rank[parX] > rank[parY]){
+        else if (rank[parX] > rank[parY])
             parent[parY] = parX;
-        }
-        else if(rank[parX] < rank[parY]){
+        else if (rank[parX] < rank[parY])
             parent[parX] = parY;
-        }else{
+        else {
             parent[parY] = parX;
             rank[parX]++;
         }
-        return 1; //need this edge to stay connected so add +1
+        return 1; // need this edge to stay connected so add +1
     }
 }

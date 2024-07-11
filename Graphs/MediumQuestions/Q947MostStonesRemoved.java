@@ -36,7 +36,7 @@ Output: 0
 Explanation: [0,0] is the only stone on the plane, so you cannot remove it.
 */
 
-public class Q947MostStonesRemoved{
+public class Q947MostStonesRemoved {
 
     public int removeStones(int[][] stones) {
         int n = stones.length;
@@ -44,7 +44,7 @@ public class Q947MostStonesRemoved{
             return 0;
         }
 
-        List<Integer>[] graph = new List[n];
+        final List<Integer>[] graph = new List[n];
         for (int i = 0; i < n; i++) {
             graph[i] = new ArrayList<>();
         }
@@ -70,11 +70,22 @@ public class Q947MostStonesRemoved{
             if (visited[i]) {
                 continue;
             }
-
             dfs(graph, visited, i);
             ans++;
         }
-
         return n - ans;
+    }
+
+    private static void dfs(List<Integer>[] graph, boolean[] visited, int start) {
+
+        visited[start] = true;
+
+        List<Integer> neighbors = graph[start];
+        for (int x : neighbors) {
+            if (visited[x]) {
+                continue;
+            }
+            dfs(graph, visited, x);
+        }
     }
 }

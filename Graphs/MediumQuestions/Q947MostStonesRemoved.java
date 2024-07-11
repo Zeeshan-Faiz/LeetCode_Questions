@@ -1,5 +1,8 @@
 package Graphs.MediumQuestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 On a 2D plane, we place n stones at some integer coordinate points. Each coordinate point may have at 
 most one stone. A stone can be removed if it shares either the same row or the same column as 
@@ -8,6 +11,7 @@ Given an array stones of length n where stones[i] = [xi, yi] represents the loca
 stone, return the largest possible number of stones that can be removed.
 
 Example 1:
+Input: stones = [[0,0],[0,1],[1,0],[1,2],[2,1],[2,2]]
 Output: 5
 Explanation: One way to remove 5 stones is as follows:
 1. Remove stone [2,2] because it shares the same row as [2,1].
@@ -34,4 +38,43 @@ Explanation: [0,0] is the only stone on the plane, so you cannot remove it.
 
 public class Q947MostStonesRemoved{
 
+    public int removeStones(int[][] stones) {
+        int n = stones.length;
+        if (n <= 1) {
+            return 0;
+        }
+
+        List<Integer>[] graph = new List[n];
+        for (int i = 0; i < n; i++) {
+            graph[i] = new ArrayList<>();
+        }
+
+        for (int i = 0; i < n; i++) {
+            int[] u = stones[i];
+            for (int j = 0; j < n; j++) {
+                if (i == j) {
+                    continue;
+                }
+
+                int[] v = stones[j];
+                if (u[0] == v[0] || u[1] == v[1]) {
+                    graph[i].add(j);
+                }
+            }
+        }
+
+        boolean[] visited = new boolean[n];
+        int ans = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (visited[i]) {
+                continue;
+            }
+
+            dfs(graph, visited, i);
+            ans++;
+        }
+
+        return n - ans;
+    }
 }

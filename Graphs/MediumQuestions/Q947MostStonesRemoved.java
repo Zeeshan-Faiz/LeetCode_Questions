@@ -44,7 +44,8 @@ public class Q947MostStonesRemoved {
             return 0;
         }
 
-        final List<Integer>[] graph = new List[n];
+        @SuppressWarnings("unchecked")
+        List<Integer>[] graph = new List[n];
         for (int i = 0; i < n; i++) {
             graph[i] = new ArrayList<>();
         }

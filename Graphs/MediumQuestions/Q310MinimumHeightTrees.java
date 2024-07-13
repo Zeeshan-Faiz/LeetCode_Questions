@@ -29,8 +29,9 @@ Output: [3,4]
 */
 
 public class Q310MinimumHeightTrees {
-    
+
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
+        
         int[] counts = new int[n];
         int[] links = new int[n];
         for (int[] edge : edges) {

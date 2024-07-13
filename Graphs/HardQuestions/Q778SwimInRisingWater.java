@@ -1,5 +1,3 @@
-package Graphs.HardQuestions;
-
 /*
 You are given an n x n integer matrix grid where each value grid[i][j] represents the elevation 
 at that point (i, j). The rain starts to fall. At time t, the depth of the water everywhere is t. 

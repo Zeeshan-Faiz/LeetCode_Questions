@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Q1192CriticalConnectionsInANetwork {
-    
+
     private int[] low;
     private int[] disc;
     private int time;
@@ -30,6 +30,7 @@ public class Q1192CriticalConnectionsInANetwork {
     private int[] size;
 
     public List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
+        
         // Initialize data structures
         low = new int[n];
         disc = new int[n];
@@ -62,25 +63,25 @@ public class Q1192CriticalConnectionsInANetwork {
                 dfs(i, -1);
             }
         }
-
         return criticalConnections;
     }
 
     private void dfs(int u, int parent) {
+        
         disc[u] = low[u] = ++time;
-
         for (int v : graph[u]) {
-            if (v == parent) continue;
-
-            if (disc[v] == 0) {
+            if (v == parent)
+                continue;
+            if (disc[v] == 0) 
+            {
                 dfs(v, u);
                 low[u] = Math.min(low[u], low[v]);
                 if (low[v] > disc[u]) {
                     criticalConnections.add(Arrays.asList(u, v));
                 }
-            } else {
+            } 
+            else
                 low[u] = Math.min(low[u], disc[v]);
-            }
         }
     }
 }
